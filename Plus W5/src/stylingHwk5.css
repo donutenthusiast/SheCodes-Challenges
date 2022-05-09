@@ -1,0 +1,212 @@
+body {
+  color: rgb(40, 50, 70);
+  background-color: rgba(40, 50, 70, 0.471);
+}
+
+h1 {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+  font-size: 53px;
+  font-weight: 400;
+  padding: 0;
+}
+
+form {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+#card1large {
+  background-color: rgb(210, 210, 210, 0.6);
+  border-width: 2px;
+  border-color: rgb(40, 50, 70, 0.1);
+  height: max-content;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 0px;
+
+  transition: all 0.2s ease-in-out;
+}
+
+#card2 {
+  background-color: rgb(210, 210, 210, 0.6);
+  border-width: 2px;
+  border-color: rgb(40, 50, 70, 0.1);
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 15px;
+  margin: 2px;
+  height: auto;
+  transition: all 0.2s ease-in-out;
+}
+
+#card3 {
+  background-color: rgb(210, 210, 210, 0.6);
+  border-width: 2px;
+  border-color: rgb(40, 50, 70, 0.1);
+  margin: 2px;
+  padding: 0;
+  height: auto;
+  transition: all 0.3s ease-in-out;
+}
+
+#card1large:hover,
+#card2:hover,
+#card3:hover {
+  background-color: rgba(55, 74, 109, 0.233);
+  border-color: rgb(98, 103, 113, 0.4);
+  color: rgb(207, 209, 215);
+  cursor: pointer;
+}
+
+#c1City {
+  font-family: "Padauk", sans-serif;
+  text-align: left;
+  font-size: 75px;
+  font-weight: 900;
+  padding: 20px;
+}
+
+#c1Country {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  text-align: right;
+  font-size: 56px;
+  padding: 30px;
+}
+
+#c1Day,
+#c1Date,
+#c1Time {
+  font-family: "Padauk", sans-serif;
+  line-height: 56px;
+  font-size: 36px;
+  font-weight: 700;
+  padding-left: 30px;
+}
+
+#c1Day {
+  text-align: left;
+}
+
+#c1Date {
+  text-align: center;
+}
+
+#c1Temp,
+#c1Emoji,
+#c2Temp,
+#c2Emoji,
+#c2Title1,
+#c2Title2 {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+}
+
+#c1Temp,
+#c1Emoji,
+#c2Emoji,
+.c2Temp {
+  font-size: 49px;
+  font-weight: 600;
+  text-align: center;
+}
+
+#c1Feels,
+#c1Descp,
+#c2Descp {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 11px;
+  padding: 0 auto;
+  margin: 0;
+  text-align: center;
+}
+
+.c1HighTop,
+.c1LowBttm {
+  font-family: "Nunito Sans", sans-serif;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.c1HighTop {
+  padding-top: 20px;
+}
+
+#c2Title1,
+#c2Title2 {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+#search-btn {
+  background-color: rgba(55, 74, 109, 0.233);
+  color: rgb(40, 50, 70);
+  border: none;
+}
+
+#inline-btns {
+  text-align: center;
+}
+
+#set-unit-temp-btn,
+#auto-locate-btn {
+  display: inline-block;
+  border: none;
+  background-color: rgba(55, 74, 109, 0.233);
+  color: rgb(40, 50, 70);
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 20px auto;
+  padding: 10px auto;
+  text-align: center;
+  text-decoration: none;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 800;
+  padding: 0;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.card2listCol {
+  padding-top: 38px;
+  margin-bottom: 0;
+  line-height: 18px;
+}
+
+.card2list {
+  font-size: 12px;
+  line-height: 15px;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.c3list {
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+  margin-top: 12px;
+}
+
+.c3emoji {
+  font-size: 38px;
+}
+
+.c3Temp {
+  font-size: 24px;
+  font-weight: 600;
+  padding: 0;
+  margin-top: 20px;
+  line-height: 26px;
+  align-items: center;
+}
