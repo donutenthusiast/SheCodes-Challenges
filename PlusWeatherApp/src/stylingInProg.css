@@ -6,7 +6,7 @@ body {
 h1 {
   font-family: "Lato", sans-serif;
   text-align: center;
-  font-size: 53px;
+  font-size: 45px;
   font-weight: 400;
   padding: 0;
 }
@@ -21,8 +21,8 @@ form {
 
 footer {
   font-family: "Lato", sans-serif;
-  font-size: 18px;
-  padding-top: 15px;
+  font-size: 16px;
+  padding-top: 3px;
   text-decoration: none;
 }
 
@@ -31,15 +31,14 @@ footer {
   color: rgb(44, 72, 130);
 }
 
-#card1large {
+#card-large {
   background-color: rgb(210, 210, 210, 0.6);
   border-width: 2px;
   border-color: rgb(40, 50, 70, 0.1);
-  height: max-content;
+  height: fit-content;
   margin: 0;
   padding-top: 10px;
   padding-bottom: 0px;
-
   transition: all 0.2s ease-in-out;
 }
 
@@ -54,17 +53,17 @@ footer {
   transition: all 0.2s ease-in-out;
 }
 
-#card3 {
+.card3Small {
   background-color: rgb(210, 210, 210, 0.6);
   border-width: 2px;
   border-color: rgb(40, 50, 70, 0.1);
   margin: 2px;
   padding: 0;
   height: auto;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
-#card1large:hover,
+#card-large:hover,
 #card2:hover,
 #card3:hover {
   background-color: rgba(55, 74, 109, 0.233);
@@ -73,66 +72,69 @@ footer {
   cursor: pointer;
 }
 
-#c1City {
+#c1-city {
   font-family: "Padauk", sans-serif;
   text-align: left;
-  font-size: 75px;
+  font-size: 50px;
   font-weight: 900;
-  padding: 20px;
+  padding: 10px;
 }
 
-#c1Country {
+#c1-country {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   text-align: right;
-  font-size: 56px;
-  padding: 30px;
+  font-size: 40px;
+  padding: 5px;
 }
 
-#c1Day,
-#c1Date,
-#c1Time {
+#c1-day,
+#c1-date,
+#c1-time {
   font-family: "Padauk", sans-serif;
   line-height: 56px;
   font-size: 36px;
   font-weight: 700;
   padding-left: 30px;
-}
-
-#c1Day {
-  text-align: left;
-}
-
-#c1Date {
   text-align: center;
 }
 
-#c1Temp,
-#c1Emoji,
-#c2Temp,
-#c2Emoji,
-#c2Title1,
-#c2Title2 {
+#c1-temp,
+#c1-emoji,
+#c2-temp,
+#c2-emoji,
+#c2-title1,
+#c2-title2 {
   font-family: "Lato", sans-serif;
   text-align: center;
   padding: 10px;
   margin: 0;
 }
 
-#c1Temp,
-#c1Emoji,
-#c2Emoji,
+#c1-temp,
+#c1-emoji-wind,
+#c1-emoji-weather,
+#c2-emoji,
 .c2Temp {
   font-size: 49px;
   font-weight: 600;
   text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
-#c1Feels,
-#c1Descp,
-#c2Descp {
+#c1-emoji-weather {
+  vertical-align: middle;
+  position: relative;
+  margin-top: -22px;
+}
+
+#c1-feels,
+#c1-descp,
+#c1-wind,
+#c2-descp {
   font-family: "Nunito Sans", sans-serif;
-  font-size: 11px;
+  font-size: 16px;
   padding: 0 auto;
   margin: 0;
   text-align: center;
@@ -150,8 +152,8 @@ footer {
   padding-top: 20px;
 }
 
-#c2Title1,
-#c2Title2 {
+#c2-title1,
+#c2-title2 {
   font-size: 26px;
   font-weight: 700;
 }
@@ -173,15 +175,15 @@ footer {
   background-color: rgba(55, 74, 109, 0.233);
   color: rgb(40, 50, 70);
   font-family: "Nunito Sans", sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 400;
-  margin: 20px auto;
-  padding: 10px auto;
+  margin: 10px auto;
+  padding: 5px auto;
   text-align: center;
   text-decoration: none;
 }
 
-.card-title {
+.cardTitle {
   font-size: 18px;
   font-weight: 800;
   padding: 0;
@@ -189,29 +191,30 @@ footer {
   text-align: center;
 }
 
-.card2listCol {
+.c2ListCol {
   padding-top: 38px;
   margin-bottom: 0;
   line-height: 18px;
 }
 
-.card2list {
-  font-size: 12px;
-  line-height: 15px;
+.c2List {
+  font-size: 16px;
+  line-height: 24px;
   padding: 0;
   margin: 0;
   text-align: left;
 }
 
-.c3list {
-  font-size: 14px;
+.c3List {
+  font-size: 16px;
+  line-height: 20px;
   font-weight: 400;
   padding: 0;
   margin: 0;
   margin-top: 12px;
 }
 
-.c3emoji {
+.c3Emoji {
   font-size: 38px;
 }
 

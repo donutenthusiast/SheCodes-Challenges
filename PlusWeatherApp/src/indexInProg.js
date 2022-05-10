@@ -78,9 +78,7 @@ function getUserWeather(response) {
   let userDescription = response.data.weather[0].description;
   userDescription =
     userDescription[0].toUpperCase() + userDescription.substring(1);
-  //can also style the text from CSS
-  //for all letters "element {text transform: capitlize}"
-  //for first letter "element:first letter {text transform: capitlize}
+  //can also style from CSS "element:first letter {text transform: capitlize}
 
   let sunUp = response.data.sys.sunrise;
 
@@ -116,7 +114,7 @@ function getUserWeather(response) {
   let replaceMainSunset = document.querySelector("#c1-sun-down");
   replaceMainSunset.innerHTML = `${timeToLocal(sunDown)}`;
 
-  let replaceWeatherEmoji = document.querySelector("#c1-emoji-weather");
+  let replaceWeatherEmoji = document.querySelector("#c1-emoji-weather-src");
   replaceWeatherEmoji.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${weatherEmoji}@2x.png`
@@ -147,73 +145,89 @@ function timeToLocal(input) {
   }
 }
 
-//°F to °C conversion
-function newUnitText() {
+//Imperial to metric calculations
+function newUnits() {
   let buttonText = document.querySelector("#set-unit-temp-btn");
   let oldAvTemp = document.querySelector("#c1-temp-num");
   let oldFeelTemp = document.querySelector("#feel-temp");
   let oldMainMinTemp = document.querySelector("#c1-low-temp");
   let oldMainMaxTemp = document.querySelector("#c1-high-temp");
+  let oldWindSpeed = document.querySelector("#c1-wind-num");
 
-  if (buttonText.textContent == "View in °F") {
+  if (buttonText.textContent === "View Weather in Imperial Units") {
     return (
-      (buttonText.innerHTML = `View in °C`),
+      (buttonText.innerHTML = `View Weather in Metric Units`),
       (oldAvTemp.innerHTML = `${Math.round((avTemp * 9) / 5 + 32)}`),
       (oldFeelTemp.innerHTML = `${Math.round((feelTemp * 9) / 5 + 32)}`),
       (oldMainMinTemp.innerHTML = `${Math.round((minTemp * 9) / 5 + 32)}`),
       (oldMainMaxTemp.innerHTML = `${Math.round((maxTemp * 9) / 5 + 32)}`),
-      allUnitsInF()
+      (oldWindSpeed.innerHTML = `${Math.round(windSpeed * 0.62137119)}`),
+      allUnitsImperial()
     );
   } else {
     return (
-      (buttonText.innerHTML = `View in °F`),
+      (buttonText.innerHTML = `View Weather in Imperial Units`),
       (oldAvTemp.innerHTML = `${Math.round(avTemp)}`),
       (oldFeelTemp.innerHTML = `${Math.round(feelTemp)}`),
       (oldMainMinTemp.innerHTML = `${Math.round(minTemp)}`),
       (oldMainMaxTemp.innerHTML = `${Math.round(maxTemp)}`),
-      allUnitsInC()
+      (oldWindSpeed.innerHTML = `${Math.round(windSpeed)}`),
+      allUnitsMetric()
     );
   }
 }
 
-function allUnitsInF() {
+//Units texts to imperial
+function allUnitsImperial() {
   let allUnits = document.querySelectorAll(".unitTemp");
   let i;
   for (i = 0; i < allUnits.length; i++) {
     allUnits[i].innerHTML = `°F`;
   }
+  let windUnit = document.querySelector(".unitWind");
+  windUnit.innerHTML = ` Miles/h`;
 }
 
-function allUnitsInC() {
+//Unit texts to metric
+function allUnitsMetric() {
   let allUnits = document.querySelectorAll(".unitTemp");
   let i;
   for (i = 0; i < allUnits.length; i++) {
     allUnits[i].innerHTML = `°C`;
   }
+  let windUnit = document.querySelector(".unitWind");
+  windUnit.innerHTML = ` Km/h`;
 }
 
+//Api key
 let apiKey = "cd2317fe4740983ade94670ca1806f44";
 
+//Global units
 let avTemp = null;
 let feelTemp = null;
 let minTemp = null;
 let maxTemp = null;
 let windSpeed = null;
 
-//Initially did not work as I put let WITHIN the function!!
+//default location on page load
 cityNameSearch("London");
 
+//Get today
 let today = document.querySelector("#c1-date");
 today.innerHTML = shortDate(new Date());
 
+//Get the time
 let timeNow = document.querySelector("#c1-time");
 timeNow.innerHTML = currentTime(new Date());
 
+//User searches via search box
 let userSearch = document.querySelector("#search-form");
 userSearch.addEventListener("submit", searchInput);
 
+//User opts for Geolocation
 let userPermission = document.querySelector("#auto-locate-btn");
 userPermission.addEventListener("click", userPermissionOK);
 
+//View weather in imperial or metric
 let tempUnitChange = document.querySelector("#set-unit-temp-btn");
-tempUnitChange.addEventListener("click", newUnitText);
+tempUnitChange.addEventListener("click", newUnits);
