@@ -108,15 +108,39 @@ footer {
 }
 
 #c1-temp,
-#c1-emoji,
 #c2-temp,
 #c2-emoji,
 #c2-title1,
 #c2-title2 {
   font-family: "Lato", sans-serif;
-  text-align: center;
   padding: 10px;
+}
+
+#c1-temp,
+#c2-emoji,
+#c2-title1,
+#c2-title2 {
   margin: 0;
+}
+
+#c1-temp,
+#c1-emoji,
+#c2-temp,
+#c2-emoji {
+  text-align: center;
+}
+
+#c2-temp {
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+#c2-title1 {
+  text-align: right;
+}
+
+#c2-title2 {
+  text-align: left;
 }
 
 #c1-temp,
@@ -137,33 +161,57 @@ footer {
   margin-top: -22px;
 }
 
+#c2-emoji-weather {
+  vertical-align: middle;
+  position: relative;
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+
+#c2-emoji-wind {
+  position: relative;
+  font-size: 40px;
+  text-align: center;
+  line-height: 58px;
+}
+
+#c2-emoji-col {
+  position: relative;
+  margin-left: -10px;
+}
+
+#c2-wind-col {
+  position: relative;
+  margin-left: -28px;
+}
+
 #c1-feels,
 #c1-descp,
 #c1-wind,
+#c2-wind,
 #c2-descp {
   font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
   font-style: italic;
   padding: 0 auto;
   margin: 0;
   text-align: center;
 }
 
-.c1HighTop,
-.c1LowBttm {
-  font-family: "Nunito Sans", sans-serif;
-  text-align: center;
-  font-size: 30px;
-  font-weight: 800;
+#c1-feels,
+#c1-descp,
+#c1-wind {
+  font-size: 20px;
 }
 
-.c1HighTop {
-  padding-top: 20px;
+#c2-wind,
+#c2-descp {
+  font-size: 17px;
 }
 
 #c2-title1,
 #c2-title2 {
-  font-size: 26px;
+  font-size: 32px;
+  line-height: 50px;
   font-weight: 700;
 }
 
@@ -198,6 +246,18 @@ footer {
   padding: 0;
   margin-top: 10px;
   text-align: center;
+}
+
+.c1HighTop,
+.c1LowBttm {
+  font-family: "Nunito Sans", sans-serif;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.c1HighTop {
+  padding-top: 20px;
 }
 
 .c2ListCol {

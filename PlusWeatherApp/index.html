@@ -65,16 +65,16 @@
                             <div class="col-12">
                                 <div class="row align-items-start">
                                 <div class="col-4"><h4 id="c1-temp"><span id="c1-temp-num" class="tempNum"></span><span class="unitTemp">°C</span></h4></div>
-                                <div class="col-4"><h4 id="c1-emoji-wind"><i class="fa-solid fa-wind"></i></h4></div>
                                 <div class="col-4" id="c1-emoji-weather"><img id="c1-emoji-weather-src" src="https://openweathermap.org/img/wn/01n@2x.png"/></div>
+                                <div class="col-4"><h4 id="c1-emoji-wind"><i class="fa-solid fa-wind"></i></h4></div>
                             </div>
                             </div>
 
                             <div class="col-12">
                                 <div class="row align-items-start">
                                 <div class="col-4"><p id="c1-feels"><em>Feels like <span class="tempNum" id="feel-temp"></span><span class="unitTemp">°C</span></em></p></div>
-                                <div class="col-4"><p id="c1-wind"><em><span id="c1-wind-num"></span><span class="unitWind"> Km/h</span></em></p></div>
                                 <div class="col-4"><p id="c1-descp"><em></em></p></div>
+                                <div class="col-4"><p id="c1-wind"><em><span id="c1-wind-num"></span><span class="unitWind"> Km/h</span></em></p></div>
                             </div>
                             </div>
                             <div class="row row-cols-2">
@@ -118,38 +118,32 @@
                 <div class="row row-cols-1">
                     <div class="col-4">
                         <div class="card-body">
-                        <p class="c2Temp">5<span class="unitTemp">°C</span></p>
+                        <p class="c2Temp"><span id="c2-temp-num">105</span><span class="unitTemp">°C</span></p>
                         </div>
                     </div>
-                    <div class="col-2"> 
-                        <div class="card-body">
-                        <div class="row" class="cardListCol">
-                            <div class="col-sm-12">
+                    <div class="col-3" id="c2-emoji-col">
+                        <h5 class="c2Temp" id="c2-emoji-weather"><img id="c2-emoji-weather-src" src="https://openweathermap.org/img/wn/01n@2x.png"/></h5>
+                        <p id="c2-descp"><em>Cloudy rain snow</em></p>
+                    </div>
+                    <div class="col-3" id="c2-wind-col">
+                        <h5 class="c2Temp"><span id="c2-emoji-wind"><i class="fa-solid fa-wind"></i></span></h5>
+                        <p id="c2-wind"><em><span id="c2-wind-num">100</span><span class="unitWind"> Km/h</span></em></p>
+                    </div>
+                    <div class="col-1"  class="cardListCol"> 
+                        <div class="row">
                                 <p class="c2List">High:</p>
                                 <p class="c2List">Low:</p>
                                 <p class="c2List"><i class="fa-solid fa-sun"></i><i class="fa-solid fa-arrow-up"></i>:</p>
                                 <p class="c2List"><i class="fa-solid fa-sun"></i><i class="fa-solid fa-arrow-down"></i>:</p>
                         </div>
-                        </div>
-                        </div>
                     </div>
-                    <div class="col-2"> 
-                        <div class="card-body">
-                        <div class="row" class="c2ListCol">
-                            <div class="col-sm-12">
-                                <p class="c2List">10<span class="unitTemp">°C</span></p>
-                                <p class="c2List">0<span class="unitTemp">°C</span></p>
-                                <p class="c2List">08:48</p>
-                                <p class="c2List">18:48</p>
+                    <div class="col-1" class="c2ListCol"> 
+                        <div class="row" >
+                                <p class="c2List"><span id="c2-high-temp"></span><span class="unitTemp">°C</span></p>
+                                <p class="c2List"><span id="c2-low-temp"></span><span class="unitTemp">°C</span></p>
+                                <p class="c2List"><span id="c2Sunup"></span></p>
+                                <p class="c2List"><span id="c2Sundown"></span></p>
                         </div>
-                        </div>
-                    </div>
-                    </div>
-                        <div class="col-4">
-                        <div class="card-body">
-                        <h5 class="c2Temp"><i class="fa-solid fa-cloud-showers-heavy"></i></h5>
-                        <p id="c2-descp"><em>Cloudy, rain</em></p>
-                    </div>
                     </div>
                 </div>
             </div>

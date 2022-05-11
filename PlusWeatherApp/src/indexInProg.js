@@ -139,20 +139,71 @@ function getForecast(coordinates) {
 function showForecast(response) {
   console.log(response);
 
+  //Tomorrow's date
   let tommorowsUnixTime = response.data.daily[1].dt;
-
   let tomorrowsWeekday = forecastDayToLocal(tommorowsUnixTime);
   console.log(tomorrowsWeekday);
 
   // Date part from the timestamp
-  let forecastDate = new Date(tommorowsUnixTime * 1000).getDate();
-  console.log(forecastDate);
+  let tomorrowsDate = new Date(tommorowsUnixTime * 1000).getDate();
+  console.log(tomorrowsDate);
 
+  //Tomorrows sun up and down
+  let tomorrowsSunrise = timeToLocal(response.data.daily[1].sunrise);
+  let tomorrowsSunset = timeToLocal(response.data.daily[1].sunset);
+
+  //Tomorrow's temperatures
+  tomorrowsAvTemp = response.data.daily[1].temp.day;
+  tomorrowsMinTemp = response.data.daily[1].temp.min;
+  tomorrowsMaxTemp = response.data.daily[1].temp.max;
+
+  //Tomorrows weather description, emoji, wind
+  let tomorrowsWeatherDescp = response.data.daily[1].weather[0].description;
+  tomorrowsWeatherDescp =
+    tomorrowsWeatherDescp[0].toUpperCase() + tomorrowsWeatherDescp.substring(1);
+  //can also style from CSS "element:first letter {text transform: capitlize}
+
+  let tomorrowsWeatherEmoji = response.data.daily[1].weather[0].icon;
+  tomorrowsWindSpeed = response.data.daily[1].wind_speed;
+
+  //Replacement for tomorrow's date
   let replaceTomorrowsWeekday = document.querySelector("#c2-title2-day");
   replaceTomorrowsWeekday.innerHTML = `${tomorrowsWeekday} `;
 
   let replaceTomorrowsDate = document.querySelector("#c2-title2-date");
-  replaceTomorrowsDate.innerHTML = `${forecastDate}`;
+  replaceTomorrowsDate.innerHTML = `${tomorrowsDate}`;
+
+  //Replacement for tomorrow's sunrise/sunset
+  let replaceTomorrowsSunrise = document.querySelector("#c2Sunup");
+  replaceTomorrowsSunrise.innerHTML = `${tomorrowsSunrise}`;
+
+  let replaceTomorrowsSunset = document.querySelector("#c2Sundown");
+  replaceTomorrowsSunset.innerHTML = `${tomorrowsSunset}`;
+
+  //Replacement for tomorrows temperatures
+  let replaceTomorrowsAvTemp = document.querySelector("#c2-temp-num");
+  replaceTomorrowsAvTemp.innerHTML = `${Math.round(tomorrowsAvTemp)}`;
+
+  let replaceTomorrowsMinTemp = document.querySelector("#c2-low-temp");
+  replaceTomorrowsMinTemp.innerHTML = `${Math.round(tomorrowsMinTemp)}`;
+
+  let replaceTomorrowsMaxTemp = document.querySelector("#c2-high-temp");
+  replaceTomorrowsMaxTemp.innerHTML = `${Math.round(tomorrowsMaxTemp)}`;
+
+  //Replacement for
+  let replaceTomorrowsWeatherDescp = document.querySelector("#c2-descp");
+  replaceTomorrowsWeatherDescp.innerHTML = `${tomorrowsWeatherDescp}`;
+
+  let replaceTomorrowsWindSpeed = document.querySelector("#c2-wind-num");
+  replaceTomorrowsWindSpeed.innerHTML = `${Math.round(tomorrowsWindSpeed)}`;
+
+  let replaceTomorrowsWeatherEmoji = document.querySelector(
+    "#c2-emoji-weather-src"
+  );
+  replaceTomorrowsWeatherEmoji.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${tomorrowsWeatherEmoji}@2x.png`
+  );
 }
 
 //Unix time conversion
@@ -160,9 +211,7 @@ function timeToLocal(input) {
   let unixTime = input;
   //convert to UTC timestamp
   let userTime = new Date(unixTime * 1000);
-  // Hours part from the timestamp
   let hh = userTime.getHours();
-  // Minutes part from the timestamp
   let mm = userTime.getMinutes();
 
   if (hh < 10 && mm < 10) {
@@ -179,44 +228,73 @@ function timeToLocal(input) {
 //Unix date conversion
 function forecastDayToLocal(input) {
   let futureUnixTime = input;
+  //convert to UTC timestamp
   let userTime = new Date(futureUnixTime * 1000);
-
   let weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-  let day = userTime.getDay();
-
-  let forecastDay = weekday[day];
+  let tomorrow = userTime.getDay();
+  let forecastDay = weekday[tomorrow];
 
   return forecastDay;
 }
 
 //Imperial to metric calculations
 function newUnits() {
+  //Button
   let buttonText = document.querySelector("#set-unit-temp-btn");
+
+  //Today
   let oldAvTemp = document.querySelector("#c1-temp-num");
   let oldFeelTemp = document.querySelector("#feel-temp");
   let oldMainMinTemp = document.querySelector("#c1-low-temp");
   let oldMainMaxTemp = document.querySelector("#c1-high-temp");
-  let oldWindSpeed = document.querySelector("#c1-wind-num");
+  let oldC1WindSpeed = document.querySelector("#c1-wind-num");
+
+  //Tomorrow
+  let oldC2AvTemp = document.querySelector("#c2-temp-num");
+  let oldC2MainMinTemp = document.querySelector("#c2-low-temp");
+  let oldC2MainMaxTemp = document.querySelector("#c2-high-temp");
+  let oldC2WindSpeed = document.querySelector("#c2-wind-num");
 
   if (buttonText.textContent === "View Weather in Imperial Units") {
     return (
+      //Button
       (buttonText.innerHTML = `View Weather in Metric Units`),
+      //Today
       (oldAvTemp.innerHTML = `${Math.round((avTemp * 9) / 5 + 32)}`),
       (oldFeelTemp.innerHTML = `${Math.round((feelTemp * 9) / 5 + 32)}`),
       (oldMainMinTemp.innerHTML = `${Math.round((minTemp * 9) / 5 + 32)}`),
       (oldMainMaxTemp.innerHTML = `${Math.round((maxTemp * 9) / 5 + 32)}`),
-      (oldWindSpeed.innerHTML = `${Math.round(windSpeed * 0.62137119)}`),
+      (oldC1WindSpeed.innerHTML = `${Math.round(windSpeed * 0.62137119)}`),
+      //Tommorow
+      (oldC2AvTemp.innerHTML = `${Math.round((tomorrowsAvTemp * 9) / 5 + 32)}`),
+      (oldC2MainMinTemp.innerHTML = `${Math.round(
+        (tomorrowsMinTemp * 9) / 5 + 32
+      )}`),
+      (oldC2MainMaxTemp.innerHTML = `${Math.round(
+        (tomorrowsMaxTemp * 9) / 5 + 32
+      )}`),
+      (oldC2WindSpeed.innerHTML = `${Math.round(
+        tomorrowsWindSpeed * 0.62137119
+      )}`),
+      //Units
       allUnitsImperial()
     );
   } else {
     return (
+      //Button
       (buttonText.innerHTML = `View Weather in Imperial Units`),
+      //Today
       (oldAvTemp.innerHTML = `${Math.round(avTemp)}`),
       (oldFeelTemp.innerHTML = `${Math.round(feelTemp)}`),
       (oldMainMinTemp.innerHTML = `${Math.round(minTemp)}`),
       (oldMainMaxTemp.innerHTML = `${Math.round(maxTemp)}`),
-      (oldWindSpeed.innerHTML = `${Math.round(windSpeed)}`),
+      (oldC1WindSpeed.innerHTML = `${Math.round(windSpeed)}`),
+      //Tomorrow
+      (oldC2AvTemp.innerHTML = `${Math.round(tomorrowsAvTemp)}`),
+      (oldC2MainMinTemp.innerHTML = `${Math.round(tomorrowsMinTemp)}`),
+      (oldC2MainMaxTemp.innerHTML = `${Math.round(tomorrowsMaxTemp)}`),
+      (oldC2WindSpeed.innerHTML = `${Math.round(tomorrowsWindSpeed)}`),
+      //Units
       allUnitsMetric()
     );
   }
@@ -224,24 +302,32 @@ function newUnits() {
 
 //Units texts to imperial
 function allUnitsImperial() {
-  let allUnits = document.querySelectorAll(".unitTemp");
-  let i;
-  for (i = 0; i < allUnits.length; i++) {
-    allUnits[i].innerHTML = `°F`;
+  let allTempUnits = document.querySelectorAll(".unitTemp");
+
+  for (i = 0; i < allTempUnits.length; i++) {
+    allTempUnits[i].innerHTML = `°F`;
   }
-  let windUnit = document.querySelector(".unitWind");
-  windUnit.innerHTML = ` Miles/h`;
+
+  let windUnits = document.querySelectorAll(".unitWind");
+
+  for (i = 0; i < windUnits.length; i++) {
+    windUnits[i].innerHTML = ` Miles/h`;
+  }
 }
 
 //Unit texts to metric
 function allUnitsMetric() {
-  let allUnits = document.querySelectorAll(".unitTemp");
+  let allTempUnits = document.querySelectorAll(".unitTemp");
   let i;
-  for (i = 0; i < allUnits.length; i++) {
-    allUnits[i].innerHTML = `°C`;
+  for (i = 0; i < allTempUnits.length; i++) {
+    allTempUnits[i].innerHTML = `°C`;
   }
-  let windUnit = document.querySelector(".unitWind");
-  windUnit.innerHTML = ` Km/h`;
+
+  let windUnits = document.querySelectorAll(".unitWind");
+
+  for (i = 0; i < windUnits.length; i++) {
+    windUnits[i].innerHTML = ` Km/h`;
+  }
 }
 
 //Api key
@@ -253,6 +339,10 @@ let feelTemp = null;
 let minTemp = null;
 let maxTemp = null;
 let windSpeed = null;
+let tomorrowsAvTemp = null;
+let tomorrowsMinTemp = null;
+let tomorrowsMaxTemp = null;
+let tomorrowsWindSpeed = null;
 
 //default location on page load
 cityNameSearch("London");
