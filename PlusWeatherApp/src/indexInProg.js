@@ -62,15 +62,20 @@ function userAcceptsGeolocation(position) {
 
 //API response + Inner HTML updates
 function getUserWeather(response) {
-  console.log(response);
-  //Values for global variables
+  //New values for global variables
   avTemp = response.data.main.temp;
   feelTemp = response.data.main.feels_like;
   minTemp = response.data.main.temp_min;
   maxTemp = response.data.main.temp_max;
   windSpeed = response.data.wind.speed;
 
-  //New variables
+  //New variable to be sent to another function
+  let coordinates = response.data.coord;
+
+  //Run forecast function using the coordinates variable above
+  getForecast(coordinates);
+
+  //New variables for this function
   let userCity = response.data.name;
 
   let userCountryCode = response.data.sys.country;
@@ -124,6 +129,32 @@ function getUserWeather(response) {
   replaceWindSpeed.innerHTML = `${Math.round(windSpeed)}`;
 }
 
+function getForecast(coordinates) {
+  let forecastLat = coordinates.lat;
+  let forecaseLon = coordinates.lon;
+  let forecastURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${forecastLat}&lon=${forecaseLon}&exclude=current,minutely,hourly&appid=${apiKey}&units=metric`;
+  axios.get(forecastURL).then(showForecast);
+}
+
+function showForecast(response) {
+  console.log(response);
+
+  let tommorowsUnixTime = response.data.daily[1].dt;
+
+  let tomorrowsWeekday = forecastDayToLocal(tommorowsUnixTime);
+  console.log(tomorrowsWeekday);
+
+  // Date part from the timestamp
+  let forecastDate = new Date(tommorowsUnixTime * 1000).getDate();
+  console.log(forecastDate);
+
+  let replaceTomorrowsWeekday = document.querySelector("#c2-title2-day");
+  replaceTomorrowsWeekday.innerHTML = `${tomorrowsWeekday} `;
+
+  let replaceTomorrowsDate = document.querySelector("#c2-title2-date");
+  replaceTomorrowsDate.innerHTML = `${forecastDate}`;
+}
+
 //Unix time conversion
 function timeToLocal(input) {
   let unixTime = input;
@@ -143,6 +174,20 @@ function timeToLocal(input) {
   } else {
     return `${hh}:${mm}`;
   }
+}
+
+//Unix date conversion
+function forecastDayToLocal(input) {
+  let futureUnixTime = input;
+  let userTime = new Date(futureUnixTime * 1000);
+
+  let weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  let day = userTime.getDay();
+
+  let forecastDay = weekday[day];
+
+  return forecastDay;
 }
 
 //Imperial to metric calculations
@@ -200,7 +245,7 @@ function allUnitsMetric() {
 }
 
 //Api key
-let apiKey = "cd2317fe4740983ade94670ca1806f44";
+const apiKey = "cd2317fe4740983ade94670ca1806f44";
 
 //Global units
 let avTemp = null;
@@ -231,3 +276,7 @@ userPermission.addEventListener("click", userPermissionOK);
 //View weather in imperial or metric
 let tempUnitChange = document.querySelector("#set-unit-temp-btn");
 tempUnitChange.addEventListener("click", newUnits);
+
+//Add Forecase API + Wind to Card 2
+//Manually attach forcast to card 2
+//Repeat for card3 4 times
