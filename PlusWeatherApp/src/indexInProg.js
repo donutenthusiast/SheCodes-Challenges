@@ -174,10 +174,10 @@ function showForecast(response) {
   replaceTomorrowsDate.innerHTML = `${tomorrowsDate}`;
 
   //Replacement for tomorrow's sunrise/sunset
-  let replaceTomorrowsSunrise = document.querySelector("#c2Sunup");
+  let replaceTomorrowsSunrise = document.querySelector("#c2-sun-up");
   replaceTomorrowsSunrise.innerHTML = `${tomorrowsSunrise}`;
 
-  let replaceTomorrowsSunset = document.querySelector("#c2Sundown");
+  let replaceTomorrowsSunset = document.querySelector("#c2-sun-down");
   replaceTomorrowsSunset.innerHTML = `${tomorrowsSunset}`;
 
   //Replacement for tomorrows temperatures
