@@ -35,7 +35,6 @@ footer {
   background-color: rgb(210, 210, 210, 0.6);
   border-width: 2px;
   border-color: rgb(40, 50, 70, 0.1);
-  height: max-content;
   margin: 0;
   padding-top: 10px;
   padding-bottom: 0px;
@@ -53,10 +52,17 @@ footer {
   transition: all 0.2s ease-in-out;
 }
 
+#card2-body {
+  margin-top: -4px;
+  margin-bottom: -1px;
+}
+
 .card3Small {
   background-color: rgb(210, 210, 210, 0.6);
   border-width: 2px;
   border-color: rgb(40, 50, 70, 0.1);
+  border-style: solid;
+  border-radius: 5px;
   margin: 2px;
   padding: 0;
   height: auto;
@@ -170,9 +176,17 @@ footer {
 
 #c2-emoji-wind {
   position: relative;
-  font-size: 40px;
+  font-size: 45px;
   text-align: center;
   line-height: 58px;
+}
+
+.c3EmojiWind {
+  position: relative;
+  font-size: 41px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 2px;
 }
 
 #c2-emoji-col {
@@ -215,6 +229,18 @@ footer {
   font-weight: 700;
 }
 
+.c3SunCol {
+  margin-left: 0;
+}
+
+.c3HighLowCol {
+  margin-left: 0;
+}
+
+.c3WindWeatherCol {
+  margin-left: 0;
+}
+
 #search-btn {
   background-color: rgba(55, 74, 109, 0.233);
   color: rgb(40, 50, 70);
@@ -240,9 +266,9 @@ footer {
   text-decoration: none;
 }
 
-.cardTitle {
-  font-size: 18px;
-  font-weight: 800;
+.c3DateTitle {
+  font-size: 28px;
+  font-weight: 700;
   padding: 0;
   margin-top: 10px;
   text-align: center;
@@ -274,6 +300,11 @@ footer {
   text-align: left;
 }
 
+.c3Descp,
+.c3Wind {
+  text-align: center;
+}
+
 .c3List {
   font-size: 16px;
   line-height: 20px;
@@ -283,15 +314,27 @@ footer {
   margin-top: 12px;
 }
 
-.c3Emoji {
-  font-size: 38px;
+.c3EmojiWeather {
+  position: relative;
+  margin-left: -22px;
+  margin-top: -10px;
+  margin-bottom: -20px;
+}
+
+.c3EmojiWeatherSrc {
+  width: 90px;
+}
+
+#card3-col-2 {
+  width: 21.666667%;
 }
 
 .c3Temp {
-  font-size: 24px;
+  font-size: 40px;
   font-weight: 600;
   padding: 0;
-  margin-top: 20px;
+  margin-left: -10px;
+  margin-top: 33px;
   line-height: 26px;
   align-items: center;
 }
