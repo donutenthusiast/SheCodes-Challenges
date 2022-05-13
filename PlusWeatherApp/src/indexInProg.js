@@ -311,7 +311,7 @@ function allUnitsImperial() {
   let windUnits = document.querySelectorAll(".unitWind");
 
   for (i = 0; i < windUnits.length; i++) {
-    windUnits[i].innerHTML = ` Miles/h`;
+    windUnits[i].innerHTML = ` M/h`;
   }
 }
 
