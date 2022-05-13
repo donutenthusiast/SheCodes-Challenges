@@ -3,10 +3,14 @@ body {
   background-color: rgba(40, 50, 70, 0.471);
 }
 
+.container {
+  max-width: 900px;
+}
+
 h1 {
   font-family: "Lato", sans-serif;
   text-align: center;
-  font-size: 53px;
+  font-size: 36px;
   font-weight: 400;
   padding: 0;
 }
@@ -21,7 +25,7 @@ form {
 
 footer {
   font-family: "Lato", sans-serif;
-  font-size: 18px;
+  font-size: 12px;
   padding-top: 15px;
   text-decoration: none;
 }
@@ -46,15 +50,17 @@ footer {
   border-width: 2px;
   border-color: rgb(40, 50, 70, 0.1);
   font-family: "Nunito Sans", sans-serif;
-  font-size: 15px;
-  margin: 2px;
+  font-size: 10px;
+  margin-left: 1px;
+  margin-right: 1px;
+  margin-bottom: 0px;
   height: auto;
   transition: all 0.2s ease-in-out;
 }
 
 #card2-body {
-  margin-top: -4px;
-  margin-bottom: -1px;
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
 
 .card3Small {
@@ -63,7 +69,7 @@ footer {
   border-color: rgb(40, 50, 70, 0.1);
   border-style: solid;
   border-radius: 5px;
-  margin: 2px;
+  margin: 1px;
   padding: 0;
   height: auto;
   transition: all 0.2s ease-in-out;
@@ -81,17 +87,23 @@ footer {
 #c1-city {
   font-family: "Padauk", sans-serif;
   text-align: left;
-  font-size: 75px;
+  font-size: 50px;
   font-weight: 900;
-  padding: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-right: 0px;
+  margin-left: 5px;
 }
 
 #c1-country {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  text-align: right;
-  font-size: 56px;
-  padding: 30px;
+  text-align: left;
+  font-size: 28px;
+  line-height: 40px;
+  margin-left: -5px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 #c1-day,
@@ -99,9 +111,9 @@ footer {
 #c1-time {
   font-family: "Padauk", sans-serif;
   line-height: 56px;
-  font-size: 36px;
+  font-size: 33px;
   font-weight: 700;
-  padding-left: 30px;
+  padding-left: 10px;
   text-align: center;
 }
 
@@ -119,7 +131,17 @@ footer {
 #c2-title1,
 #c2-title2 {
   font-family: "Lato", sans-serif;
+}
+
+#c1-temp,
+#c2-temp,
+#c2-emoji {
   padding: 10px;
+}
+
+#c2-title1,
+#c2-title2 {
+  padding: 1px;
 }
 
 #c1-temp,
@@ -139,9 +161,11 @@ footer {
 #c2-temp {
   margin-top: -10px;
   margin-bottom: 10px;
+  line-height: 30px;
 }
 
 #c2-title1 {
+  margin-right: -14px;
   text-align: right;
 }
 
@@ -154,11 +178,21 @@ footer {
 #c1-emoji-weather,
 #c2-emoji,
 .c2Temp {
-  font-size: 49px;
   font-weight: 600;
   text-align: center;
   padding: 0;
   margin: 0;
+}
+
+#c1-emoji-weather,
+#c2-emoji,
+.c2Temp {
+  font-size: 31px;
+}
+
+#c1-temp,
+#c1-emoji-wind {
+  font-size: 42px;
 }
 
 #c1-emoji-weather {
@@ -174,18 +208,22 @@ footer {
   margin-bottom: -20px;
 }
 
+#c2-emoji-weather-src {
+  width: 80px;
+}
+
 #c2-emoji-wind {
   position: relative;
-  font-size: 45px;
+  font-size: 30px;
   text-align: center;
-  line-height: 58px;
+  line-height: 40px;
 }
 
 .c3EmojiWind {
   position: relative;
-  font-size: 41px;
+  font-size: 28px;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 14px;
   margin-bottom: 2px;
 }
 
@@ -214,17 +252,19 @@ footer {
 #c1-feels,
 #c1-descp,
 #c1-wind {
-  font-size: 20px;
+  font-size: 14px;
 }
 
 #c2-wind,
 #c2-descp {
-  font-size: 17px;
+  font-size: 13px;
+  margin-top: 6px;
+  margin-left: -12px;
 }
 
 #c2-title1,
 #c2-title2 {
-  font-size: 32px;
+  font-size: 34px;
   line-height: 50px;
   font-weight: 700;
 }
@@ -245,6 +285,7 @@ footer {
   background-color: rgba(55, 74, 109, 0.233);
   color: rgb(40, 50, 70);
   border: none;
+  font-size: 14px;
 }
 
 #inline-btns {
@@ -258,16 +299,16 @@ footer {
   background-color: rgba(55, 74, 109, 0.233);
   color: rgb(40, 50, 70);
   font-family: "Nunito Sans", sans-serif;
-  font-size: 18px;
+  font-size: 12px;
   font-weight: 400;
-  margin: 20px auto;
+  margin: 10px auto;
   padding: 10px auto;
   text-align: center;
   text-decoration: none;
 }
 
 .c3DateTitle {
-  font-size: 28px;
+  font-size: 19px;
   font-weight: 700;
   padding: 0;
   margin-top: 10px;
@@ -278,8 +319,9 @@ footer {
 .c1LowBttm {
   font-family: "Nunito Sans", sans-serif;
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 800;
+  margin-bottom: 0;
 }
 
 .c1HighTop {
@@ -293,36 +335,54 @@ footer {
 }
 
 .c2List {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 13px;
+  line-height: 16px;
   padding: 0;
   margin: 0;
   text-align: left;
 }
 
-.c3Descp,
+.c3Descp {
+  margin-left: -9px;
+  font-size: 11px;
+  text-align: left;
+}
+
 .c3Wind {
+  margin-left: 0px;
+  font-size: 11px;
   text-align: center;
 }
 
-.c3List {
-  font-size: 16px;
-  line-height: 20px;
+.c3ListHighSunup,
+.c3ListTempTime {
+  font-size: 12px;
+  line-height: 25px;
   font-weight: 400;
-  padding: 0;
-  margin: 0;
-  margin-top: 12px;
+  padding: 1px;
+  margin-top: 13px;
+  margin-left: -10px;
+  margin-right: 0;
+  margin-bottom: -10px;
+}
+
+.c3ListHighSunup {
+  text-align: right;
+}
+
+.c3ListTempTime {
+  text-align: left;
 }
 
 .c3EmojiWeather {
   position: relative;
-  margin-left: -22px;
-  margin-top: -10px;
-  margin-bottom: -20px;
+  margin-left: -24px;
+  margin-top: 0;
+  margin-bottom: -11px;
 }
 
 .c3EmojiWeatherSrc {
-  width: 90px;
+  width: 60px;
 }
 
 #card3-col-2 {
@@ -330,11 +390,12 @@ footer {
 }
 
 .c3Temp {
-  font-size: 40px;
+  position: relative;
+  font-size: 27px;
   font-weight: 600;
   padding: 0;
-  margin-left: -10px;
-  margin-top: 33px;
+  margin-left: -26px;
+  margin-top: 25px;
   line-height: 26px;
   align-items: center;
 }

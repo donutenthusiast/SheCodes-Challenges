@@ -29,6 +29,7 @@
   <body>
     <div class="container">
       <h1>Weather Forecast</h1>
+
       <div class="col-12">
         <form id="search-form">
           <input type="text" placeholder="City" id="search-input" />
@@ -36,6 +37,7 @@
             Search
           </button>
         </form>
+
         <div class="col-12" id="inline-btns">
           <button
             class="btn btn-secondary"
@@ -48,15 +50,18 @@
             Auto locate
           </button>
         </div>
+        
       </div>
+
       <div class="row row-cols-2">
+
         <div class="col-6">
           <div class="card h-200" id="card-large">
             <div class="card-body">
               <div class="col-12">
                 <div class="row align-items-start">
-                  <div class="col-8"><h1 id="c1-city">London</h1></div>
-                  <div class="col-4"><h2 id="c1-country">GB</h2></div>
+                  <div class="col-10"><h1 id="c1-city">London</h1></div>
+                  <div class="col-2"><h2 id="c1-country">GB</h2></div>
                 </div>
               </div>
 
@@ -249,144 +254,7 @@
                 </div>
 
                 <div class="col-2">
-                  <h5 class="c3Temp">12<span class="unitTemp">°C</span></h5>
-                </div>
-
-                <div class="col-1" class="c3WindWeatherCol">
-                  <h3 class="c3EmojiWeather">
-                    <img
-                      class="c3EmojiWeatherSrc"
-                      src="https://openweathermap.org/img/wn/01n@2x.png"
-                    /></h3>
-                  <p class="c3Descp"><em>Cloudy</em></p>
-                </div>
-
-                <div class="col-2">
-                  <h3 class="c3EmojiWind"
-                      ><i class="fa-solid fa-wind"></i
-                    ></h3>
-                  <p class="c3Wind">
-                    <em
-                      ><span class="c3WindNum">500</span
-                      ><span class="unitWind"> Km/h</span></em
-                    >
-                </div>
-
-                <div class="col-1" class="c3HighLowCol">
-                  <div class="row">
-                    <p class="c3List">High:</p>
-                    <p class="c3List">Low:</p>
-                  </div>
-                </div>
-
-                <div class="col-1" class="c3HighLowCol">
-                <div class="row">
-                  <p class="c3List" class="c3HighTemp">105<span class="unitTemp">°C</span></p>
-                  <p class="c3List" class="c3LowTemp">100<span class="unitTemp">°C</span></p>
-                </div>
-              </div>
-
-              <div class="col-1" class="c3SunCol">
-                <div class="row">
-                  <p class="c3List">
-                    <i class="fa-solid fa-sun"></i
-                    ><i class="fa-solid fa-arrow-up"></i>:
-                  </p>
-                    <p class="c3List">
-                    <i class="fa-solid fa-sun"></i
-                    ><i class="fa-solid fa-arrow-down"></i>:
-                  </p>
-                </div>
-              </div>
-
-              <div class="col-1" class="c3SunCol">
-                <div class="row">
-                  <p class="c3List" class="c3SunUp">08:58</p>
-                  <p class="c3List" class="c3SunDown">18:58</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12">
-            <div class="card3Small" class="card h-200">
-              <div class="row align-items-start">
-                <div class="col-2" id="card3-col-2">
-                  <h5 class="c3DateTitle">Mon</h5>
-                  <h5 class="c3DateTitle">05</h5>
-                </div>
-
-                <div class="col-2">
-                  <h5 class="c3Temp">12<span class="unitTemp">°C</span></h5>
-                </div>
-
-                <div class="col-1" class="c3WindWeatherCol">
-                  <h3 class="c3EmojiWeather">
-                    <img
-                      class="c3EmojiWeatherSrc"
-                      src="https://openweathermap.org/img/wn/01n@2x.png"
-                    /></h3>
-                  <p class="c3Descp"><em>Cloudy</em></p>
-                </div>
-                <div class="col-2">
-                  <h3 class="c3EmojiWind"
-                      ><i class="fa-solid fa-wind"></i
-                    ></h3>
-                  <p class="c3Wind">
-                    <em
-                      ><span class="c3WindNum">500</span
-                      ><span class="unitWind"> Km/h</span></em
-                    >
-                </div>
-
-                <div class="col-1" class="c3HighLowCol">
-                  <div class="row">
-                    <p class="c3List">High:</p>
-                    <p class="c3List">Low:</p>
-                  </div>
-                </div>
-
-                <div class="col-1" class="c3HighLowCol">
-                <div class="row">
-                  <p class="c3List" class="c3HighTemp">105<span class="unitTemp">°C</span></p>
-                  <p class="c3List" class="c3LowTemp">100<span class="unitTemp">°C</span></p>
-                </div>
-              </div>
-
-              <div class="col-1" class="c3SunCol">
-                <div class="row">
-                  <p class="c3List">
-                    <i class="fa-solid fa-sun"></i
-                    ><i class="fa-solid fa-arrow-up"></i>:
-                  </p>
-                    <p class="c3List">
-                    <i class="fa-solid fa-sun"></i
-                    ><i class="fa-solid fa-arrow-down"></i>:
-                  </p>
-                </div>
-              </div>
-              <div class="col-1" class="c3SunCol">
-                <div class="row">
-                  <p class="c3List" class="c3SunUp">08:58</p>
-                  <p class="c3List" class="c3SunDown">18:58</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12">
-            <div class="card3Small" class="card h-200">
-              <div class="row align-items-start">
-                <div class="col-2" id="card3-col-2">
-                  <h5 class="c3DateTitle">Mon</h5>
-                  <h5 class="c3DateTitle">05</h5>
-                </div>
-
-                <div class="col-2">
-                  <h5 class="c3Temp">12<span class="unitTemp">°C</span></h5>
+                  <h5 class="c3Temp">102<span class="unitTemp">°C</span></h5>
                 </div>
 
                 <div class="col-1" class="c3WindWeatherCol">
@@ -397,6 +265,7 @@
                     /></h3>
                   <p class="c3Descp"><em>Overcast</em></p>
                 </div>
+
                 <div class="col-2">
                   <h3 class="c3EmojiWind"
                       ><i class="fa-solid fa-wind"></i
@@ -410,40 +279,183 @@
 
                 <div class="col-1" class="c3HighLowCol">
                   <div class="row">
-                    <p class="c3List">High:</p>
-                    <p class="c3List">Low:</p>
+                    <p class="c3ListHighSunup">High:</p>
+                    <p class="c3ListHighSunup">Low:</p>
                   </div>
                 </div>
 
                 <div class="col-1" class="c3HighLowCol">
                 <div class="row">
-                  <p class="c3List" class="c3HighTemp">105<span class="unitTemp">°C</span></p>
-                  <p class="c3List" class="c3LowTemp">100<span class="unitTemp">°C</span></p>
+                  <p class="c3ListTempTime" class="c3HighTemp">105<span class="unitTemp">°C</span></p>
+                  <p class="c3ListTempTime" class="c3LowTemp">100<span class="unitTemp">°C</span></p>
                 </div>
               </div>
 
               <div class="col-1" class="c3SunCol">
                 <div class="row">
-                  <p class="c3List">
+                  <p class="c3ListHighSunup">
                     <i class="fa-solid fa-sun"></i
                     ><i class="fa-solid fa-arrow-up"></i>:
                   </p>
-                    <p class="c3List">
+                    <p class="c3ListHighSunup">
                     <i class="fa-solid fa-sun"></i
                     ><i class="fa-solid fa-arrow-down"></i>:
                   </p>
                 </div>
               </div>
+
               <div class="col-1" class="c3SunCol">
                 <div class="row">
-                  <p class="c3List" class="c3SunUp">08:58</p>
-                  <p class="c3List" class="c3SunDown">18:58</p>
+                  <p class="c3ListTempTime" class="c3SunUp">08:58</p>
+                  <p class="c3ListTempTime" class="c3SunDown">18:58</p>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
-       </div>
+
+          <div class="col-12">
+            <div class="card3Small" class="card h-200">
+              <div class="row">
+                <div class="col-2" id="card3-col-2">
+                  <h5 class="c3DateTitle">Mon</h5>
+                  <h5 class="c3DateTitle">05</h5>
+                </div>
+
+                <div class="col-2">
+                  <h5 class="c3Temp">102<span class="unitTemp">°C</span></h5>
+                </div>
+
+                <div class="col-1" class="c3WindWeatherCol">
+                  <h3 class="c3EmojiWeather">
+                    <img
+                      class="c3EmojiWeatherSrc"
+                      src="https://openweathermap.org/img/wn/01n@2x.png"
+                    /></h3>
+                  <p class="c3Descp"><em>Overcast</em></p>
+                </div>
+
+                <div class="col-2">
+                  <h3 class="c3EmojiWind"
+                      ><i class="fa-solid fa-wind"></i
+                    ></h3>
+                  <p class="c3Wind">
+                    <em
+                      ><span class="c3WindNum">500</span
+                      ><span class="unitWind"> Km/h</span></em
+                    >
+                </div>
+
+                <div class="col-1" class="c3HighLowCol">
+                  <div class="row">
+                    <p class="c3ListHighSunup">High:</p>
+                    <p class="c3ListHighSunup">Low:</p>
+                  </div>
+                </div>
+
+                <div class="col-1" class="c3HighLowCol">
+                <div class="row">
+                  <p class="c3ListTempTime" class="c3HighTemp">105<span class="unitTemp">°C</span></p>
+                  <p class="c3ListTempTime" class="c3LowTemp">100<span class="unitTemp">°C</span></p>
+                </div>
+              </div>
+
+              <div class="col-1" class="c3SunCol">
+                <div class="row">
+                  <p class="c3ListHighSunup">
+                    <i class="fa-solid fa-sun"></i
+                    ><i class="fa-solid fa-arrow-up"></i>:
+                  </p>
+                    <p class="c3ListHighSunup">
+                    <i class="fa-solid fa-sun"></i
+                    ><i class="fa-solid fa-arrow-down"></i>:
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-1" class="c3SunCol">
+                <div class="row">
+                  <p class="c3ListTempTime" class="c3SunUp">08:58</p>
+                  <p class="c3ListTempTime" class="c3SunDown">18:58</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+          <div class="col-12">
+            <div class="card3Small" class="card h-200">
+              <div class="row">
+                <div class="col-2" id="card3-col-2">
+                  <h5 class="c3DateTitle">Mon</h5>
+                  <h5 class="c3DateTitle">05</h5>
+                </div>
+
+                <div class="col-2">
+                  <h5 class="c3Temp">102<span class="unitTemp">°C</span></h5>
+                </div>
+
+                <div class="col-1" class="c3WindWeatherCol">
+                  <h3 class="c3EmojiWeather">
+                    <img
+                      class="c3EmojiWeatherSrc"
+                      src="https://openweathermap.org/img/wn/01n@2x.png"
+                    /></h3>
+                  <p class="c3Descp"><em>Overcast</em></p>
+                </div>
+
+                <div class="col-2">
+                  <h3 class="c3EmojiWind"
+                      ><i class="fa-solid fa-wind"></i
+                    ></h3>
+                  <p class="c3Wind">
+                    <em
+                      ><span class="c3WindNum">500</span
+                      ><span class="unitWind"> Km/h</span></em
+                    >
+                </div>
+
+                <div class="col-1" class="c3HighLowCol">
+                  <div class="row">
+                    <p class="c3ListHighSunup">High:</p>
+                    <p class="c3ListHighSunup">Low:</p>
+                  </div>
+                </div>
+
+                <div class="col-1" class="c3HighLowCol">
+                <div class="row">
+                  <p class="c3ListTempTime" class="c3HighTemp">105<span class="unitTemp">°C</span></p>
+                  <p class="c3ListTempTime" class="c3LowTemp">100<span class="unitTemp">°C</span></p>
+                </div>
+              </div>
+
+              <div class="col-1" class="c3SunCol">
+                <div class="row">
+                  <p class="c3ListHighSunup">
+                    <i class="fa-solid fa-sun"></i
+                    ><i class="fa-solid fa-arrow-up"></i>:
+                  </p>
+                    <p class="c3ListHighSunup">
+                    <i class="fa-solid fa-sun"></i
+                    ><i class="fa-solid fa-arrow-down"></i>:
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-1" class="c3SunCol">
+                <div class="row">
+                  <p class="c3ListTempTime" class="c3SunUp">08:58</p>
+                  <p class="c3ListTempTime" class="c3SunDown">18:58</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="col-12">
         <footer>
           <strong
@@ -458,6 +470,7 @@
         </footer>
       </div>
     </div>
+
   <script src="src/indexInProg.js">
   </script>
 </body>
