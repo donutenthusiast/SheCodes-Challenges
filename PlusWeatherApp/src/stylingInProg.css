@@ -111,7 +111,7 @@ footer {
 #c1-time {
   font-family: "Padauk", sans-serif;
   line-height: 56px;
-  font-size: 33px;
+  font-size: 31px;
   font-weight: 700;
   padding-left: 10px;
   text-align: center;
@@ -264,8 +264,8 @@ footer {
 
 #c2-title1,
 #c2-title2 {
-  font-size: 34px;
-  line-height: 50px;
+  font-size: 32px;
+  line-height: 45px;
   font-weight: 700;
 }
 

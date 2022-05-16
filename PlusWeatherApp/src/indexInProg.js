@@ -31,7 +31,7 @@ function currentTime(twentyFourHours) {
 //Weather calls using city name
 function cityNameSearch(cityName) {
   let openWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
-  axios.get(openWeatherUrl).then(getUserWeather);
+  axios.get(openWeatherUrl).then(getTodaysWeather);
 }
 
 function searchInput(event) {
@@ -57,11 +57,11 @@ function userAcceptsGeolocation(position) {
   let longitude = position.coords.longitude;
   let geoWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
-  axios.get(geoWeatherUrl).then(getUserWeather);
+  axios.get(geoWeatherUrl).then(getTodaysWeather);
 }
 
 //API response + Inner HTML updates
-function getUserWeather(response) {
+function getTodaysWeather(response) {
   //New values for global variables
   avTemp = response.data.main.temp;
   feelTemp = response.data.main.feels_like;
@@ -137,34 +137,33 @@ function getForecast(coordinates) {
 }
 
 function showForecast(response) {
-  console.log(response);
+  //Reused the most in this function
+  let dayAfter = response.data.daily;
 
   //Tomorrow's date
-  let tommorowsUnixTime = response.data.daily[1].dt;
+  let tommorowsUnixTime = dayAfter[1].dt;
   let tomorrowsWeekday = forecastDayToLocal(tommorowsUnixTime);
-  console.log(tomorrowsWeekday);
 
   // Date part from the timestamp
   let tomorrowsDate = new Date(tommorowsUnixTime * 1000).getDate();
-  console.log(tomorrowsDate);
 
   //Tomorrows sun up and down
-  let tomorrowsSunrise = timeToLocal(response.data.daily[1].sunrise);
-  let tomorrowsSunset = timeToLocal(response.data.daily[1].sunset);
+  let tomorrowsSunrise = timeToLocal(dayAfter[1].sunrise);
+  let tomorrowsSunset = timeToLocal(dayAfter[1].sunset);
 
   //Tomorrow's temperatures
-  tomorrowsAvTemp = response.data.daily[1].temp.day;
-  tomorrowsMinTemp = response.data.daily[1].temp.min;
-  tomorrowsMaxTemp = response.data.daily[1].temp.max;
+  tomorrowsAvTemp = dayAfter[1].temp.day;
+  tomorrowsMinTemp = dayAfter[1].temp.min;
+  tomorrowsMaxTemp = dayAfter[1].temp.max;
 
   //Tomorrows weather description, emoji, wind
-  let tomorrowsWeatherDescp = response.data.daily[1].weather[0].description;
+  let tomorrowsWeatherDescp = dayAfter[1].weather[0].description;
   tomorrowsWeatherDescp =
     tomorrowsWeatherDescp[0].toUpperCase() + tomorrowsWeatherDescp.substring(1);
   //can also style from CSS "element:first letter {text transform: capitlize}
 
-  let tomorrowsWeatherEmoji = response.data.daily[1].weather[0].icon;
-  tomorrowsWindSpeed = response.data.daily[1].wind_speed;
+  let tomorrowsWeatherEmoji = dayAfter[1].weather[0].icon;
+  tomorrowsWindSpeed = dayAfter[1].wind_speed;
 
   //Replacement for tomorrow's date
   let replaceTomorrowsWeekday = document.querySelector("#c2-title2-day");
@@ -190,7 +189,7 @@ function showForecast(response) {
   let replaceTomorrowsMaxTemp = document.querySelector("#c2-high-temp");
   replaceTomorrowsMaxTemp.innerHTML = `${Math.round(tomorrowsMaxTemp)}`;
 
-  //Replacement for
+  //Replacement for the rest
   let replaceTomorrowsWeatherDescp = document.querySelector("#c2-descp");
   replaceTomorrowsWeatherDescp.innerHTML = `${tomorrowsWeatherDescp}`;
 
@@ -204,6 +203,105 @@ function showForecast(response) {
     "src",
     `https://openweathermap.org/img/wn/${tomorrowsWeatherEmoji}@2x.png`
   );
+
+  //Adding HTML in JS for forecast after tomorrow
+  let afterTomorrowInJS = document.querySelector("#afterTomorrowInJS");
+  afterTomorrowInJS.innerHTML = ``;
+
+  dayAfter.forEach(function (dayAfter, index) {
+    if (index > 1 && index < 5) {
+      return (afterTomorrowInJS.innerHTML += `
+      
+      <div class="col-12">
+            <div class="card3Small" class="card h-200">
+              <div class="row">
+                <div class="col-2" id="card3-col-2">
+                  <h5 class="c3DateTitle">${forecastDayToLocal(
+                    dayAfter.dt
+                  )}</h5>
+                  <h5 class="c3DateTitle">${new Date(
+                    dayAfter.dt * 1000
+                  ).getDate()}</h5>
+                </div>
+
+                <div class="col-2">
+                  <h5 class="c3Temp">${Math.round(
+                    dayAfter.temp.day
+                  )}<span class="unitTemp">°C</span></h5>
+                </div>
+
+                <div class="col-1" class="c3WindWeatherCol">
+                  <h3 class="c3EmojiWeather">
+                    <img
+                      class="c3EmojiWeatherSrc"
+                      src="https://openweathermap.org/img/wn/${
+                        dayAfter.weather[0].icon
+                      }@2x.png"
+                    /></h3>
+                  <p class="c3Descp"><em>${dayAfter.weather[0].main}</em></p>
+                </div>
+
+                <div class="col-2">
+                  <h3 class="c3EmojiWind"
+                      ><i class="fa-solid fa-wind"></i
+                    ></h3>
+                  <p class="c3Wind">
+                    <em
+                      ><span class="c3WindNum">${Math.round(
+                        dayAfter.wind_speed
+                      )}</span
+                      ><span class="unitWind"> Km/h</span></em
+                    >
+                </div>
+
+                <div class="col-1" class="c3HighLowCol">
+                  <div class="row">
+                    <p class="c3ListHighSunup">High:</p>
+                    <p class="c3ListHighSunup">Low:</p>
+                  </div>
+                </div>
+
+                <div class="col-1" class="c3HighLowCol">
+                <div class="row">
+                  <p class="c3ListTempTime" class="c3HighTemp">${Math.round(
+                    dayAfter.temp.max
+                  )}<span class="unitTemp">°C</span></p>
+                  <p class="c3ListTempTime" class="c3LowTemp">${Math.round(
+                    dayAfter.temp.min
+                  )}<span class="unitTemp">°C</span></p>
+                </div>
+              </div>
+
+              <div class="col-1" class="c3SunCol">
+                <div class="row">
+                  <p class="c3ListHighSunup">
+                    <i class="fa-solid fa-sun"></i
+                    ><i class="fa-solid fa-arrow-up"></i>:
+                  </p>
+                    <p class="c3ListHighSunup">
+                    <i class="fa-solid fa-sun"></i
+                    ><i class="fa-solid fa-arrow-down"></i>:
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-1" class="c3SunCol">
+                <div class="row">
+                  <p class="c3ListTempTime" class="c3SunUp">${timeToLocal(
+                    dayAfter.sunrise
+                  )}</p>
+                  <p class="c3ListTempTime" class="c3SunDown">${timeToLocal(
+                    dayAfter.sunset
+                  )}</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>`);
+      //Final closing div for the forecast columns is in HTML index file after the last span
+    }
+  });
 }
 
 //Unix time conversion
@@ -318,7 +416,7 @@ function allUnitsImperial() {
 //Unit texts to metric
 function allUnitsMetric() {
   let allTempUnits = document.querySelectorAll(".unitTemp");
-  let i;
+
   for (i = 0; i < allTempUnits.length; i++) {
     allTempUnits[i].innerHTML = `°C`;
   }
@@ -333,7 +431,7 @@ function allUnitsMetric() {
 //Api key
 const apiKey = "cd2317fe4740983ade94670ca1806f44";
 
-//Global units
+//Global variables
 let avTemp = null;
 let feelTemp = null;
 let minTemp = null;
@@ -366,7 +464,3 @@ userPermission.addEventListener("click", userPermissionOK);
 //View weather in imperial or metric
 let tempUnitChange = document.querySelector("#set-unit-temp-btn");
 tempUnitChange.addEventListener("click", newUnits);
-
-//Add Forecase API + Wind to Card 2
-//Manually attach forcast to card 2
-//Repeat for card3 4 times
