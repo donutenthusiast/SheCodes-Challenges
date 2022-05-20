@@ -1,16 +1,3 @@
-//Current date
-function shortDate(anyDate) {
-  let weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  let dayofWeek = weekday[anyDate.getDay()];
-  let dateOfMonth = anyDate.getDate();
-
-  if (dateOfMonth < 10) {
-    return `${dayofWeek} 0${dateOfMonth}`;
-  } else {
-    return `${dayofWeek} ${dateOfMonth}`;
-  }
-}
-
 //Current time
 function currentTime(twentyFourHours) {
   let date = new Date();
@@ -25,6 +12,19 @@ function currentTime(twentyFourHours) {
     return `${hours}:0${mins}`;
   } else {
     return `${hours}:${mins}`;
+  }
+}
+
+//Current date
+function todaysDate(anyDate) {
+  let weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let dayofWeek = weekday[anyDate.getDay()];
+  let dateOfMonth = anyDate.getDate();
+
+  if (dateOfMonth < 10) {
+    return `${dayofWeek} 0${dateOfMonth}`;
+  } else {
+    return `${dayofWeek} ${dateOfMonth}`;
   }
 }
 
@@ -57,17 +57,21 @@ function userAcceptsGeolocation(position) {
   let longitude = position.coords.longitude;
   let geoWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
-  axios.get(geoWeatherUrl).then(getTodaysWeather);
+  axios
+    .get(geoWeatherUrl)
+    .then(getTodaysWeather)
+    .catch(function (error) {
+      alert("Oops! Make sure to type a valid city name!");
+    });
 }
 
 //API response + Inner HTML updates
 function getTodaysWeather(response) {
-  //New values for global variables
-  avTemp = response.data.main.temp;
-  feelTemp = response.data.main.feels_like;
-  minTemp = response.data.main.temp_min;
-  maxTemp = response.data.main.temp_max;
-  windSpeed = response.data.wind.speed;
+  let avTemp = response.data.main.temp;
+  let feelTemp = response.data.main.feels_like;
+  let minTemp = response.data.main.temp_min;
+  let maxTemp = response.data.main.temp_max;
+  let windSpeed = response.data.wind.speed;
 
   //New variable to be sent to another function
   let coordinates = response.data.coord;
@@ -131,13 +135,13 @@ function getTodaysWeather(response) {
 
 function getForecast(coordinates) {
   let forecastLat = coordinates.lat;
-  let forecaseLon = coordinates.lon;
-  let forecastURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${forecastLat}&lon=${forecaseLon}&exclude=current,minutely,hourly&appid=${apiKey}&units=metric`;
+  let forecastLon = coordinates.lon;
+  let forecastURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${forecastLat}&lon=${forecastLon}&exclude=current,minutely,hourly&appid=${apiKey}&units=metric`;
   axios.get(forecastURL).then(showForecast);
 }
 
 function showForecast(response) {
-  //Reused the most in this function
+  //Daily weather
   let dayAfter = response.data.daily;
 
   //Tomorrow's date
@@ -208,10 +212,15 @@ function showForecast(response) {
   let afterTomorrowInJS = document.querySelector("#afterTomorrowInJS");
   afterTomorrowInJS.innerHTML = ``;
 
-  dayAfter.forEach(function (dayAfter, index) {
-    if (index > 1 && index < 5) {
-      return (afterTomorrowInJS.innerHTML += `
-      
+  dayAfter.forEach(
+    function (dayAfter, index) {
+      if (index > 1 && index < 5) {
+        //Global variables for day after
+        let dayAfterAvTemp = dayAfter.temp.day;
+        let dayAfterMinTemp = dayAfter.temp.min;
+        let dayAfterMaxTemp = dayAfter.temp.max;
+        let dayAfterWindSpeed = dayAfter.wind_speed;
+        return (afterTomorrowInJS.innerHTML += `
       <div class="col-12">
             <div class="card3Small" class="card h-200">
               <div class="row">
@@ -225,8 +234,8 @@ function showForecast(response) {
                 </div>
 
                 <div class="col-2">
-                  <h5 class="c3Temp">${Math.round(
-                    dayAfter.temp.day
+                  <h5 id="c3-temp">${Math.round(
+                    dayAfterAvTemp
                   )}<span class="unitTemp">°C</span></h5>
                 </div>
 
@@ -247,10 +256,10 @@ function showForecast(response) {
                     ></h3>
                   <p class="c3Wind">
                     <em
-                      ><span class="c3WindNum">${Math.round(
-                        dayAfter.wind_speed
+                      ><span id="c3-wind-num">${Math.round(
+                        dayAfterWindSpeed
                       )}</span
-                      ><span class="unitWind"> Km/h</span></em
+                      ><span class="unitWind"> km/h</span></em
                     >
                 </div>
 
@@ -263,11 +272,11 @@ function showForecast(response) {
 
                 <div class="col-1" class="c3HighLowCol">
                 <div class="row">
-                  <p class="c3ListTempTime" class="c3HighTemp">${Math.round(
-                    dayAfter.temp.max
+                  <p class="c3ListTempTime" id="c3-high-temp">${Math.round(
+                    dayAfterMaxTemp
                   )}<span class="unitTemp">°C</span></p>
-                  <p class="c3ListTempTime" class="c3LowTemp">${Math.round(
-                    dayAfter.temp.min
+                  <p class="c3ListTempTime" id="c3-low-temp">${Math.round(
+                    dayAfterMinTemp
                   )}<span class="unitTemp">°C</span></p>
                 </div>
               </div>
@@ -299,15 +308,15 @@ function showForecast(response) {
             </div>
           </div>
         </div>`);
-      //Final closing div for the forecast columns is in HTML index file after the last span
-    }
-  });
+        //Final closing div for the forecast columns is in HTML index file after the last span
+      }
+    } //end
+  );
 }
 
 //Unix time conversion
 function timeToLocal(input) {
   let unixTime = input;
-  //convert to UTC timestamp
   let userTime = new Date(unixTime * 1000);
   let hh = userTime.getHours();
   let mm = userTime.getMinutes();
@@ -326,7 +335,6 @@ function timeToLocal(input) {
 //Unix date conversion
 function forecastDayToLocal(input) {
   let futureUnixTime = input;
-  //convert to UTC timestamp
   let userTime = new Date(futureUnixTime * 1000);
   let weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let tomorrow = userTime.getDay();
@@ -335,119 +343,15 @@ function forecastDayToLocal(input) {
   return forecastDay;
 }
 
-//Imperial to metric calculations
-function newUnits() {
-  //Button
-  let buttonText = document.querySelector("#set-unit-temp-btn");
-
-  //Today
-  let oldAvTemp = document.querySelector("#c1-temp-num");
-  let oldFeelTemp = document.querySelector("#feel-temp");
-  let oldMainMinTemp = document.querySelector("#c1-low-temp");
-  let oldMainMaxTemp = document.querySelector("#c1-high-temp");
-  let oldC1WindSpeed = document.querySelector("#c1-wind-num");
-
-  //Tomorrow
-  let oldC2AvTemp = document.querySelector("#c2-temp-num");
-  let oldC2MainMinTemp = document.querySelector("#c2-low-temp");
-  let oldC2MainMaxTemp = document.querySelector("#c2-high-temp");
-  let oldC2WindSpeed = document.querySelector("#c2-wind-num");
-
-  if (buttonText.textContent === "View Weather in Imperial Units") {
-    return (
-      //Button
-      (buttonText.innerHTML = `View Weather in Metric Units`),
-      //Today
-      (oldAvTemp.innerHTML = `${Math.round((avTemp * 9) / 5 + 32)}`),
-      (oldFeelTemp.innerHTML = `${Math.round((feelTemp * 9) / 5 + 32)}`),
-      (oldMainMinTemp.innerHTML = `${Math.round((minTemp * 9) / 5 + 32)}`),
-      (oldMainMaxTemp.innerHTML = `${Math.round((maxTemp * 9) / 5 + 32)}`),
-      (oldC1WindSpeed.innerHTML = `${Math.round(windSpeed * 0.62137119)}`),
-      //Tommorow
-      (oldC2AvTemp.innerHTML = `${Math.round((tomorrowsAvTemp * 9) / 5 + 32)}`),
-      (oldC2MainMinTemp.innerHTML = `${Math.round(
-        (tomorrowsMinTemp * 9) / 5 + 32
-      )}`),
-      (oldC2MainMaxTemp.innerHTML = `${Math.round(
-        (tomorrowsMaxTemp * 9) / 5 + 32
-      )}`),
-      (oldC2WindSpeed.innerHTML = `${Math.round(
-        tomorrowsWindSpeed * 0.62137119
-      )}`),
-      //Units
-      allUnitsImperial()
-    );
-  } else {
-    return (
-      //Button
-      (buttonText.innerHTML = `View Weather in Imperial Units`),
-      //Today
-      (oldAvTemp.innerHTML = `${Math.round(avTemp)}`),
-      (oldFeelTemp.innerHTML = `${Math.round(feelTemp)}`),
-      (oldMainMinTemp.innerHTML = `${Math.round(minTemp)}`),
-      (oldMainMaxTemp.innerHTML = `${Math.round(maxTemp)}`),
-      (oldC1WindSpeed.innerHTML = `${Math.round(windSpeed)}`),
-      //Tomorrow
-      (oldC2AvTemp.innerHTML = `${Math.round(tomorrowsAvTemp)}`),
-      (oldC2MainMinTemp.innerHTML = `${Math.round(tomorrowsMinTemp)}`),
-      (oldC2MainMaxTemp.innerHTML = `${Math.round(tomorrowsMaxTemp)}`),
-      (oldC2WindSpeed.innerHTML = `${Math.round(tomorrowsWindSpeed)}`),
-      //Units
-      allUnitsMetric()
-    );
-  }
-}
-
-//Units texts to imperial
-function allUnitsImperial() {
-  let allTempUnits = document.querySelectorAll(".unitTemp");
-
-  for (i = 0; i < allTempUnits.length; i++) {
-    allTempUnits[i].innerHTML = `°F`;
-  }
-
-  let windUnits = document.querySelectorAll(".unitWind");
-
-  for (i = 0; i < windUnits.length; i++) {
-    windUnits[i].innerHTML = ` M/h`;
-  }
-}
-
-//Unit texts to metric
-function allUnitsMetric() {
-  let allTempUnits = document.querySelectorAll(".unitTemp");
-
-  for (i = 0; i < allTempUnits.length; i++) {
-    allTempUnits[i].innerHTML = `°C`;
-  }
-
-  let windUnits = document.querySelectorAll(".unitWind");
-
-  for (i = 0; i < windUnits.length; i++) {
-    windUnits[i].innerHTML = ` Km/h`;
-  }
-}
-
 //Api key
 const apiKey = "cd2317fe4740983ade94670ca1806f44";
-
-//Global variables
-let avTemp = null;
-let feelTemp = null;
-let minTemp = null;
-let maxTemp = null;
-let windSpeed = null;
-let tomorrowsAvTemp = null;
-let tomorrowsMinTemp = null;
-let tomorrowsMaxTemp = null;
-let tomorrowsWindSpeed = null;
 
 //default location on page load
 cityNameSearch("London");
 
 //Get today
 let today = document.querySelector("#c1-date");
-today.innerHTML = shortDate(new Date());
+today.innerHTML = todaysDate(new Date());
 
 //Get the time
 let timeNow = document.querySelector("#c1-time");
@@ -460,7 +364,3 @@ userSearch.addEventListener("submit", searchInput);
 //User opts for Geolocation
 let userPermission = document.querySelector("#auto-locate-btn");
 userPermission.addEventListener("click", userPermissionOK);
-
-//View weather in imperial or metric
-let tempUnitChange = document.querySelector("#set-unit-temp-btn");
-tempUnitChange.addEventListener("click", newUnits);
