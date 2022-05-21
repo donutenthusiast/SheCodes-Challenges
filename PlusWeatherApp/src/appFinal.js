@@ -31,7 +31,22 @@ function todaysDate(anyDate) {
 //Weather calls using city name
 function cityNameSearch(cityName) {
   let openWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
-  axios.get(openWeatherUrl).then(getTodaysWeather);
+
+  axios
+    .get(openWeatherUrl)
+    .then(getTodaysWeather)
+    .catch(function (error) {
+      activateDropdown.innerHTML = `We didn't quite catch that. <br/>Please search again and check for typos.`;
+      activateDropdown.setAttribute("id", `dropdown-error`);
+
+      userSearch.addEventListener("keydown", removeDropdown);
+
+      function removeDropdown() {
+        let removeInfo = document.querySelector("#dropdown-error");
+        removeInfo.innerHTML = ``;
+        removeInfo.setAttribute("id", `search-error`);
+      }
+    });
 }
 
 function searchInput(event) {
@@ -57,12 +72,7 @@ function userAcceptsGeolocation(position) {
   let longitude = position.coords.longitude;
   let geoWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
-  axios
-    .get(geoWeatherUrl)
-    .then(getTodaysWeather)
-    .catch(function (error) {
-      alert("Oops! Make sure to type a valid city name!");
-    });
+  axios.get(geoWeatherUrl).then(getTodaysWeather);
 }
 
 //API response + Inner HTML updates
@@ -125,6 +135,12 @@ function getTodaysWeather(response) {
 
   let replaceWeatherEmoji = document.querySelector("#c1-emoji-weather-src");
   replaceWeatherEmoji.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${weatherEmoji}@2x.png`
+  );
+
+  let replaceBackgroundImage = document.querySelector("#background-image");
+  replaceBackgroundImage.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${weatherEmoji}@2x.png`
   );
@@ -212,15 +228,14 @@ function showForecast(response) {
   let afterTomorrowInJS = document.querySelector("#afterTomorrowInJS");
   afterTomorrowInJS.innerHTML = ``;
 
-  dayAfter.forEach(
-    function (dayAfter, index) {
-      if (index > 1 && index < 5) {
-        //Global variables for day after
-        let dayAfterAvTemp = dayAfter.temp.day;
-        let dayAfterMinTemp = dayAfter.temp.min;
-        let dayAfterMaxTemp = dayAfter.temp.max;
-        let dayAfterWindSpeed = dayAfter.wind_speed;
-        return (afterTomorrowInJS.innerHTML += `
+  dayAfter.forEach(function (dayAfter, index) {
+    if (index > 1 && index < 5) {
+      //Global variables for day after
+      let dayAfterAvTemp = dayAfter.temp.day;
+      let dayAfterMinTemp = dayAfter.temp.min;
+      let dayAfterMaxTemp = dayAfter.temp.max;
+      let dayAfterWindSpeed = dayAfter.wind_speed;
+      return (afterTomorrowInJS.innerHTML += `
       <div class="col-12">
             <div class="card3Small" class="card h-200">
               <div class="row">
@@ -308,10 +323,9 @@ function showForecast(response) {
             </div>
           </div>
         </div>`);
-        //Final closing div for the forecast columns is in HTML index file after the last span
-      }
-    } //end
-  );
+      //Final closing div for the forecast columns is in HTML index file after the last span
+    }
+  });
 }
 
 //Unix time conversion
@@ -349,17 +363,20 @@ const apiKey = "cd2317fe4740983ade94670ca1806f44";
 //default location on page load
 cityNameSearch("London");
 
-//Get today
+//Get todays date
 let today = document.querySelector("#c1-date");
 today.innerHTML = todaysDate(new Date());
 
-//Get the time
+//Get the current time
 let timeNow = document.querySelector("#c1-time");
 timeNow.innerHTML = currentTime(new Date());
 
 //User searches via search box
 let userSearch = document.querySelector("#search-form");
 userSearch.addEventListener("submit", searchInput);
+
+//In case of errors
+let activateDropdown = document.querySelector("#search-error");
 
 //User opts for Geolocation
 let userPermission = document.querySelector("#auto-locate-btn");

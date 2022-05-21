@@ -35,20 +35,20 @@
     <link rel="stylesheet" href="src\stylingFinal.css" />
   </head>
 
-  <body>
+<body>
     <div class="container">
-      <h1>Weather Forecast</h1>
+      <h1 id="page-title">Weather Forecast</h1>
 
       <div class="col-12">
         <form id="search-form">
-          <input type="text" placeholder="City" id="search-input" />
+          <input type="text" placeholder="Enter the name of a city" id="search-input" />
           <button type="submit" class="btn btn-secondary" id="search-btn">
             Search
           </button>
         </form>
 
         <div class="col-12" id="inline-btns">
-          <button class="btn btn-secondary" type="button" id="auto-locate-btn">
+          <button class="btn btn-secondary" type="button" id="auto-locate-btn"><div id="search-error"></div>
             <i class="fa-solid fa-location-crosshairs"></i> Locate Me
           </button>
         </div>
@@ -59,6 +59,10 @@
 
         <div class="col-6">
           <div class="card h-200" id="card-large">
+            <span><img
+                      id="background-image"
+                      src="https://openweathermap.org/img/wn/01n@2x.png"
+                    /></span>
             <div class="card-body">
               <div class="col-12">
                 <div class="row align-items-start">
@@ -254,7 +258,7 @@
             ><a
               id="foot-link"
               target="_blank"
-              href="https://github.com/donutenthusiast/SheCodes-Challenges"
+              href="https://github.com/sylviaintech/SheCodes-Challenges"
               >Open source code</a
             ></strong
           >
@@ -262,7 +266,7 @@
         </footer>
       </div>
     </div>
-
+    
     <script src="src/appFinal.js"></script>
   </body>
 </html>
