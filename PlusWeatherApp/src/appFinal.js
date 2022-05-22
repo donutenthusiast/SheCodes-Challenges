@@ -52,8 +52,11 @@ function cityNameSearch(cityName) {
 function searchInput(event) {
   event.preventDefault();
 
-  if (cityInput.value != "") {
-    cityNameSearch(cityInput.value);
+  let cityInput = document.querySelector("#search-input").value;
+  cityInput = cityInput.trim();
+
+  if (cityInput != "") {
+    cityNameSearch(cityInput);
   } else {
     alert(`Enter a city name to search for the weather.`);
   }
@@ -397,9 +400,6 @@ userSearch.addEventListener("submit", searchInput);
 
 //In case of errors
 let activateDropdown = document.querySelector("#search-error");
-
-let cityInput = document.querySelector("#search-input").value;
-cityInput = cityInput.trim();
 
 //User opts for Geolocation
 let userPermission = document.querySelector("#auto-locate-btn");
