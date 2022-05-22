@@ -23,10 +23,19 @@ h1#page-title {
   padding: 10px;
 }
 
-h1#night-mode {
+#night-mode {
+  color: rgb(40, 50, 70);
+  background-color: rgba(55, 74, 109, 0.233);
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+#day-mode {
   background-color: rgba(55, 74, 109, 0.233);
   color: rgb(204 208 217);
   border: none;
+  border-radius: 20px;
   font-size: 14px;
 }
 

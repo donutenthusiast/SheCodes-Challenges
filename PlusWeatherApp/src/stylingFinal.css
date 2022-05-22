@@ -15,15 +15,28 @@ img#background-image {
   margin-left: 250px;
 }
 
-h1 {
+h1#page-title {
   font-family: "Lato", sans-serif;
   text-align: center;
   font-size: 36px;
   font-weight: 400;
+  padding: 10px;
 }
 
-#page-title {
-  padding: 10px;
+#night-mode {
+  color: rgb(40, 50, 70);
+  background-color: rgba(55, 74, 109, 0.233);
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+#day-mode {
+  background-color: rgba(55, 74, 109, 0.233);
+  color: rgb(204 208 217);
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
 }
 
 #search-error {
