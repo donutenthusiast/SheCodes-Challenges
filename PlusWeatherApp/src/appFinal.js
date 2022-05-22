@@ -52,9 +52,6 @@ function cityNameSearch(cityName) {
 function searchInput(event) {
   event.preventDefault();
 
-  let cityInput = document.querySelector("#search-input").value;
-  cityInput = cityInput.trim();
-
   if (cityInput != "") {
     cityNameSearch(cityInput);
   } else {
@@ -357,6 +354,29 @@ function forecastDayToLocal(input) {
   return forecastDay;
 }
 
+//Night and day mode styling
+function userStylesheet(title) {
+  //get CSS files
+  let css = `link[rel="night stylesheet"]`;
+  let allStylesheets = document.querySelectorAll(css);
+
+  //disable the other CSS files
+  allStylesheets.forEach((inactiveFile) => (inactiveFile.disabled = true));
+
+  //chosen file to activate
+  let selector = `link[title="${title}"]`;
+  let chosenStylesheet = document.querySelector(selector);
+  chosenStylesheet.disabled = false;
+}
+
+function nightOff() {
+  userStylesheet("DayModeCSS");
+}
+
+function nightOn() {
+  userStylesheet("NightModeCSS");
+}
+
 //Api key
 const apiKey = "cd2317fe4740983ade94670ca1806f44";
 
@@ -378,6 +398,16 @@ userSearch.addEventListener("submit", searchInput);
 //In case of errors
 let activateDropdown = document.querySelector("#search-error");
 
+let cityInput = document.querySelector("#search-input").value;
+cityInput = cityInput.trim();
+
 //User opts for Geolocation
 let userPermission = document.querySelector("#auto-locate-btn");
 userPermission.addEventListener("click", userPermissionOK);
+
+//User opts for night or day mode
+let toggleModeNight = document.getElementById("night-mode");
+toggleModeNight.addEventListener("click", nightOn);
+
+let toggleModeDay = document.getElementById("day-mode");
+toggleModeDay.addEventListener("click", nightOff);

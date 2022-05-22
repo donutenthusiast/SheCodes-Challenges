@@ -21,22 +21,31 @@ h1#page-title {
   font-size: 36px;
   font-weight: 400;
   padding: 10px;
+  margin-left: 50px;
 }
 
-#night-mode {
+button#night-mode {
+  display: inline-block;
   color: rgb(40, 50, 70);
   background-color: rgba(55, 74, 109, 0.233);
   border: none;
   border-radius: 20px;
-  font-size: 14px;
+  margin-top: 15px;
+  margin-left: 50px;
 }
 
-#day-mode {
+button#day-mode {
+  display: inline-block;
   background-color: rgba(55, 74, 109, 0.233);
   color: rgb(204 208 217);
   border: none;
   border-radius: 20px;
-  font-size: 14px;
+  margin-top: 15px;
+  margin-right: -45px;
+}
+
+.material-icons {
+  font-size: 20px;
 }
 
 #search-error {
