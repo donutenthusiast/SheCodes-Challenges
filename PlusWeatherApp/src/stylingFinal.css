@@ -43,6 +43,8 @@ h1 {
   font-size: 12px;
   font-family: "Lato", sans-serif;
   text-align: center;
+  margin-left: -100px;
+  margin-top: -15px;
 }
 
 footer,
