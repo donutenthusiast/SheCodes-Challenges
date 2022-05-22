@@ -21,7 +21,6 @@ h1#page-title {
   font-size: 36px;
   font-weight: 400;
   padding: 10px;
-  margin-left: 50px;
 }
 
 button#night-mode {
@@ -340,7 +339,7 @@ footer {
 }
 
 #search-btn {
-  background-color: rgba(55, 74, 109, 0.233);
+  background-color: rgba(0, 21, 59, 0.24);
   color: rgb(204 208 217);
   border: none;
   font-size: 14px;
@@ -350,14 +349,13 @@ footer {
   text-align: center;
 }
 
-#set-unit-temp-btn,
 #auto-locate-btn {
   display: inline-block;
   border: none;
-  background-color: rgba(55, 74, 109, 0.233);
+  background-color: rgba(0, 21, 59, 0.24);
   color: rgb(204 208 217);
   font-family: "Nunito Sans", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   margin: 10px auto;
   padding: 10px auto;

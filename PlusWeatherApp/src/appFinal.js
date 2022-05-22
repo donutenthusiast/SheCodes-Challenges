@@ -36,7 +36,7 @@ function cityNameSearch(cityName) {
     .get(openWeatherUrl)
     .then(getTodaysWeather)
     .catch(function (error) {
-      activateDropdown.innerHTML = `We didn't quite catch that. <br/>Please search again and check for typos.`;
+      activateDropdown.innerHTML = `We didn't quite catch that! <br/>Please search again and check for typos.`;
       activateDropdown.setAttribute("id", `dropdown-error`);
 
       userSearch.addEventListener("keydown", removeDropdown);
@@ -52,8 +52,8 @@ function cityNameSearch(cityName) {
 function searchInput(event) {
   event.preventDefault();
 
-  if (cityInput != "") {
-    cityNameSearch(cityInput);
+  if (cityInput.value != "") {
+    cityNameSearch(cityInput.value);
   } else {
     alert(`Enter a city name to search for the weather.`);
   }
