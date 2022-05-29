@@ -1,0 +1,40 @@
+:root {
+  --navbar-gradient: linear-gradient(
+    270deg,
+    #dd5e8829 99%,
+    #f7bb97 99%,
+    #dd5e889a 99%
+  );
+  --main-color: linear-gradient(
+    90deg,
+    #dd5e8829 0%,
+    #f7bb97 51%,
+    #dd5e889a 100%
+  );
+}
+
+body {
+  background-image: var(--main-color);
+  margin: 50px auto;
+}
+
+img {
+  visibility: 0;
+}
+
+.navigation-top {
+  background-image: var(--navbar-gradient);
+}
+
+.citations {
+  color: rgb(255, 0, 221);
+  vertical-align: super;
+}
+
+.croissant-image {
+  max-width: 600px;
+}
+
+.page-header {
+  margin-top: 100px;
+}
