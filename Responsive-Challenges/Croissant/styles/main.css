@@ -29,6 +29,7 @@ img {
 .citations {
   color: rgb(255, 0, 221);
   vertical-align: super;
+  font-size: 12px;
 }
 
 .croissant-image {
