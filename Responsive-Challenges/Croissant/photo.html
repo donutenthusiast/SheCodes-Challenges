@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A page dedicated to the best croissant photos and receipes"
+    />
+
     <title>Recipes</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
@@ -17,7 +22,12 @@
   <body>
     <nav class="navbar sticky-top navbar-expand-sm ps-4 navigation-top">
       <div class="container-fluid">
-        <a class="navbar-brand ps-4" href="index.html">Croissants 🥐</a>
+        <a
+          class="navbar-brand ps-4"
+          href="index.html"
+          title="Croissant home page"
+          >Croissants 🥐</a
+        >
         <button
           class="navbar-toggler"
           type="button"
@@ -31,11 +41,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link" href="index.html">Home</a>
-            <a class="nav-link active" aria-current="page" href="photo.html"
+            <a class="nav-link" href="index.html" title="Croissant home page"
+              >Home</a
+            >
+            <a
+              class="nav-link active"
+              aria-current="page"
+              href="photo.html"
+              title="The best croissant photos and recipies"
               >Photos & Recipes</a
             >
-            <a class="nav-link" href="contact.html">Contact Communities</a>
+            <a
+              class="nav-link"
+              href="contact.html"
+              title="Connect with croissant-loving communities"
+              >Contact Communities</a
+            >
           </div>
         </div>
       </div>
@@ -49,12 +70,23 @@
       <img
         src="https://images.unsplash.com/photo-1599940778173-e276d4acb2bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1710&q=80"
         class="img-fluid"
-        alt="Croissant on a plate"
+        alt="Minimalist photo of croissant on a plate"
       />
     </div>
     <p class="text-center p-4">
-      Photo by <a href="https://unsplash.com/@molnj">Jocelyn Morales</a> via
-      <a href="https://unsplash.com/photos/qqIj5pV48-s">Unsplash.com</a>
+      Photo by
+      <a
+        href="https://unsplash.com/photos/qqIj5pV48-s"
+        title="Photographer: Jocelyn Morales"
+        >Jocelyn Morales</a
+      >
+      via
+      <a
+        href="https://unsplash.com/"
+        target="_blank"
+        title="The internet’s source of freely-usable images. Powered by creators everywhere"
+        >Unsplash.com</a
+      >
     </p>
 
     <h2 class="text-center m-2">Recipes</h2>
@@ -63,8 +95,8 @@
 
     <div class="container">
       <div class="row m-4">
-        <div class="col-md-1"></div>
-        <div class="col-md-4">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-4 smaller-device">
           <h4>By Joshua Weissman</h4>
           <p class="pt-2">INGREDIENTS:</p>
           <ul>
@@ -84,16 +116,17 @@
             </li>
           </ul>
           <p>
-            Continue reading the recipe
+            Continue following the
             <a
               href="https://www.joshuaweissman.com/post/croissants"
               target="_blank"
-              >here</a
+              title="Read the full recipe by Joshua Weissmann on their website"
+              >recipe here</a
             >
           </p>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-lg-6 smaller-device">
           <h4 class="mb-4">YouTube Tutorial</h4>
           <iframe
             width="560"
@@ -109,6 +142,7 @@
             <a
               href="https://www.youtube.com/watch?v=hJxaVD6eAtc&"
               target="_blank"
+              title="Open video on YouTube"
               >YouTube</a
             >
             (Total runtime: 15:30mins)
@@ -116,12 +150,19 @@
         </div>
       </div>
     </div>
-    <div class="col-md-1"></div>
+    <div class="col-lg-1"></div>
+
+    <div class="container">
+      <hr class="page-line" />
+    </div>
+
     <footer class="text-center">
+      SEO optimisation and
       <a
         target="_blank"
         href="https://github.com/sylviaintech/SheCodes-Challenges"
-        >Open source code</a
+        title="Check out the code used to write this site on my Github!"
+        >open source code</a
       >
       by Sylvia G
     </footer>

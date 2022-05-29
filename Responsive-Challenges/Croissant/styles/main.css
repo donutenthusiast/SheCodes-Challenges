@@ -11,6 +11,7 @@
     #f7bb97 51%,
     #dd5e889a 100%
   );
+  --secondary-color: rgb(255, 0, 221);
 }
 
 body {
@@ -18,8 +19,8 @@ body {
   margin: 50px auto;
 }
 
-img {
-  visibility: 0;
+.page-line {
+  text-align: center;
 }
 
 .navigation-top {
@@ -27,7 +28,7 @@ img {
 }
 
 .citations {
-  color: rgb(255, 0, 221);
+  color: var(--secondary-color);
   vertical-align: super;
   font-size: 12px;
 }
@@ -38,4 +39,16 @@ img {
 
 .page-header {
   margin-top: 100px;
+}
+
+hr {
+  border: 1px solid;
+  border-color: var(--secondary-color);
+  max-width: 100px auto;
+}
+
+@media (max-width: 600px) {
+  .smaller-device {
+    text-align: center;
+  }
 }
