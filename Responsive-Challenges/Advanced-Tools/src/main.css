@@ -112,10 +112,6 @@ p {
     max-width: 175px !important;
   }
 
-  img:active {
-    max-width: 300px !important;
-  }
-
   .images-small {
     text-align: center;
   }
