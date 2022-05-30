@@ -65,7 +65,7 @@ p {
 
 .about-paragraphs {
   display: flex;
-  margin: 30px 0;
+  margin: 30px 0 15px 0;
 }
 
 .about-paragraphs p {
@@ -118,7 +118,6 @@ p {
 
   .images-small {
     text-align: center;
-    margin: 5px 0;
   }
 
   .navigation-links {
