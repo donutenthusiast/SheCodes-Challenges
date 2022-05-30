@@ -113,8 +113,6 @@ p {
   }
 
   img:active {
-    transition-delay: 0.5s;
-    transition: all 0.5s ease-in;
     max-width: 300px !important;
   }
 
