@@ -1,0 +1,22 @@
+:root {
+  --dark-background: #29282d;
+  --headings: #b65d6d;
+  --body: #d69db5;
+}
+
+body {
+  background-color: var(--dark-background);
+  margin: 50px 20px;
+}
+
+h1 {
+  color: var(--headings);
+  font-family: "Raleway", sans-serif;
+  font-size: 46px;
+}
+
+.placeholder-text {
+  color: var(--body);
+  font-family: "Source Code Pro", monospace;
+  font-size: 14px;
+}
