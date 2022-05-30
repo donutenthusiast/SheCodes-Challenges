@@ -112,8 +112,13 @@ p {
     max-width: 175px !important;
   }
 
+  .about-paragraphs {
+    margin: 10px 0;
+  }
+
   .images-small {
     text-align: center;
+    margin: 5px 0;
   }
 
   .navigation-links {
