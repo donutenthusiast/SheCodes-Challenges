@@ -7,12 +7,18 @@
   --sidebar-color: #967080;
   --sidebar-headings: #241f36;
   --sidebar-headings-hover: #ffd0d8;
+  --contact-links-hover: #ca8f99;
+  --footer-color: #b65d6d57;
+  --img-box-shdw: 1px 2px 20px 1px #b65d6d18;
 }
 
 body {
   background-color: var(--background-dark);
-  margin: 50px 20px;
-  max-width: 1000px;
+  margin: 50px 20px auto;
+}
+
+.main-body {
+  max-width: 1200px;
 }
 
 h1,
@@ -33,7 +39,41 @@ h1,
 .menu-small-device,
 .menu-narrow-device {
   font-size: 46px;
+  line-height: 1.5;
+}
+
+h2 {
+  font-size: 38px;
+  line-height: 1.5;
+}
+
+h3 {
+  font-size: 30px;
   line-height: 1.2;
+}
+
+h4 {
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+h4 a {
+  color: var(--headings-color);
+  text-decoration: none;
+}
+
+h4 a:hover {
+  color: var(--sidebar-headings-hover);
+  text-decoration: none;
+}
+
+hr {
+  border: 1px solid;
+  border-color: var(--footer-color);
+}
+footer {
+  width: 100%;
+  padding: 10px 20px 10px 20px;
 }
 
 p,
@@ -41,6 +81,11 @@ p,
   color: var(--body-color);
   font-family: var(--body-font);
   font-size: 14px;
+}
+
+.project-preview {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 /* -------------------------- Navigation bar  --------------------------  */
@@ -104,8 +149,25 @@ p,
   transition: 0.4s ease-in-out;
   padding: 10px;
 }
+.project-previews {
+  max-width: 450px !;
+}
+
+.image-background {
+  border-radius: 10px;
+  opacity: 80%;
+  box-shadow: var(--img-box-shdw);
+  margin-bottom: 50px;
+}
+
+/* -------------------------- Smaller tablets - large mobile phones --------------------------  */
 
 @media (max-width: 800px) {
+  body {
+    background-color: var(--background-dark);
+    margin: 35px 8px auto;
+  }
+
   h1,
   .menu-small-device {
     font-size: 36px;
@@ -115,8 +177,12 @@ p,
     font-size: 24px;
   }
 
-  p {
-    font-size: 16px;
+  h4 {
+    font-size: 22px;
+  }
+
+  h4 {
+    font-size: 20px;
   }
 
   /* -------------------------- Navigation bar to top bar --------------------------  */
@@ -145,7 +211,6 @@ p,
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    height: 70px;
     transition: 0.4s ease-in-out;
   }
 
@@ -163,18 +228,30 @@ p,
 
   .sidenav a {
     padding: 8px auto;
-    font-size: 16px;
+    font-size: 20px;
   }
 }
 
+/* -------------------------- Narrow devices / slim mobile phones --------------------------  */
+
 @media (max-width: 450px) {
+  body {
+    background-color: var(--background-dark);
+    margin: 35px 0px auto;
+  }
+
   h1,
   .menu-small-device {
     font-size: 26px;
   }
 
-  h2 {
+  h2,
+  h3 {
     font-size: 18px;
+  }
+
+  h4 {
+    font-size: 14px;
   }
 
   p {
@@ -235,6 +312,5 @@ p,
 
   .close-btn-small {
     font-weight: 400;
-    color: yellowgreen;
   }
 }

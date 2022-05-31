@@ -20,11 +20,11 @@ function closeNavLarge() {
 
 function openNavSmall() {
   document.getElementById("mySidenav").style.width = "100%";
-  document.getElementById("mySidenav").style.height = "70px";
+  document.getElementById("mySidenav").style.height = "52px";
   document.getElementById("mySidenav").style.paddingLeft = "0";
   document.getElementById("mySidenav").style.paddingRight = "0";
   document.getElementById("mySidenav").style.paddingBottom = "0";
-  document.getElementById("mySidenav").style.paddingTop = "15px";
+  document.getElementById("mySidenav").style.paddingTop = "5px";
   document.getElementById("main").style.marginLeft = "0";
 }
 

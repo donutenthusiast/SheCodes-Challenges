@@ -40,57 +40,188 @@
     <title>Sylvia's Portfolio</title>
   </head>
   <body>
-    <div id="mySidenav" class="sidenav">
-      <span href="#" class="close-btn-large" onclick="closeNavLarge()"
-        ><i class="fa-solid fa-xmark"></i
-      ></span>
-      <a href="#">Home</a>
-      <a href="#">Portfolio</a>
-      <a href="#">Contact</a>
-      <a href="#"
-        ><span class="close-btn-small" onclick="closeNavSmall()"
-          ><span class="material-symbols-outlined"> close </span></span
-        ></a
-      >
-    </div>
-
-    <div class="container d-flex justify-contents-center">
-      <span class="menu-large-device" onclick="openNavLarge()">
-        <i class="fa-solid fa-bars"></i>
-      </span>
-    </div>
-
-    <span class="menu-narrow-device" onclick="openNavSmall()">
-      <i class="fa-solid fa-bars"></i>
-    </span>
-
-    <div id="main">
-      <div class="container d-flex justify-contents-between">
-        <div class="flex-fill">
-          <span class="menu-small-device" onclick="openNavSmall()">
-            <i class="fa-solid fa-bars"></i>
-          </span>
-        </div>
-        <div>
-          <div>
-            <h1 class="flex-fill">Sylvia's Portfolio</h1>
-          </div>
-        </div>
-        <div class="flex-fill"></div>
+    <div class="container main-body">
+      <div id="mySidenav" class="sidenav">
+        <span href="#" class="close-btn-large" onclick="closeNavLarge()"
+          ><i class="fa-solid fa-xmark"></i
+        ></span>
+        <a href="#">Home</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Contact</a>
+        <a href="#"
+          ><span class="close-btn-small" onclick="closeNavSmall()"
+            ><span class="material-symbols-outlined"> close </span></span
+          ></a
+        >
       </div>
 
-      <h2 class="text-center">A Front-End Dev based in Europe</h2>
+      <div class="container d-flex justify-contents-center">
+        <span class="menu-large-device" onclick="openNavLarge()">
+          <i class="fa-solid fa-bars"></i>
+        </span>
+      </div>
 
-      <p class="text-start p-2 placeholder-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </p>
+      <span class="menu-narrow-device" onclick="openNavSmall()">
+        <i class="fa-solid fa-bars"></i>
+      </span>
+
+      <div id="main">
+        <div class="container d-flex justify-contents-between">
+          <div class="flex-fill">
+            <span class="menu-small-device" onclick="openNavSmall()">
+              <i class="fa-solid fa-bars"></i>
+            </span>
+          </div>
+          <div>
+            <div>
+              <h1 class="flex-fill">Sylvia's Portfolio</h1>
+            </div>
+          </div>
+          <div class="flex-fill"></div>
+        </div>
+
+        <h2 class="text-center">A Front-End Dev based in Europe</h2>
+
+        <p class="text-start p-2 placeholder-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+
+        <h3 class="text-center">Tech Stack</h3>
+
+        <div class="row py-3">
+          <div class="col-sm-3">
+            <h4 class="text-center"><i class="fa-brands fa-html5"></i> HTML</h4>
+          </div>
+          <div class="col-sm-3">
+            <h4 class="text-center"><i class="fa-brands fa-css3"></i> CSS</h4>
+          </div>
+          <div class="col-sm-3">
+            <h4 class="text-center">
+              <i class="fa-brands fa-js"></i> JavaScript
+            </h4>
+          </div>
+          <div class="col-sm-3">
+            <h4 class="text-center">
+              <i class="fa-brands fa-react"></i> React
+            </h4>
+          </div>
+          <div class="col-sm-3">
+            <h4 class="text-center"></h4>
+          </div>
+          <div class="col-sm-3">
+            <h4 class="text-center">
+              <i class="fa-brands fa-figma"></i> Figma
+            </h4>
+          </div>
+          <div class="col-sm-3">
+            <h4 class="text-center"><i class="fa-solid fa-hashtag"></i> SEO</h4>
+          </div>
+          <div class="col-sm-3">
+            <h4 class="text-center"></h4>
+          </div>
+        </div>
+
+        <div class="row py-3">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8 image-background">
+            <div
+              id="carouselExampleInterval"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="project-previews">
+                  <div class="carousel-item active" data-bs-interval="10000">
+                    <img
+                      src="page-previews/weather-light.png"
+                      class="d-block w-100"
+                      alt="Weather App in Light Mode"
+                    />
+                  </div>
+                  <div class="carousel-item" data-bs-interval="5000">
+                    <img
+                      src="page-previews/weather-dark.png"
+                      class="d-block w-100"
+                      alt="Weather App in Dark Mode"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="page-previews/croissant.png"
+                      class="d-block w-100"
+                      alt="Croissant project"
+                    />
+                  </div>
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleInterval"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleInterval"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+        </div>
+        <hr />
+        <footer class="text-center">
+          <h3 mb-2>Contact</h3>
+
+          <div class="row">
+            <div class="col-sm-4">
+              <h4>
+                <a href="#" decription="Email me" title="Email me"
+                  ><i class="fa-solid fa-at"></i> Email</a
+                >
+              </h4>
+            </div>
+            <div class="col-sm-4">
+              <h4>
+                <a
+                  href="https://github.com/sylviaintech"
+                  target="_blank"
+                  title="Check out my GitHub"
+                  ><i class="fa-brands fa-github"></i> GitHub</a
+                >
+              </h4>
+            </div>
+            <div class="col-sm-4">
+              <h4>
+                <a href="#" target="_blank" title="Slide into my InMail"
+                  ><i class="fa-brands fa-linkedin"></i> LinkedIn</a
+                >
+              </h4>
+            </div>
+          </div>
+        </footer>
+      </div>
     </div>
+
     <script src="src/portfolio-main.js"></script>
   </body>
 </html>
