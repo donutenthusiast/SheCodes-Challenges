@@ -1,22 +1,172 @@
 :root {
-  --dark-background: #29282d;
-  --headings: #b65d6d;
-  --body: #d69db5;
+  --background-dark: #29282d;
+  --body-color: #d69db5;
+  --body-font: "Source Code Pro", monospace;
+  --headings-color: #b65d6d;
+  --headings-font: "Raleway", sans-serif;
+  --sidebar-color: #967080;
+  --sidebar-headings: #241f36;
+  --sidebar-headings-hover: #ffd0d8;
 }
 
 body {
-  background-color: var(--dark-background);
+  background-color: var(--background-dark);
   margin: 50px 20px;
+  max-width: 1000px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--headings-color);
+  font-family: var(--headings-font);
 }
 
 h1 {
-  color: var(--headings);
-  font-family: "Raleway", sans-serif;
   font-size: 46px;
 }
 
+p,
 .placeholder-text {
-  color: var(--body);
-  font-family: "Source Code Pro", monospace;
+  color: var(--body-color);
+  font-family: var(--body-font);
   font-size: 14px;
+}
+
+/* -------------------------- Navigation bar  --------------------------  */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: var(--sidebar-color);
+  overflow-x: hidden; /* Disable horizontal scroll */
+  overflow-y: hidden; /* Disable vertical scroll */
+  padding: 0px;
+  padding-top: 50px;
+  transition: 0.5s ease-in-out;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-family: var(--headings-font);
+  font-size: 25px;
+  color: var(--sidebar-headings);
+  display: block;
+  transition: 0.3s ease-in-out;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .close-btn-large {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.closeNavSmall {
+  display: none;
+}
+
+/* Pushing the page content to the right when opening side navigation */
+#main {
+  margin-left: 0px;
+  transition: 0.5s ease-in-out;
+  padding: 10px;
+}
+
+.menu-small-device {
+  display: none;
+}
+
+.menu-large-device {
+  display: block;
+}
+
+@media (max-width: 800px) {
+  /* -------------------------- Navigation bar to top bar --------------------------  */
+  .menu-large-device {
+    display: none;
+  }
+
+  .menu-small-device {
+    display: block;
+  }
+  .sidenav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 70px;
+    padding: 0;
+    transition: 0.5s ease-in-out;
+  }
+
+  #main {
+    margin-left: 0;
+  }
+
+  #main {
+    padding: 20px;
+  }
+
+  .close-btn-small {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-weight: 900;
+    font-size: 36px;
+    color: blue;
+  }
+
+  .close-btn-large {
+    display: none;
+  }
+
+  .sidebar a {
+    float: left;
+  }
+
+  .sidenav a {
+    padding: 8px auto;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  /* -------------------------- Navigation bar text size changes --------------------------  */
+  .sidenav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: fit-content;
+    padding: 0;
+    transition: 0.5s ease-in-out;
+  }
+
+  .sidenav a {
+    padding: 4px auto;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .menu-small-device {
+    display: inline;
+    color: yellow;
+  }
+
+  .close-btn-small {
+    font-weight: 400;
+    font-size: 26px;
+    color: yellowgreen;
+  }
 }

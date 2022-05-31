@@ -40,7 +40,38 @@
     <title>Sylvia's Portfolio</title>
   </head>
   <body>
-    <div class="container">
+    <div id="mySidenav" class="sidenav">
+      <span href="#" class="close-btn-large" onclick="closeNavLarge()"
+        >&times;</span
+      >
+      <a href="#">Homepage</a>
+      <a href="#">Portfolio</a>
+      <a href="#">Contact</a>
+      <a href="#"
+        ><span class="close-btn-small" onclick="closeNavSmall()"
+          >&times;</span
+        ></a
+      >
+    </div>
+
+    <div id="main">
+      <span class="container text-end">
+        <p>
+          <span class="menu-large-device" onclick="openNavLarge()"
+            >☰ open large</span
+          >
+        </p>
+        <p>
+          <span class="menu-small-device" onclick="openNavSmall()"
+            >☰ open small</span
+          >
+        </p>
+      </span>
+      <h4 class="text-center">
+        Hello world <i class="fa-solid fa-earth-africa"></i>
+        <i class="fa-brands fa-react"></i> This is my heading.
+      </h4>
+
       <h1 class="text-center">
         Hello world <i class="fa-solid fa-earth-africa"></i> This is my heading.
       </h1>
@@ -63,5 +94,6 @@
         mollit anim id est laborum.
       </p>
     </div>
+    <script src="src/portfolio-main.js"></script>
   </body>
 </html>
