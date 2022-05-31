@@ -20,13 +20,20 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.menu-large-device,
+.menu-small-device,
+.menu-narrow-device {
   color: var(--headings-color);
   font-family: var(--headings-font);
 }
 
-h1 {
+h1,
+.menu-large-device,
+.menu-small-device,
+.menu-narrow-device {
   font-size: 46px;
+  line-height: 1.2;
 }
 
 p,
@@ -37,6 +44,21 @@ p,
 }
 
 /* -------------------------- Navigation bar  --------------------------  */
+
+.menu-large-device {
+  position: fixed;
+  padding-left: 20px;
+}
+
+.menu-small-device,
+.menu-narrow-device {
+  display: none;
+}
+
+.close-btn-small {
+  display: none;
+}
+
 .sidenav {
   height: 100%;
   width: 0;
@@ -47,19 +69,21 @@ p,
   background-color: var(--sidebar-color);
   overflow-x: hidden; /* Disable horizontal scroll */
   overflow-y: hidden; /* Disable vertical scroll */
-  padding: 0px;
-  padding-top: 50px;
-  transition: 0.5s ease-in-out;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-top: 0;
+  transition: 0.4s ease-in-out;
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 32px;
+  padding: 8px 8px 32px 8px;
   text-decoration: none;
   font-family: var(--headings-font);
   font-size: 25px;
   color: var(--sidebar-headings);
   display: block;
-  transition: 0.3s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
 
 .sidenav a:hover {
@@ -71,44 +95,58 @@ p,
   top: 0;
   right: 25px;
   font-size: 36px;
-  margin-left: 50px;
-}
-
-.closeNavSmall {
-  display: none;
+  margin-left: 0;
 }
 
 /* Pushing the page content to the right when opening side navigation */
 #main {
   margin-left: 0px;
-  transition: 0.5s ease-in-out;
+  transition: 0.4s ease-in-out;
   padding: 10px;
 }
 
-.menu-small-device {
-  display: none;
-}
-
-.menu-large-device {
-  display: block;
-}
-
 @media (max-width: 800px) {
+  h1,
+  .menu-small-device {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
   /* -------------------------- Navigation bar to top bar --------------------------  */
-  .menu-large-device {
+  .menu-large-device,
+  .menu-narrow-device {
     display: none;
   }
 
   .menu-small-device {
-    display: block;
+    display: inline;
+    padding-left: 10px;
   }
+
+  .close-btn-large {
+    display: none;
+  }
+
+  .close-btn-small {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 36px;
+  }
+
   .sidenav {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     height: 70px;
-    padding: 0;
-    transition: 0.5s ease-in-out;
+    transition: 0.4s ease-in-out;
   }
 
   #main {
@@ -117,19 +155,6 @@ p,
 
   #main {
     padding: 20px;
-  }
-
-  .close-btn-small {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font-weight: 900;
-    font-size: 36px;
-    color: blue;
-  }
-
-  .close-btn-large {
-    display: none;
   }
 
   .sidebar a {
@@ -142,15 +167,28 @@ p,
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
+  h1,
+  .menu-small-device {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
   /* -------------------------- Navigation bar text size changes --------------------------  */
+
   .sidenav {
     display: flex;
     flex-direction: row;
     justify-content: center;
     height: fit-content;
-    padding: 0;
-    transition: 0.5s ease-in-out;
+    transition: 0.4s ease-in-out;
   }
 
   .sidenav a {
@@ -159,14 +197,44 @@ p,
     font-weight: 600;
   }
 
+  .close-btn-small {
+    font-weight: 400;
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 325px) {
+  h1,
+  .menu-narrow-device {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  /* -------------------------- Navigation bar text size changes --------------------------  */
+
   .menu-small-device {
-    display: inline;
-    color: yellow;
+    display: none;
+  }
+
+  .menu-narrow-device {
+    display: flex;
+    justify-content: center;
+  }
+
+  .sidenav a,
+  .close-btn-small {
+    font-size: 14px;
   }
 
   .close-btn-small {
     font-weight: 400;
-    font-size: 26px;
     color: yellowgreen;
   }
 }
