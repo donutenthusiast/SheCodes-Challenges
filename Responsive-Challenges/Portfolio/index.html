@@ -133,16 +133,16 @@
           </div>
         </div>
 
-        <div class="row py-3">
-          <div class="col-sm-2"></div>
-          <div class="col-sm-8 image-background">
-            <div
-              id="carouselExampleInterval"
-              class="carousel slide"
-              data-bs-ride="carousel"
-            >
-              <div class="carousel-inner">
-                <div class="project-previews">
+        <div class="container project-previews">
+          <div class="row py-3">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8 image-background">
+              <div
+                id="carouselExampleInterval"
+                class="carousel slide"
+                data-bs-ride="carousel"
+              >
+                <div class="carousel-inner">
                   <div class="carousel-item active" data-bs-interval="10000">
                     <img
                       src="page-previews/weather-light.png"
@@ -165,36 +165,38 @@
                     />
                   </div>
                 </div>
+                <button
+                  class="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#carouselExampleInterval"
+                  data-bs-slide="prev"
+                >
+                  <span
+                    class="carousel-control-prev-icon"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button
+                  class="carousel-control-next"
+                  type="button"
+                  data-bs-target="#carouselExampleInterval"
+                  data-bs-slide="next"
+                >
+                  <span
+                    class="carousel-control-next-icon"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
               </div>
-              <button
-                class="carousel-control-prev"
-                type="button"
-                data-bs-target="#carouselExampleInterval"
-                data-bs-slide="prev"
-              >
-                <span
-                  class="carousel-control-prev-icon"
-                  aria-hidden="true"
-                ></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button
-                class="carousel-control-next"
-                type="button"
-                data-bs-target="#carouselExampleInterval"
-                data-bs-slide="next"
-              >
-                <span
-                  class="carousel-control-next-icon"
-                  aria-hidden="true"
-                ></span>
-                <span class="visually-hidden">Next</span>
-              </button>
+              <div class="col-sm-2"></div>
             </div>
-            <div class="col-sm-2"></div>
           </div>
         </div>
+
         <hr />
+        
         <footer class="text-center">
           <h3 mb-2>Contact</h3>
 
