@@ -71,6 +71,7 @@ hr {
   border: 1px solid;
   border-color: var(--footer-color);
 }
+
 footer {
   width: 100%;
   padding: 10px 20px 10px 20px;
@@ -130,8 +131,13 @@ p,
   transition: 0.4s ease-in-out;
 }
 
-.sidenav a:hover {
+.sidenav a:hover,
+.active-page-nav {
   color: #f1f1f1;
+}
+
+.active-page-nav {
+  font-weight: 600;
 }
 
 .sidenav .close-btn-large {
