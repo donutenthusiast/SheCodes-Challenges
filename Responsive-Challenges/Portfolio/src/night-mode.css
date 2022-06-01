@@ -10,6 +10,7 @@
   --contact-links-hover: #ca8f99;
   --footer-color: #b65d6d57;
   --img-box-shdw: 0px 20px 30px 20px #b65d6d18;
+  --img-box-shdw-sml: 0px 10px 15px 10px #b65d6d18;
 }
 
 body {
@@ -53,7 +54,7 @@ h3 {
 }
 
 h4 {
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.5;
 }
 
@@ -73,6 +74,7 @@ hr {
   border: 1px solid;
   border-color: var(--footer-color);
 }
+
 footer {
   width: 100%;
   padding: 10px 20px 10px 20px;
@@ -85,15 +87,29 @@ p,
   font-size: 14px;
 }
 
+.image-descriptors-reverse {
+  text-align: end;
+}
+
 .project-previews {
   max-width: 800px;
 }
 
-.image-background {
+img {
+  border-radius: 10px;
+}
+
+.image-background-main {
   border-radius: 10px;
   opacity: 80%;
   box-shadow: var(--img-box-shdw);
   margin-bottom: 50px;
+  padding: 0;
+}
+
+.image-background-small {
+  box-shadow: var(--img-box-shdw-sml);
+  margin-bottom: 20px;
   padding: 0;
 }
 
@@ -109,6 +125,7 @@ p,
 
 .try-app-btn:hover {
   background-color: var(--background-dark);
+  color: var(--headings-buttons-color);
   text-decoration: none;
 }
 
@@ -116,6 +133,10 @@ p,
   display: block;
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+.tech-stack {
+  text-align: start;
 }
 
 /* -------------------------- Navigation bar  --------------------------  */
@@ -183,7 +204,7 @@ p,
   padding: 10px;
 }
 
-/* -------------------------- Smaller tablets - large mobile phones --------------------------  */
+/* -------------------------- Smaller tablets to XL mobile phones --------------------------  */
 
 @media (max-width: 800px) {
   body {
@@ -205,7 +226,11 @@ p,
   }
 
   h4 {
-    font-size: 20px;
+    font-size: 18px;
+  }
+
+  .tech-stack {
+    text-align: center;
   }
 
   /* -------------------------- Navigation bar to top bar --------------------------  */
@@ -225,9 +250,13 @@ p,
 
   .close-btn-small {
     display: flex;
+  }
+
+  .close-btn-small span {
     flex-direction: row;
     justify-content: space-around;
-    font-size: 36px;
+    font-size: 30px;
+    line-height: -0.1;
   }
 
   .sidenav {
@@ -250,12 +279,32 @@ p,
   }
 
   .sidenav a {
-    padding: 8px auto;
+    padding: 8px;
     font-size: 20px;
   }
 }
 
-/* -------------------------- Narrow devices / slim mobile phones --------------------------  */
+/* -------------------------- Bootstrap SM Breakpoint --------------------------  */
+
+@media (max-width: 576px) {
+  .image-descriptors,
+  .image-descriptors-reverse {
+    text-align: center;
+  }
+
+  .btns-outer-margin {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+  }
+
+  .reverse-order {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+/* -------------------------- Narrow devices / large mobile phones --------------------------  */
 
 @media (max-width: 450px) {
   body {
@@ -274,11 +323,12 @@ p,
   }
 
   h4 {
-    font-size: 14px;
+    font-size: 15px;
   }
 
-  p {
-    font-size: 10px;
+  p,
+  .placeholder-text {
+    font-size: 13px;
   }
 
   /* -------------------------- Navigation bar text size changes --------------------------  */
@@ -292,7 +342,7 @@ p,
   }
 
   .sidenav a {
-    padding: 4px auto;
+    padding: 4px;
     font-size: 18px;
     font-weight: 600;
   }
@@ -302,6 +352,8 @@ p,
     font-size: 26px;
   }
 }
+
+/* -------------------------- Narrow devices / medium mobile phones --------------------------  */
 
 @media (max-width: 325px) {
   h1,
@@ -335,5 +387,18 @@ p,
 
   .close-btn-small {
     font-weight: 400;
+  }
+
+  .close-btn-small span {
+    font-size: 20px;
+  }
+}
+
+/* -------------------------- Galaxy Fold main screen and even narrower devices --------------------------  */
+
+@media (max-width: 300px) {
+  img,
+  .project-previews {
+    display: none;
   }
 }
