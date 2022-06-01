@@ -2,14 +2,14 @@
   --background-dark: #29282d;
   --body-color: #d69db5;
   --body-font: "Source Code Pro", monospace;
-  --headings-color: #b65d6d;
+  --headings-buttons-color: #b65d6d;
   --headings-font: "Raleway", sans-serif;
   --sidebar-color: #967080;
   --sidebar-headings: #241f36;
   --sidebar-headings-hover: #ffd0d8;
   --contact-links-hover: #ca8f99;
   --footer-color: #b65d6d57;
-  --img-box-shdw: 1px 2px 20px 1px #b65d6d18;
+  --img-box-shdw: 0px 20px 30px 20px #b65d6d18;
 }
 
 body {
@@ -30,7 +30,7 @@ h6,
 .menu-large-device,
 .menu-small-device,
 .menu-narrow-device {
-  color: var(--headings-color);
+  color: var(--headings-buttons-color);
   font-family: var(--headings-font);
 }
 
@@ -57,11 +57,13 @@ h4 {
   line-height: 1.5;
 }
 
+a,
 h4 a {
-  color: var(--headings-color);
+  color: var(--headings-buttons-color);
   text-decoration: none;
 }
 
+a:hover,
 h4 a:hover {
   color: var(--sidebar-headings-hover);
   text-decoration: none;
@@ -71,7 +73,6 @@ hr {
   border: 1px solid;
   border-color: var(--footer-color);
 }
-
 footer {
   width: 100%;
   padding: 10px 20px 10px 20px;
@@ -86,6 +87,35 @@ p,
 
 .project-previews {
   max-width: 800px;
+}
+
+.image-background {
+  border-radius: 10px;
+  opacity: 80%;
+  box-shadow: var(--img-box-shdw);
+  margin-bottom: 50px;
+  padding: 0;
+}
+
+.try-app-btn {
+  background-color: var(--headings-buttons-color);
+  color: var(--background-dark);
+  border: 1px solid;
+  border-radius: 4px;
+  border-color: var(--headings-buttons-color);
+  padding: 10px 5px 10px 5px;
+  margin-top: 15px;
+}
+
+.try-app-btn:hover {
+  background-color: var(--background-dark);
+  text-decoration: none;
+}
+
+.btns-outer-margin {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 /* -------------------------- Navigation bar  --------------------------  */
@@ -130,8 +160,7 @@ p,
   transition: 0.4s ease-in-out;
 }
 
-.sidenav a:hover,
-.active-page-nav {
+.sidenav a:hover {
   color: #f1f1f1;
 }
 
@@ -152,16 +181,6 @@ p,
   margin-left: 0px;
   transition: 0.4s ease-in-out;
   padding: 10px;
-}
-.project-previews {
-  max-width: 450px !;
-}
-
-.image-background {
-  border-radius: 10px;
-  opacity: 80%;
-  box-shadow: var(--img-box-shdw);
-  margin-bottom: 50px;
 }
 
 /* -------------------------- Smaller tablets - large mobile phones --------------------------  */
@@ -259,7 +278,7 @@ p,
   }
 
   p {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   /* -------------------------- Navigation bar text size changes --------------------------  */
