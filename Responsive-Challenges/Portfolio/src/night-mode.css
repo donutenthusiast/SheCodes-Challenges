@@ -302,6 +302,10 @@ img {
     display: flex;
     flex-direction: column-reverse;
   }
+
+  .try-app-btn {
+    margin-top: 0;
+  }
 }
 
 /* -------------------------- Narrow devices / large mobile phones --------------------------  */
