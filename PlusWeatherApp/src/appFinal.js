@@ -236,10 +236,9 @@ function showForecast(response) {
       let dayAfterMaxTemp = dayAfter.temp.max;
       let dayAfterWindSpeed = dayAfter.wind_speed;
       return (afterTomorrowInJS.innerHTML += `
-      <div class="col-12">
-            <div class="card3Small" class="card h-200">
+            <div class="card card3Small">
               <div class="row">
-                <div class="col-2" id="card3-col-2">
+                <div class="col-sm-2" id="card3">
                   <h5 class="c3DateTitle">${forecastDayToLocal(
                     dayAfter.dt
                   )}</h5>
@@ -248,13 +247,13 @@ function showForecast(response) {
                   ).getDate()}</h5>
                 </div>
 
-                <div class="col-2">
+                <div class="col-sm-2">
                   <h5 id="c3-temp">${Math.round(
                     dayAfterAvTemp
                   )}<span class="unitTemp">°C</span></h5>
                 </div>
 
-                <div class="col-1" class="c3WindWeatherCol">
+                <div class="col-sm-1" class="c3WindWeatherCol">
                   <h3 class="c3EmojiWeather">
                     <img
                       class="c3EmojiWeatherSrc"
@@ -265,7 +264,7 @@ function showForecast(response) {
                   <p class="c3Descp"><em>${dayAfter.weather[0].main}</em></p>
                 </div>
 
-                <div class="col-2">
+                <div class="col-sm-2">
                   <h3 class="c3EmojiWind"
                       ><i class="fa-solid fa-wind"></i
                     ></h3>
@@ -278,14 +277,14 @@ function showForecast(response) {
                     >
                 </div>
 
-                <div class="col-1" class="c3HighLowCol">
+                <div class="col-sm-1" class="c3HighLowCol">
                   <div class="row">
                     <p class="c3ListHighSunup">High:</p>
                     <p class="c3ListHighSunup">Low:</p>
                   </div>
                 </div>
 
-                <div class="col-1" class="c3HighLowCol">
+                <div class="col-sm-1" class="c3HighLowCol">
                 <div class="row">
                   <p class="c3ListTempTime" id="c3-high-temp">${Math.round(
                     dayAfterMaxTemp
@@ -296,7 +295,7 @@ function showForecast(response) {
                 </div>
               </div>
 
-              <div class="col-1" class="c3SunCol">
+              <div class="col-sm-1" class="c3SunCol">
                 <div class="row">
                   <p class="c3ListHighSunup">
                     <i class="fa-solid fa-sun"></i
@@ -309,7 +308,7 @@ function showForecast(response) {
                 </div>
               </div>
 
-              <div class="col-1" class="c3SunCol">
+              <div class="col-sm-1" class="c3SunCol">
                 <div class="row">
                   <p class="c3ListTempTime" class="c3SunUp">${timeToLocal(
                     dayAfter.sunrise
@@ -321,8 +320,7 @@ function showForecast(response) {
               </div>
 
             </div>
-          </div>
-        </div>`);
+          </div>`);
       //Final closing div for the forecast columns is in HTML index file after the last span
     }
   });
