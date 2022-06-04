@@ -32,96 +32,100 @@
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    <link rel="stylesheet" href="src\stylingFinal.css" title="DayModeCSS"/>
+    <link rel="stylesheet" href="src\stylingFinal.css" title="DayModeCSS" />
 
-    <link rel="night stylesheet" href="src\stylingNightMode.css" title="NightModeCSS"/>
+    <link
+      rel="night stylesheet"
+      href="src\stylingNightMode.css"
+      title="NightModeCSS"
+    />
   </head>
 
   <body>
     <div class="container">
-      <div class="row row-cols-3">
-        <div class="col-2">
-        </div>
+      <div class="row">
+        <div class="col-2"></div>
         <div class="col-8">
-            <h1 id="page-title">Weather Forecast</h1>
+          <h1 id="page-title">Weather Forecast</h1>
         </div>
         <div class="col-2">
-            <button id="night-mode">
-              <span class="material-icons">
-              dark_mode
-              </span>
-            </button>
-            <button id="day-mode">
-              <span class="material-icons">
-              wb_sunny
-              </span>
-            </button>
-        </div>
-      </div>
-
-      <div class="col-sm-12">
-        <form id="search-form">
-          <input type="text" placeholder="Enter the name of a city" id="search-input" />
-          <button type="submit" class="btn btn-secondary" id="search-btn">
-            Search
+          <button id="night-mode">
+            <span class="material-icons"> dark_mode </span>
           </button>
-        </form>
-
-        <div class="col-12" id="inline-btns">
-          <button class="btn btn-secondary" type="button" id="auto-locate-btn"><div id="search-error"></div>
-            <i class="fa-solid fa-location-crosshairs"></i> Locate Me
+          <button id="day-mode">
+            <span class="material-icons"> wb_sunny </span>
           </button>
         </div>
-        
       </div>
+      <!--React component-->
 
-      <div class="row row-cols-2">
+      <div class="row">
+        <div class="col-1" id="inline-btns"></div>
+        <div class="col-11">
+          <form id="search-form">
+            <input
+              type="text"
+              placeholder="Enter the name of a city"
+              id="search-input"
+            />
+            <button type="submit" class="btn btn-secondary" id="search-btn">
+              Search
+            </button>
+            <button
+              class="btn btn-secondary"
+              type="button"
+              id="auto-locate-btn"
+            >
+              <div id="search-error"></div>
+              <i class="fa-solid fa-location-crosshairs"></i> Locate Me
+            </button>
+          </form>
+        </div>
+      </div>
+      <!--React component-->
 
-        <div class="col-sm-6">
+      <div class="row">
+        <div class="col-6">
           <div class="card h-200" id="card-large">
-            <span><img
-                      id="background-image"
-                      src="https://openweathermap.org/img/wn/01n@2x.png"
-                    /></span>
-            <div class="card-body">
+            <span
+              ><img
+                id="background-image"
+                src="https://openweathermap.org/img/wn/01n@2x.png"
+            /></span>
+            <div class="row card-body">
+              <!--City and country-->
               <div class="col-12">
                 <div class="row align-items-start">
-                  <div class="col-10"><h1 id="c1-city">London</h1></div>
-                  <div class="col-2"><h2 id="c1-country">GB</h2></div>
+                  <div class="col-sm-10"><h1 id="c1-city">London</h1></div>
+                  <div class="col-sm-2"><h2 id="c1-country">GB</h2></div>
                 </div>
               </div>
+              <!--City and country-->
 
+              <!--Current date and time-->
               <div class="col-12">
-                <div class="row align-items-start">
-                  <div class="col-4"><h3 id="c1-day">Today</h3></div>
-                  <div class="col-4"><h3 id="c1-date"></h3></div>
-                  <div class="col-4"><h3 id="c1-time"></h3></div>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <h3 id="c1-day">Today</h3>
+                  </div>
+                  <div class="col-sm-4">
+                    <h3 id="c1-date"></h3>
+                  </div>
+                  <div class="col-sm-4">
+                    <h3 id="c1-time"></h3>
+                  </div>
                 </div>
               </div>
+              <!--Current date and time-->
 
+              <!--Current temp, conditions and wind-->
               <div class="col-12">
-                <div class="row align-items-start">
-                  <div class="col-4">
+                <div class="row">
+                  <div class="col-sm-4">
                     <h4 id="c1-temp">
                       <span id="c1-temp-num" class="tempNum"></span
                       ><span class="unitTemp">°C</span>
                     </h4>
-                  </div>
-                  <div class="col-4" id="c1-emoji-weather">
-                    <img
-                      id="c1-emoji-weather-src"
-                      src="https://openweathermap.org/img/wn/01n@2x.png"
-                    />
-                  </div>
-                  <div class="col-4">
-                    <h4 id="c1-emoji-wind"><i class="fa-solid fa-wind"></i></h4>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-12">
-                <div class="row align-items-start">
-                  <div class="col-4">
                     <p id="c1-feels">
                       <em
                         >Feels like <span class="tempNum" id="feel-temp"></span
@@ -129,10 +133,16 @@
                       >
                     </p>
                   </div>
-                  <div class="col-4">
+                  <div class="col-sm-4">
+                    <span id="c1-emoji-weather"
+                      ><img
+                        id="c1-emoji-weather-src"
+                        src="https://openweathermap.org/img/wn/01n@2x.png"
+                    /></span>
                     <p id="c1-descp"><em></em></p>
                   </div>
-                  <div class="col-4">
+                  <div class="col-sm-4">
+                    <h4 id="c1-emoji-wind"><i class="fa-solid fa-wind"></i></h4>
                     <p id="c1-wind">
                       <em
                         ><span id="c1-wind-num"></span
@@ -142,59 +152,62 @@
                   </div>
                 </div>
               </div>
-              <div class="row row-cols-2">
-                <div class="col-6">
-                  <div class="row allign-items-start"></div>
+              <!--Current temp, conditions and wind-->
 
-                  <div class="row">
-                    <div class="col-6"><p class="c1HighTop">High:</p></div>
-                    <div class="col-6">
-                      <p class="c1HighTop">
-                        <span id="c1-high-temp"></span
-                        ><span class="unitTemp">°C</span>
-                      </p>
-                    </div>
+              <!--Temp highs and lows-->
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-3">
+                    <p class="c1HighTop">High:</p>
                   </div>
-                  <div class="row">
-                    <div class="col-6"><p class="c1LowBttm">Low:</p></div>
-                    <div class="col-6">
-                      <p class="c1LowBttm">
-                        <span id="c1-low-temp"></span
-                        ><span class="unitTemp">°C</span>
-                      </p>
-                    </div>
+                  <div class="col-3">
+                    <p class="c1HighTop">
+                      <span id="c1-high-temp"></span>
+                      <span class="unitTemp">°C</span>
+                    </p>
+                  </div>
+                  <div class="col-3"><p class="c1LowBttm">Low:</p></div>
+                  <div class="col-3">
+                    <p class="c1LowBttm">
+                      <span id="c1-low-temp"></span
+                      ><span class="unitTemp">°C</span>
+                    </p>
                   </div>
                 </div>
-                <div class="col-6">
-                  <div class="row">
-                    <div class="col-6">
-                      <p class="c1HighTop">
-                        <i class="fa-solid fa-sun"></i
-                        ><i class="fa-solid fa-arrow-up"></i>:
-                      </p>
-                    </div>
-                    <div class="col-6">
-                      <p class="c1HighTop" id="c1-sun-up"></p>
-                    </div>
+              </div>
+              <!--Temp highs and lows-->
+
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-3">
+                    <p class="c1HighTop">
+                      <i class="fa-solid fa-sun"></i
+                      ><i class="fa-solid fa-arrow-up"></i>:
+                    </p>
                   </div>
-                  <div class="row">
-                    <div class="col-6">
-                      <p class="c1LowBttm">
-                        <i class="fa-solid fa-sun"></i
-                        ><i class="fa-solid fa-arrow-down"></i>:
-                      </p>
-                    </div>
-                    <div class="col-6">
-                      <p class="c1LowBttm" id="c1-sun-down"></p>
-                    </div>
+
+                  <div class="col-3">
+                    <p class="c1HighTop" id="c1-sun-up"></p>
+                  </div>
+
+                  <div class="col-3">
+                    <p class="c1LowBttm">
+                      <i class="fa-solid fa-sun"></i
+                      ><i class="fa-solid fa-arrow-down"></i>:
+                    </p>
+                  </div>
+
+                  <div class="col-3">
+                    <p class="c1LowBttm" id="c1-sun-down"></p>
                   </div>
                 </div>
               </div>
             </div>
+            <!--Sunrise/sunset-->
           </div>
         </div>
 
-        <div class="col-sm-6">
+        <div class="col-6">
           <div class="card h-200" id="card2">
             <div id="card2-body">
               <div class="row align-items-start">
@@ -270,23 +283,25 @@
             </div>
           </div>
 
-      <span id="afterTomorrowInJS"></span></div>
+          <span id="afterTomorrowInJS"></span>
+        </div>
 
-      <div class="col-12">
-        <footer>
-          <strong
-            ><a
-              id="foot-link"
-              target="_blank"
-              href="https://github.com/sylviaintech/SheCodes-Challenges"
-              >Open source code</a
-            ></strong
-          >
-          by Sylvia G
-        </footer>
+        <div class="col-12">
+          <footer>
+            <strong
+              ><a
+                id="foot-link"
+                target="_blank"
+                href="https://github.com/sylviaintech/SheCodes-Challenges"
+                >Open source code</a
+              ></strong
+            >
+            by Sylvia G
+          </footer>
+        </div>
       </div>
     </div>
-    
+
     <script src="src/appFinal.js"></script>
   </body>
 </html>
