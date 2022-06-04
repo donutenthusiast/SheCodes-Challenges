@@ -1,6 +1,20 @@
+:root {
+  --backgound-color-dy: rgba(40, 50, 70, 0.471);
+  --font-main-heads: "Lato", sans-serif;
+  --font-body: "Nunito Sans", sans-serif;
+  --font-color-dy: rgb(40, 50, 70);
+  --font-color-hov-dy: rgb(207, 209, 215);
+  --card-bck-dy: rgb(210, 210, 210, 0.6);
+  --card-bdr-dy: rgb(40, 50, 70, 0.1);
+  --card-hov-dy: rgba(55, 74, 109, 0.233);
+  --card-hov-bdr-dy: rgb(98, 103, 113, 0.4);
+  --dropdown-dy: rgb(210, 210, 210);
+  --dropdown-shdw-dy: 0px 16px 10px 0px rgba(55, 74, 109, 60%);
+}
+
 body {
-  color: rgb(40, 50, 70);
-  background-color: rgba(40, 50, 70, 0.471);
+  color: var(--font-color-dy);
+  background-color: var(--backgound-color-dy);
 }
 
 .container {
@@ -16,35 +30,34 @@ img#background-image {
 }
 
 h1#page-title {
-  font-family: "Lato", sans-serif;
+  font-family: var(--font-main-heads);
   text-align: center;
   font-size: 36px;
   font-weight: 400;
   padding: 10px;
 }
 
+button#day-mode,
 button#night-mode {
   display: inline-block;
-  color: rgb(40, 50, 70);
-  background-color: rgba(55, 74, 109, 0.233);
   border: none;
-  border-radius: 20px;
+  border-radius: 50%;
   margin-top: 15px;
-  margin-left: 50px;
+  padding: 5px 8px;
 }
 
 button#day-mode {
-  display: inline-block;
-  background-color: rgba(55, 74, 109, 0.233);
-  color: rgba(55, 74, 109, 0.233);
-  border: none;
-  border-radius: 20px;
-  margin-top: 15px;
-  margin-right: -45px;
+  background-color: var(--card-hov-dy);
+  color: var(--card-hov-dy);
+}
+
+button#night-mode {
+  color: var(--font-color-dy);
+  background-color: var(--card-hov-dy);
 }
 
 .material-icons {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 #search-error {
@@ -56,13 +69,13 @@ button#day-mode {
   position: absolute;
   border-color: none;
   border-radius: 5px;
-  background-color: rgb(210, 210, 210);
+  background-color: var(--dropdown-dy);
   max-width: 220px;
-  box-shadow: 0px 16px 10px 0px rgba(55, 74, 109, 60%);
+  box-shadow: var(--dropdown-shdw-dy);
   padding: 12px 20px;
   z-index: 1;
   font-size: 12px;
-  font-family: "Lato", sans-serif;
+  font-family: var(--font-main-heads);
   text-align: center;
   margin-left: -100px;
   margin-top: -15px;
@@ -77,7 +90,7 @@ form {
 }
 
 footer {
-  font-family: "Lato", sans-serif;
+  font-family: var(--font-main-heads);
   font-size: 12px;
   padding-top: 15px;
   text-decoration: none;
@@ -93,9 +106,9 @@ footer {
 }
 
 #card-large {
-  background-color: rgb(210, 210, 210, 0.6);
+  background-color: var(--card-bck-dy);
   border-width: 2px;
-  border-color: rgb(40, 50, 70, 0.1);
+  border-color: var(--card-bdr-dy);
   margin: 0;
   padding-top: 10px;
   padding-bottom: 0px;
@@ -103,10 +116,10 @@ footer {
 }
 
 #card2 {
-  background-color: rgb(210, 210, 210, 0.6);
+  background-color: var(--card-bck-dy);
   border-width: 2px;
-  border-color: rgb(40, 50, 70, 0.1);
-  font-family: "Nunito Sans", sans-serif;
+  border-color: var(--card-bdr-dy);
+  font-family: var(--font-body);
   font-size: 10px;
   margin-left: 1px;
   margin-right: 1px;
@@ -116,17 +129,19 @@ footer {
 }
 
 #card2-body {
-  margin-top: 3px;
-  margin-bottom: 3px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .card3Small {
-  background-color: rgb(210, 210, 210, 0.6);
+  background-color: var(--card-bck-dy);
   border-width: 2px;
-  border-color: rgb(40, 50, 70, 0.1);
+  border-color: var(--card-bdr-dy);
   border-style: solid;
   border-radius: 5px;
-  margin-top: 8px;
+  margin-top: 5px;
   padding: 0;
   height: auto;
   transition: all 0.2s ease-in-out;
@@ -135,14 +150,14 @@ footer {
 #card-large:hover,
 #card2:hover,
 .card3Small:hover {
-  background-color: rgba(55, 74, 109, 0.233);
-  border-color: rgb(98, 103, 113, 0.4);
-  color: rgb(207, 209, 215);
+  background-color: var(--card-hov-dy);
+  border-color: var(--card-hov-bdr-dy);
+  color: var(--font-color-hov-dy);
   cursor: crosshair;
 }
 
 #c1-city {
-  font-family: "Lato", sans-serif;
+  font-family: var(--font-main-heads);
   text-align: left;
   font-size: 40px;
   font-weight: 600;
@@ -155,14 +170,16 @@ footer {
 }
 
 #c1-country {
-  font-family: "Lato", sans-serif;
+  font-family: var(--font-main-heads);
   font-weight: 600;
-  text-align: left;
-  font-size: 28px;
-  line-height: 40px;
-  margin-left: -5px;
-  padding-top: 22px;
-  padding-bottom: 38px;
+  font-size: 24px;
+  vertical-align: super;
+}
+
+.c1-country-outer {
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
 }
 
 #c1-day,
@@ -251,7 +268,12 @@ footer {
 #c1-emoji-weather,
 #c2-emoji,
 .c2Temp {
-  font-size: 31px;
+  font-size: 35px;
+}
+
+#c1-emoji-weather-src {
+  margin-top: -20px;
+  margin-bottom: -16px;
 }
 
 #c1-temp,
@@ -259,10 +281,15 @@ footer {
   font-size: 42px;
 }
 
-#c1-emoji-weather {
-  vertical-align: middle;
-  position: relative;
-  margin-top: -22px;
+#c1-emoji-wind {
+  margin-bottom: 6px;
+}
+
+.c1DateRow,
+.c1ConditionsRow,
+.c1HighLowsRow,
+.c1SunriseSunsetRow {
+  padding-top: 20px;
 }
 
 #c2-emoji-weather {
@@ -274,6 +301,8 @@ footer {
 
 #c2-emoji-weather-src {
   width: 80px;
+  margin-top: -15px;
+  margin-bottom: -20px;
 }
 
 #c2-emoji-wind {
@@ -289,8 +318,7 @@ footer {
 }
 
 #c2-wind-col {
-  position: relative;
-  margin-left: -28px;
+  margin-right: -15px;
 }
 
 #c1-feels,
@@ -298,9 +326,8 @@ footer {
 #c1-wind,
 #c2-wind,
 #c2-descp {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: var(--font-body);
   font-style: italic;
-  padding: 0 auto;
   margin: 0;
   text-align: center;
 }
@@ -315,7 +342,6 @@ footer {
 #c2-descp {
   font-size: 11.1px;
   margin-top: 6px;
-  margin-left: -12px;
 }
 
 #c2-title1,
@@ -338,8 +364,8 @@ footer {
 }
 
 #search-btn {
-  background-color: rgba(55, 74, 109, 0.233);
-  color: rgb(40, 50, 70);
+  background-color: var(--card-hov-dy);
+  color: var(--font-color-dy);
   border: none;
   font-size: 14px;
 }
@@ -352,9 +378,9 @@ footer {
 #auto-locate-btn {
   display: inline-block;
   border: none;
-  background-color: rgba(55, 74, 109, 0.233);
-  color: rgb(40, 50, 70);
-  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--card-hov-dy);
+  color: var(--font-color-dy);
+  font-family: var(--font-body);
   font-size: 14px;
   font-weight: 400;
   margin: 10px auto;
@@ -371,16 +397,20 @@ footer {
   text-align: center;
 }
 
-.c1HighTop,
-.c1LowBttm {
-  font-family: "Nunito Sans", sans-serif;
+.c2Temp {
+  margin-top: 15px;
+}
+
+.c1HighsLows,
+.c1SunriseSunset {
+  font-family: var(--font-body);
   text-align: center;
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 0;
 }
 
-.c1HighTop {
+.c1HighsLows {
   padding-top: 20px;
 }
 
@@ -393,7 +423,7 @@ footer {
 .c2List {
   font-size: 13px;
   line-height: 16px;
-  padding: 0;
+  padding: 0 0 5px 0;
   margin: 0;
   text-align: left;
 }
@@ -459,7 +489,31 @@ footer {
   font-weight: 400;
   padding: 0;
   margin-left: -26px;
-  margin-top: 25px;
+  margin-top: 30px;
   line-height: 26px;
   align-items: center;
+}
+
+.search-location {
+  margin: 0 0 15px 0;
+}
+
+@media (max-width: 885px) {
+  img#background-image {
+    width: 175px;
+    margin-bottom: -175px;
+    margin-top: -85px;
+    opacity: 15%;
+    margin-left: 215px;
+  }
+
+  body {
+    font-size: x-small;
+  }
+}
+
+@media (max-width: 768px) {
+  img#background-image {
+    display: none;
+  }
 }

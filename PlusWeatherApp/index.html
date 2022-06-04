@@ -48,7 +48,7 @@
         <div class="col-8">
           <h1 id="page-title">Weather Forecast</h1>
         </div>
-        <div class="col-2">
+        <div class="col-2 text-end">
           <button id="night-mode">
             <span class="material-icons"> dark_mode </span>
           </button>
@@ -59,7 +59,7 @@
       </div>
       <!--React component-->
 
-      <div class="row">
+      <div class="row search-location">
         <div class="col-1" id="inline-btns"></div>
         <div class="col-11">
           <form id="search-form">
@@ -88,7 +88,8 @@
       <div class="row">
         <div class="col-md-6">
           <div class="card" id="card-large">
-            <span
+            <span class="col-8"></span>
+            <span class="col-4"
               ><img
                 id="background-image"
                 src="https://openweathermap.org/img/wn/01n@2x.png"
@@ -97,36 +98,36 @@
               <!--City and country-->
               <div class="col-12">
                 <div class="row align-items-start">
-                  <div class="col-sm-10"><h1 id="c1-city">London</h1></div>
-                  <div class="col-sm-2"><h2 id="c1-country">GB</h2></div>
+                  <div class="col-sm-11"><span id="c1-city">London</span></div>
+                  <div class="col-sm-1 c1-country-outer"><span id="c1-country">GB</span></div>
                 </div>
               </div>
               <!--City and country-->
 
               <!--Current date and time-->
-              <div class="col-12">
+              <div class="col-12 c1DateRow">
                 <div class="row">
-                  <div class="col-sm-4">
-                    <h3 id="c1-day">Today</h3>
+                  <div class="col-4">
+                    <span id="c1-day">Today</span>
                   </div>
-                  <div class="col-sm-4">
-                    <h3 id="c1-date"></h3>
+                  <div class="col-4">
+                    <span id="c1-date"></span>
                   </div>
-                  <div class="col-sm-4">
-                    <h3 id="c1-time"></h3>
+                  <div class="col-4">
+                    <span id="c1-time"></span>
                   </div>
                 </div>
               </div>
               <!--Current date and time-->
 
               <!--Current temp, conditions and wind-->
-              <div class="col-12">
+              <div class="col-12 c1ConditionsRow">
                 <div class="row">
-                  <div class="col-sm-4">
-                    <h4 id="c1-temp">
+                  <div class="col-sm-4 text-center">
+                    <span id="c1-temp">
                       <span id="c1-temp-num" class="tempNum"></span
                       ><span class="unitTemp">°C</span>
-                    </h4>
+                    </span>
                     <p id="c1-feels">
                       <em
                         >Feels like <span class="tempNum" id="feel-temp"></span
@@ -134,16 +135,15 @@
                       >
                     </p>
                   </div>
-                  <div class="col-sm-4">
-                    <span id="c1-emoji-weather"
-                      ><img
-                        id="c1-emoji-weather-src"
-                        src="https://openweathermap.org/img/wn/01n@2x.png"
-                    /></span>
+                  <div class="col-sm-4 text-center">
+                    <img
+                      id="c1-emoji-weather-src"
+                      src="https://openweathermap.org/img/wn/01n@2x.png"
+                    />
                     <p id="c1-descp"><em></em></p>
                   </div>
-                  <div class="col-sm-4">
-                    <h4 id="c1-emoji-wind"><i class="fa-solid fa-wind"></i></h4>
+                  <div class="col-sm-4 text-center">
+                    <span id="c1-emoji-wind"><i class="fa-solid fa-wind"></i></span>
                     <p id="c1-wind">
                       <em
                         ><span id="c1-wind-num"></span
@@ -156,20 +156,20 @@
               <!--Current temp, conditions and wind-->
 
               <!--Temp highs and lows-->
-              <div class="col-12">
+              <div class="col-12 c1HighLowsRow">
                 <div class="row">
                   <div class="col-3">
-                    <p class="c1HighTop">High:</p>
+                    <p class="c1HighsLows">High:</p>
                   </div>
                   <div class="col-3">
-                    <p class="c1HighTop">
+                    <p class="c1HighsLows">
                       <span id="c1-high-temp"></span>
                       <span class="unitTemp">°C</span>
                     </p>
                   </div>
-                  <div class="col-3"><p class="c1LowBttm">Low:</p></div>
+                  <div class="col-3"><p class="c1HighsLows">Low:</p></div>
                   <div class="col-3">
-                    <p class="c1LowBttm">
+                    <p class="c1HighsLows">
                       <span id="c1-low-temp"></span
                       ><span class="unitTemp">°C</span>
                     </p>
@@ -178,28 +178,28 @@
               </div>
               <!--Temp highs and lows-->
 
-              <div class="col-12">
+              <div class="col-12 c1SunriseSunsetRow">
                 <div class="row">
                   <div class="col-3">
-                    <p class="c1HighTop">
+                    <p class="c1SunriseSunset">
                       <i class="fa-solid fa-sun"></i
                       ><i class="fa-solid fa-arrow-up"></i>:
                     </p>
                   </div>
 
                   <div class="col-3">
-                    <p class="c1HighTop" id="c1-sun-up"></p>
+                    <p class="c1SunriseSunset" id="c1-sun-up"></p>
                   </div>
 
                   <div class="col-3">
-                    <p class="c1LowBttm">
+                    <p class="c1SunriseSunset">
                       <i class="fa-solid fa-sun"></i
                       ><i class="fa-solid fa-arrow-down"></i>:
                     </p>
                   </div>
 
                   <div class="col-3">
-                    <p class="c1LowBttm" id="c1-sun-down"></p>
+                    <p class="c1SunriseSunset" id="c1-sun-down"></p>
                   </div>
                 </div>
               </div>
@@ -216,12 +216,12 @@
             <div id="card2-body">
               <!--Tomorrow's date-->
               <div class="row">
-                <div class="col-6"><h3 id="c2-title1">Tomorrow</h3></div>
+                <div class="col-6 text-end"><span id="c2-title1">Tomorrow</span></div>
                 <div class="col-6">
-                  <h3 id="c2-title2">
+                  <span id="c2-title2">
                     <span id="c2-title2-day"></span
                     ><span id="c2-title2-date"></span>
-                  </h3>
+                  </span>
                 </div>
               </div>
               <!--Tomorrow's date-->
@@ -229,29 +229,27 @@
               <!--Tomorrow's weather data-->
               <div class="row">
                 <div class="col-sm-4">
-                  <div class="card-body">
                     <p class="c2Temp">
                       <span id="c2-temp-num"></span
                       ><span class="unitTemp">°C</span>
                     </p>
-                  </div>
                 </div>
                 <div class="col-sm-3" id="c2-emoji-col">
-                  <h5 class="c2Temp" id="c2-emoji-weather">
+                  <span class="c2Temp" id="c2-emoji-weather">
                     <img
                       id="c2-emoji-weather-src"
                       src="https://openweathermap.org/img/wn/01n@2x.png"
                     />
-                  </h5>
+                  </span>
                   <p id="c2-descp"><em></em></p>
                 </div>
                 <div class="col-sm-3" id="c2-wind-col">
-                  <h5 class="c2Temp">
+                  <span class="c2Temp">
                     <span id="c2-emoji-wind"
                       ><i class="fa-solid fa-wind"></i
                     ></span>
-                  </h5>
-                  <p id="c2-wind">
+                  </span>
+                  <p class ="text-start" id="c2-wind">
                     <em
                       ><span id="c2-wind-num"></span
                       ><span class="unitWind"> km/h</span></em
@@ -293,8 +291,9 @@
           </div>
           <!---->
 
-          <span id="afterTomorrowInJS"></span>
+          <div id="afterTomorrowInJS"></div>
         </div>
+      </div>
         <!--Second Column-->
 
         <!--Footer-->

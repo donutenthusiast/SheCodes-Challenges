@@ -236,9 +236,9 @@ function showForecast(response) {
       let dayAfterMaxTemp = dayAfter.temp.max;
       let dayAfterWindSpeed = dayAfter.wind_speed;
       return (afterTomorrowInJS.innerHTML += `
-            <div class="card card3Small">
-              <div class="row">
-                <div class="col-sm-2" id="card3">
+            <div class="card3Small">
+              <div class="row" id="card3">
+                <div class="col-sm-3">
                   <h5 class="c3DateTitle">${forecastDayToLocal(
                     dayAfter.dt
                   )}</h5>
