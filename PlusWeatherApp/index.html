@@ -84,8 +84,9 @@
       </div>
       <!--React component-->
 
+      <!--First column-->
       <div class="row">
-        <div class="col-6">
+        <div class="col-md-6">
           <div class="card h-200" id="card-large">
             <span
               ><img
@@ -207,10 +208,14 @@
           </div>
         </div>
 
-        <div class="col-6">
+        <!--Second Column-->
+
+        <div class="col-md-6">
+          <!--Tomorrow's weather forecast-->
           <div class="card h-200" id="card2">
             <div id="card2-body">
-              <div class="row align-items-start">
+              <!--Tomorrow's date-->
+              <div class="row">
                 <div class="col-6"><h3 id="c2-title1">Tomorrow</h3></div>
                 <div class="col-6">
                   <h3 id="c2-title2">
@@ -219,9 +224,11 @@
                   </h3>
                 </div>
               </div>
+              <!--Tomorrow's date-->
 
-              <div class="row row-cols-1">
-                <div class="col-4">
+              <!--Tomorrow's weather data-->
+              <div class="row">
+                <div class="col-sm-4">
                   <div class="card-body">
                     <p class="c2Temp">
                       <span id="c2-temp-num"></span
@@ -229,7 +236,7 @@
                     </p>
                   </div>
                 </div>
-                <div class="col-3" id="c2-emoji-col">
+                <div class="col-sm-3" id="c2-emoji-col">
                   <h5 class="c2Temp" id="c2-emoji-weather">
                     <img
                       id="c2-emoji-weather-src"
@@ -238,7 +245,7 @@
                   </h5>
                   <p id="c2-descp"><em></em></p>
                 </div>
-                <div class="col-3" id="c2-wind-col">
+                <div class="col-sm-3" id="c2-wind-col">
                   <h5 class="c2Temp">
                     <span id="c2-emoji-wind"
                       ><i class="fa-solid fa-wind"></i
@@ -251,7 +258,7 @@
                     >
                   </p>
                 </div>
-                <div class="col-1" class="cardListCol">
+                <div class="col-sm-1" class="cardListCol">
                   <div class="row">
                     <p class="c2List">High:</p>
                     <p class="c2List">Low:</p>
@@ -265,7 +272,7 @@
                     </p>
                   </div>
                 </div>
-                <div class="col-1" class="c2ListCol">
+                <div class="col-sm-1" class="c2ListCol">
                   <div class="row">
                     <p class="c2List">
                       <span id="c2-high-temp"></span
@@ -280,12 +287,17 @@
                   </div>
                 </div>
               </div>
+              <!--Tomorrow's weather data-->
             </div>
+            <!--Tomorrow's weather forecast-->
           </div>
+          <!---->
 
           <span id="afterTomorrowInJS"></span>
         </div>
+        <!--Second Column-->
 
+        <!--Footer-->
         <div class="col-12">
           <footer>
             <strong
@@ -301,6 +313,7 @@
         </div>
       </div>
     </div>
+    <!--Footer-->
 
     <script src="src/appFinal.js"></script>
   </body>
