@@ -32,7 +32,7 @@ body {
   max-width: 900px;
 }
 
-img#background-image {
+img#backgroundImage {
   width: 200px;
   margin-bottom: -175px;
   margin-top: -85px;
@@ -40,7 +40,7 @@ img#background-image {
   margin-left: 250px;
 }
 
-h1#page-title {
+h1#pageTitle {
   font-family: var(--font-main-heads);
   text-align: center;
   font-size: 36px;
@@ -48,8 +48,8 @@ h1#page-title {
   padding: 10px;
 }
 
-button#day-mode,
-button#night-mode {
+button#dayMode,
+button#nightMode {
   display: inline-block;
   border: none;
   border-radius: 50%;
@@ -57,13 +57,12 @@ button#night-mode {
   padding: 5px 8px;
 }
 
-button#day-mode {
+button#dayMode {
   background-color: var(--card-hov-nt);
-  color: var(--card-hov-nt);
+  color: var(--font-color-nt);
 }
 
-button#night-mode {
-  color: var(--font-color-nt);
+button#nightMode {
   background-color: var(--card-hov-nt);
 }
 
@@ -71,11 +70,11 @@ button#night-mode {
   font-size: 16px;
 }
 
-#search-error {
+#searchError {
   display: none;
 }
 
-#dropdown-error {
+#dropdownError {
   display: block;
   position: absolute;
   border-color: none;
@@ -107,7 +106,7 @@ footer {
   text-decoration: none;
 }
 
-#foot-link {
+#footLink {
   text-decoration: none;
   color: var(--footer-nt);
 }
@@ -116,7 +115,7 @@ footer {
   z-index: 1;
 }
 
-#card-large {
+#cardLarge {
   background-color: var(--card-bck-nt);
   border-width: 2px;
   border-color: var(--card-bdr-nt);
@@ -139,14 +138,14 @@ footer {
   transition: all 0.2s ease-in-out;
 }
 
-#card2-body {
+#card2Body {
   margin-top: 5px;
   margin-bottom: 5px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
-.card3Small {
+.card3-small {
   background-color: var(--card-bck-nt);
   border-width: 2px;
   border-color: var(--card-bdr-nt);
@@ -158,16 +157,16 @@ footer {
   transition: all 0.2s ease-in-out;
 }
 
-#card-large:hover,
+#cardLarge:hover,
 #card2:hover,
-.card3Small:hover {
+.card3-small:hover {
   background-color: var(--card-hov-nt);
   border-color: var(--card-hov-bdr-nt);
   color: var(--font-color-hov-nt);
   cursor: crosshair;
 }
 
-#c1-city {
+#c1City {
   font-family: var(--font-main-heads);
   text-align: left;
   font-size: 40px;
@@ -180,7 +179,7 @@ footer {
   max-height: 100px;
 }
 
-#c1-country {
+#c1Country {
   font-family: var(--font-main-heads);
   font-weight: 600;
   font-size: 24px;
@@ -193,9 +192,9 @@ footer {
   margin: 0;
 }
 
-#c1-day,
-#c1-date,
-#c1-time {
+#c1Day,
+#c1Date,
+#c1Time {
   font-family: "Padauk", sans-serif;
   line-height: 56px;
   font-size: 30px;
@@ -203,184 +202,183 @@ footer {
   text-align: center;
 }
 
-#c1-date,
-#c1-time {
+#c1Date,
+#c1Time {
   padding-left: 10px;
 }
 
-#c1-day {
+#c1Day {
   padding-left: 7px;
   text-align: left;
 }
 
-#c1-date {
+#c1Date {
   text-align: center;
 }
 
-#c1-temp,
-#c2-temp,
-#c2-emoji,
-#c2-title1,
-#c2-title2 {
+#c1Temp,
+#c2Temp,
+#c2Emoji,
+#c2Title1,
+#c2Title2 {
   font-family: "Padauk", sans-serif;
 }
 
-#c1-temp,
-#c2-temp,
-#c2-emoji {
+#c1Temp,
+#c2Temp,
+#c2Emoji {
   padding: 10px;
 }
 
-#c2-title1,
-#c2-title2 {
+#c2Title1,
+#c2Title2 {
   padding: 1px;
 }
 
-#c1-temp,
-#c2-emoji,
-#c2-title1,
-#c2-title2 {
+#c1Temp,
+#c2Emoji,
+#c2Title1,
+#c2Title2 {
   margin: 0;
 }
 
-#c1-temp,
-#c1-emoji,
-#c2-temp,
-#c2-emoji {
+#c1Temp,
+#c1Emoji,
+#c2Temp,
+#c2Emoji {
   text-align: center;
 }
 
-#c2-temp {
+#c2Temp {
   margin-top: -10px;
   margin-bottom: 10px;
   line-height: 30px;
 }
 
-#c2-title1 {
+#c2Title1 {
   margin-right: -14px;
   text-align: right;
 }
 
-#c2-title2 {
+#c2Title2 {
   text-align: left;
 }
 
-#c1-temp,
-#c1-emoji-wind,
-#c1-emoji-weather,
-#c2-emoji,
-.c2Temp {
+#c1Temp,
+#c1EmojiWind,
+#c1EmojiWeather,
+#c2Emoji,
+.c2-temp {
   font-weight: 500;
   text-align: center;
   padding: 0;
   margin: 0;
 }
 
-#c1-emoji-weather,
-#c2-emoji,
-.c2Temp {
+#c1EmojiWeather,
+#c2Emoji,
+.c2-temp {
   font-size: 35px;
 }
 
-#c1-emoji-weather-src {
+#c1EmojiWeatherSrc {
   margin-top: -20px;
   margin-bottom: -16px;
 }
 
-#c1-temp,
-#c1-emoji-wind {
+#c1Temp,
+#c1EmojiWind {
   font-size: 42px;
 }
 
-#c1-emoji-wind {
+#c1EmojiWind {
   margin-bottom: 6px;
 }
 
-.c1DateRow,
-.c1ConditionsRow,
-.c1HighLowsRow,
-.c1SunriseSunsetRow {
+.c1-date-row,
+.c1-conditions-row,
+.c1-high-lows-row,
+.c1-sunrise-sunset-row {
   padding-top: 20px;
 }
 
-#c2-emoji-weather {
+#c2EmojiWeather {
   vertical-align: middle;
   position: relative;
   margin-top: -20px;
   margin-bottom: -20px;
 }
 
-#c2-emoji-weather-src {
+#c2EmojiWeatherSrc {
   width: 80px;
   margin-top: -15px;
   margin-bottom: -20px;
 }
 
-#c2-emoji-wind {
+#c2EmojiWind {
   position: relative;
   font-size: 30px;
   text-align: center;
   line-height: 40px;
 }
 
-#c2-emoji-col {
+#c2EmojiCol {
   position: relative;
   margin-left: -10px;
 }
 
-#c2-wind-col {
+#c2WindCol {
   margin-right: -15px;
 }
 
-#c1-feels,
-#c1-descp,
-#c1-wind,
-#c2-wind,
-#c2-descp {
+#c1Feels,
+#c1Descp,
+#c1Wind,
+#c2Wind,
+#c2Descp {
   font-family: var(--font-body);
   font-style: italic;
   margin: 0;
   text-align: center;
 }
 
-#c1-feels,
-#c1-descp,
-#c1-wind {
+#c1Feels,
+#c1Descp,
+#c1Wind {
   font-size: 12px;
 }
 
-#c2-wind,
-#c2-descp {
+#c2Wind,
+#c2Descp {
   font-size: 11.1px;
   margin-top: 6px;
 }
 
-#c2-title1,
-#c2-title2 {
+#c2Title1,
+#c2Title2 {
   font-size: 32px;
   line-height: 45px;
   font-weight: 500;
 }
 
-.c3SunCol {
+.c3-sun-col {
   margin-left: 0;
 }
 
-.c3HighLowCol {
+.c3-high-low-col {
   margin-left: 0;
 }
 
-.c3WindWeatherCol {
+.c3-wind-weather-col {
   margin-left: 0;
 }
 
-#inline-btns {
+#inlineBtns {
   text-align: center;
 }
 
-#search-btn,
-#set-unit-temp-btn,
-#auto-locate-btn {
+#searchBtn,
+#autoLocateBtn {
   display: inline-block;
   border: none;
   background-color: var(--button-bck-nt);
@@ -394,7 +392,7 @@ footer {
   text-decoration: none;
 }
 
-.c3DateTitle {
+.c3-date-title {
   font-size: 19px;
   font-weight: 600;
   padding: 0;
@@ -402,12 +400,12 @@ footer {
   text-align: center;
 }
 
-.c2Temp {
+.c2-temp {
   margin-top: 15px;
 }
 
-.c1HighsLows,
-.c1SunriseSunset {
+.c1-highs-lows,
+.c1-sunrise-sunset {
   font-family: var(--font-body);
   text-align: center;
   font-size: 20px;
@@ -415,17 +413,17 @@ footer {
   margin-bottom: 0;
 }
 
-.c1HighsLows {
+.c1-highs-lows {
   padding-top: 20px;
 }
 
-.c2ListCol {
+.c2-list-col {
   padding-top: 38px;
   margin-bottom: 0;
   line-height: 18px;
 }
 
-.c2List {
+.c2-list {
   font-size: 13px;
   line-height: 16px;
   padding: 0 0 5px 0;
@@ -433,7 +431,7 @@ footer {
   text-align: left;
 }
 
-.c3EmojiWind {
+.c3-emoji-wind {
   position: relative;
   font-size: 28px;
   text-align: center;
@@ -441,20 +439,20 @@ footer {
   margin-bottom: 2px;
 }
 
-.c3Descp {
+.c3-descp {
   margin-left: -9px;
   font-size: 11px;
   text-align: left;
 }
 
-.c3Wind {
+.c3-wind {
   margin-left: 0px;
   font-size: 11px;
   text-align: center;
 }
 
-.c3ListHighSunup,
-.c3ListTempTime {
+.c3-list-high-sun-up,
+.c3-list-temp-time {
   font-size: 12px;
   line-height: 25px;
   font-weight: 400;
@@ -465,22 +463,22 @@ footer {
   margin-bottom: -10px;
 }
 
-.c3ListHighSunup {
+.c3-list-high-sun-up {
   text-align: right;
 }
 
-.c3ListTempTime {
+.c3-list-temp-time {
   text-align: left;
 }
 
-.c3EmojiWeather {
+.c3-emoji-weather {
   position: relative;
   margin-left: -24px;
   margin-top: 0;
   margin-bottom: -11px;
 }
 
-.c3EmojiWeatherSrc {
+.c3-emoji-weather-src {
   width: 60px;
 }
 
@@ -488,7 +486,7 @@ footer {
   width: 21.666667%;
 }
 
-#c3-temp {
+#c3Temp {
   position: relative;
   font-size: 27px;
   font-weight: 400;
@@ -504,7 +502,7 @@ footer {
 }
 
 @media (max-width: 885px) {
-  img#background-image {
+  img#backgroundImage {
     width: 175px;
     margin-bottom: -175px;
     margin-top: -85px;
@@ -518,7 +516,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-  img#background-image {
+  img#backgroundImage {
     display: none;
   }
 }
