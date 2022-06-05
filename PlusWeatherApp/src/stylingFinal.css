@@ -1,20 +1,31 @@
 :root {
-  --backgound-color-dy: rgba(40, 50, 70, 0.471);
+  --background-color-dy: rgba(40, 50, 70, 0.471);
+  --background-color-nt: rgba(42 51 66);
   --font-main-heads: "Lato", sans-serif;
   --font-body: "Nunito Sans", sans-serif;
   --font-color-dy: rgb(40, 50, 70);
+  --font-color-nt: rgb(204 208 217);
   --font-color-hov-dy: rgb(207, 209, 215);
+  --button-bck-nt: rgba(0, 21, 59, 0.24);
   --card-bck-dy: rgb(210, 210, 210, 0.6);
+  --card-bck-nt: rgb(60, 69, 84, 0.3);
   --card-bdr-dy: rgb(40, 50, 70, 0.1);
+  --card-bdr-nt: rgb(98, 103, 113, 0.4);
   --card-hov-dy: rgba(55, 74, 109, 0.233);
+  --card-hov-nt: rgba(55, 74, 109, 0.233);
   --card-hov-bdr-dy: rgb(98, 103, 113, 0.4);
+  --card-hov-bdr-nt: rgb(55, 74, 109, 0.233);
   --dropdown-dy: rgb(210, 210, 210);
+  --dropdown-nt: rgb(60, 69, 84);
   --dropdown-shdw-dy: 0px 16px 10px 0px rgba(55, 74, 109, 60%);
+  --dropdown-shdw-nt: 0px 16px 10px 0px rgba(33, 43, 61);
+  --footer-nt: rgb(122 163 255);
+  --footer-dy: rgb(44, 72, 130);
 }
 
 body {
   color: var(--font-color-dy);
-  background-color: var(--backgound-color-dy);
+  background-color: var(--background-color-dy);
 }
 
 .container {
@@ -98,7 +109,7 @@ footer {
 
 #foot-link {
   text-decoration: none;
-  color: rgb(44, 72, 130);
+  color: var(--footer-dy);
 }
 
 .card-body {
@@ -363,17 +374,11 @@ footer {
   margin-left: 0;
 }
 
-#search-btn {
-  background-color: var(--card-hov-dy);
-  color: var(--font-color-dy);
-  border: none;
-  font-size: 14px;
-}
-
 #inline-btns {
   text-align: center;
 }
 
+#search-btn,
 #set-unit-temp-btn,
 #auto-locate-btn {
   display: inline-block;
@@ -383,8 +388,8 @@ footer {
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 400;
-  margin: 10px auto;
-  padding: 10px auto;
+  margin: 10px 2px;
+  padding: 5px 15px;
   text-align: center;
   text-decoration: none;
 }
