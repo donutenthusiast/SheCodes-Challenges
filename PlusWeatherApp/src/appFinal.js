@@ -256,6 +256,7 @@ function showForecast(response) {
                   <span class="c3-emoji-weather">
                     <img
                       class="c3-emoji-weather-src"
+                      alt="Dynamic emoji representative of the day's weather"
                       src="https://openweathermap.org/img/wn/${
                         dayAfter.weather[0].icon
                       }@2x.png"
