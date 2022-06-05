@@ -296,10 +296,10 @@ footer {
   margin-bottom: 6px;
 }
 
-.c1DateRow,
+.c1-date-row,
 .c1-conditions-row,
-.c1HighLowsRow,
-.c1SunriseSunsetRow {
+.c1-high-lows-row,
+.c1-sunrise-sunset-row {
   padding-top: 20px;
 }
 
@@ -405,8 +405,8 @@ footer {
   margin-top: 15px;
 }
 
-.c1HighsLows,
-.c1SunriseSunset {
+.c1-highs-lows,
+.c1-sunrise-sunset {
   font-family: var(--font-body);
   text-align: center;
   font-size: 20px;
@@ -414,7 +414,7 @@ footer {
   margin-bottom: 0;
 }
 
-.c1HighsLows {
+.c1-highs-lows {
   padding-top: 20px;
 }
 
@@ -487,7 +487,7 @@ footer {
   width: 21.666667%;
 }
 
-#c3-temp {
+#c3Temp {
   position: relative;
   font-size: 27px;
   font-weight: 400;
