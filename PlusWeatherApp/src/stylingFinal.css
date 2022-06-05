@@ -146,7 +146,12 @@ footer {
   padding-bottom: 5px;
 }
 
+.card3 {
+  max-height: 87.5px;
+}
+
 .card3-small {
+  max-height: 87.5px;
   background-color: var(--card-bck-dy);
   border-width: 2px;
   border-color: var(--card-bdr-dy);
@@ -394,10 +399,13 @@ footer {
 }
 
 .c3-date-title {
+  display: block;
   font-size: 19px;
   font-weight: 600;
+  line-height: 1.2;
   padding: 0;
   margin-top: 10px;
+  margin-bottom: 0.5rem;
   text-align: center;
 }
 
@@ -419,7 +427,6 @@ footer {
 }
 
 .c2-list-col {
-  padding-top: 38px;
   margin-bottom: 0;
   line-height: 18px;
 }
@@ -433,6 +440,7 @@ footer {
 }
 
 .c3-emoji-wind {
+  display: block;
   position: relative;
   font-size: 28px;
   text-align: center;
@@ -473,10 +481,11 @@ footer {
 }
 
 .c3-emoji-weather {
+  display: block;
   position: relative;
   margin-left: -24px;
   margin-top: 0;
-  margin-bottom: -11px;
+  margin-bottom: -3px;
 }
 
 .c3-emoji-weather-src {
@@ -488,6 +497,7 @@ footer {
 }
 
 #c3Temp {
+  display: block;
   position: relative;
   font-size: 27px;
   font-weight: 400;

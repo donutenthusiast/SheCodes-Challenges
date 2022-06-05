@@ -238,35 +238,35 @@ function showForecast(response) {
             <div class="card3-small">
               <div class="row" id="card3">
                 <div class="col-3">
-                  <h5 class="c3-date-title">${forecastDayToLocal(
+                  <span class="c3-date-title">${forecastDayToLocal(
                     dayAfter.dt
-                  )}</h5>
-                  <h5 class="c3-date-title">${new Date(
+                  )}</span>
+                  <span class="c3-date-title">${new Date(
                     dayAfter.dt * 1000
-                  ).getDate()}</h5>
+                  ).getDate()}</span>
                 </div>
 
                 <div class="col-2">
-                  <h5 id="c3Temp">${Math.round(
+                  <span id="c3Temp">${Math.round(
                     dayAfterAvTemp
-                  )}<span class="unit-temp">°C</span></h5>
+                  )}<span class="unit-temp">°C</span></span>
                 </div>
 
                 <div class="col-1" class="c3-wind-weather-col">
-                  <h3 class="c3-emoji-weather">
+                  <span class="c3-emoji-weather">
                     <img
                       class="c3-emoji-weather-src"
                       src="https://openweathermap.org/img/wn/${
                         dayAfter.weather[0].icon
                       }@2x.png"
-                    /></h3>
+                    /></span>
                   <p class="c3-descp"><em>${dayAfter.weather[0].main}</em></p>
                 </div>
 
                 <div class="col-2">
-                  <h3 class="c3-emoji-wind"
+                  <span class="c3-emoji-wind"
                       ><i class="fa-solid fa-wind"></i
-                    ></h3>
+                    ></span>
                   <p class="c3-wind">
                     <em
                       ><span id="c3WindNum">${Math.round(
