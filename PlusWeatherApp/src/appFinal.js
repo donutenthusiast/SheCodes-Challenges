@@ -41,9 +41,9 @@ function cityNameSearch(cityName) {
       userSearch.addEventListener("keydown", removeDropdown);
 
       function removeDropdown() {
-        let removeInfo = document.querySelector("#dropdownError");
-        removeInfo.innerHTML = ``;
-        removeInfo.setAttribute("id", "searchError");
+        document
+          .getElementById("dropdownError")
+          .setAttribute("id", "searchError");
       }
     })
     .then(getTodaysWeather);
@@ -121,16 +121,16 @@ function getTodaysWeather(response) {
   let replaceMainDescription = document.querySelector("#c1Descp");
   replaceMainDescription.innerHTML = `${userDescription}`;
 
-  let replaceMainMinTemp = document.querySelector("#c1-low-temp");
+  let replaceMainMinTemp = document.querySelector("#c1LowTemp");
   replaceMainMinTemp.innerHTML = `${Math.round(minTemp)}`;
 
-  let replaceMainMaxTemp = document.querySelector("#c1-high-temp");
+  let replaceMainMaxTemp = document.querySelector("#c1HighTemp");
   replaceMainMaxTemp.innerHTML = `${Math.round(maxTemp)}`;
 
-  let replaceMainSunsrise = document.querySelector("#c1-sun-up");
+  let replaceMainSunsrise = document.querySelector("#c1SunUp");
   replaceMainSunsrise.innerHTML = `${timeToLocal(sunUp)}`;
 
-  let replaceMainSunset = document.querySelector("#c1-sun-down");
+  let replaceMainSunset = document.querySelector("#c1SunDown");
   replaceMainSunset.innerHTML = `${timeToLocal(sunDown)}`;
 
   let replaceWeatherEmoji = document.querySelector("#c1EmojiWeatherSrc");
@@ -139,7 +139,7 @@ function getTodaysWeather(response) {
     `https://openweathermap.org/img/wn/${weatherEmoji}@2x.png`
   );
 
-  let replaceBackgroundImage = document.querySelector("#background-image");
+  let replaceBackgroundImage = document.querySelector("#backgroundImage");
   replaceBackgroundImage.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${weatherEmoji}@2x.png`
@@ -200,7 +200,7 @@ function showForecast(response) {
   replaceTomorrowsSunset.innerHTML = `${tomorrowsSunset}`;
 
   //Replacement for tomorrows temperatures
-  let replaceTomorrowsAvTemp = document.querySelector("#c2TempNum");
+  let replaceTomorrowsAvTemp = document.querySelector("#c2-temp-num");
   replaceTomorrowsAvTemp.innerHTML = `${Math.round(tomorrowsAvTemp)}`;
 
   let replaceTomorrowsMinTemp = document.querySelector("#c2LowTemp");
@@ -235,13 +235,13 @@ function showForecast(response) {
       let dayAfterMaxTemp = dayAfter.temp.max;
       let dayAfterWindSpeed = dayAfter.wind_speed;
       return (afterTomorrowInJS.innerHTML += `
-            <div class="card3Small">
+            <div class="card3-small">
               <div class="row" id="card3">
                 <div class="col-3">
-                  <h5 class="c3DateTitle">${forecastDayToLocal(
+                  <h5 class="c3-date-title">${forecastDayToLocal(
                     dayAfter.dt
                   )}</h5>
-                  <h5 class="c3DateTitle">${new Date(
+                  <h5 class="c3-date-title">${new Date(
                     dayAfter.dt * 1000
                   ).getDate()}</h5>
                 </div>
@@ -249,70 +249,70 @@ function showForecast(response) {
                 <div class="col-2">
                   <h5 id="c3Temp">${Math.round(
                     dayAfterAvTemp
-                  )}<span class="unitTemp">°C</span></h5>
+                  )}<span class="unit-temp">°C</span></h5>
                 </div>
 
-                <div class="col-sm-1" class="c3WindWeatherCol">
-                  <h3 class="c3EmojiWeather">
+                <div class="col-1" class="c3-wind-weather-col">
+                  <h3 class="c3-emoji-weather">
                     <img
-                      class="c3EmojiWeatherSrc"
+                      class="c3-emoji-weather-src"
                       src="https://openweathermap.org/img/wn/${
                         dayAfter.weather[0].icon
                       }@2x.png"
                     /></h3>
-                  <p class="c3Descp"><em>${dayAfter.weather[0].main}</em></p>
+                  <p class="c3-descp"><em>${dayAfter.weather[0].main}</em></p>
                 </div>
 
                 <div class="col-2">
-                  <h3 class="c3EmojiWind"
+                  <h3 class="c3-emoji-wind"
                       ><i class="fa-solid fa-wind"></i
                     ></h3>
-                  <p class="c3Wind">
+                  <p class="c3-wind">
                     <em
                       ><span id="c3WindNum">${Math.round(
                         dayAfterWindSpeed
                       )}</span
-                      ><span class="unitWind"> km/h</span></em
+                      ><span class="unit-wind"> km/h</span></em
                     >
                 </div>
 
-                <div class="col-1" class="c3HighLowCol">
+                <div class="col-1" class="c3-high-low-col">
                   <div class="row">
-                    <p class="c3ListHighSunup">High:</p>
-                    <p class="c3ListHighSunup">Low:</p>
+                    <p class="c3-list-high-sun-up">High:</p>
+                    <p class="c3-list-high-sun-up">Low:</p>
                   </div>
                 </div>
 
-                <div class="col-1" class="c3HighLowCol">
+                <div class="col-1" class="c3-high-low-col">
                 <div class="row">
-                  <p class="c3ListTempTime" id="c3HighTemp">${Math.round(
+                  <p class="c3-list-temp-time" id="c3HighTemp">${Math.round(
                     dayAfterMaxTemp
-                  )}<span class="unitTemp">°C</span></p>
-                  <p class="c3ListTempTime" id="c3LowTemp">${Math.round(
+                  )}<span class="unit-temp">°C</span></p>
+                  <p class="c3-list-temp-time" id="c3LowTemp">${Math.round(
                     dayAfterMinTemp
-                  )}<span class="unitTemp">°C</span></p>
+                  )}<span class="unit-temp">°C</span></p>
                 </div>
               </div>
 
-              <div class="col-1" class="c3SunCol">
+              <div class="col-1" class="c3-sun-col">
                 <div class="row">
-                  <p class="c3ListHighSunup">
+                  <p class="c3-list-high-sun-up">
                     <i class="fa-solid fa-sun"></i
                     ><i class="fa-solid fa-arrow-up"></i>:
                   </p>
-                    <p class="c3ListHighSunup">
+                    <p class="c3-list-high-sun-up">
                     <i class="fa-solid fa-sun"></i
                     ><i class="fa-solid fa-arrow-down"></i>:
                   </p>
                 </div>
               </div>
 
-              <div class="col-1" class="c3SunCol">
+              <div class="col-1" class="c3-sun-col">
                 <div class="row">
-                  <p class="c3ListTempTime" class="c3SunUp">${timeToLocal(
+                  <p class="c3-list-temp-time" class="c3-sun-up">${timeToLocal(
                     dayAfter.sunrise
                   )}</p>
-                  <p class="c3ListTempTime" class="c3SunDown">${timeToLocal(
+                  <p class="c3-list-temp-time" class="c3-sun-down">${timeToLocal(
                     dayAfter.sunset
                   )}</p>
                 </div>

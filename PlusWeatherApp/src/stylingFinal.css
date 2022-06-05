@@ -146,7 +146,7 @@ footer {
   padding-bottom: 5px;
 }
 
-.card3Small {
+.card3-small {
   background-color: var(--card-bck-dy);
   border-width: 2px;
   border-color: var(--card-bdr-dy);
@@ -160,7 +160,7 @@ footer {
 
 #cardLarge:hover,
 #card2:hover,
-.card3Small:hover {
+.card3-small:hover {
   background-color: var(--card-hov-dy);
   border-color: var(--card-hov-bdr-dy);
   color: var(--font-color-hov-dy);
@@ -269,7 +269,7 @@ footer {
 #c1EmojiWind,
 #c1EmojiWeather,
 #c2Emoji,
-.c2Temp {
+.c2-temp {
   font-weight: 500;
   text-align: center;
   padding: 0;
@@ -278,7 +278,7 @@ footer {
 
 #c1EmojiWeather,
 #c2Emoji,
-.c2Temp {
+.c2-temp {
   font-size: 35px;
 }
 
@@ -362,15 +362,15 @@ footer {
   font-weight: 500;
 }
 
-.c3SunCol {
+.c3-sun-col {
   margin-left: 0;
 }
 
-.c3HighLowCol {
+.c3-high-low-col {
   margin-left: 0;
 }
 
-.c3WindWeatherCol {
+.c3-wind-weather-col {
   margin-left: 0;
 }
 
@@ -393,7 +393,7 @@ footer {
   text-decoration: none;
 }
 
-.c3DateTitle {
+.c3-date-title {
   font-size: 19px;
   font-weight: 600;
   padding: 0;
@@ -401,7 +401,7 @@ footer {
   text-align: center;
 }
 
-.c2Temp {
+.c2-temp {
   margin-top: 15px;
 }
 
@@ -418,13 +418,13 @@ footer {
   padding-top: 20px;
 }
 
-.c2ListCol {
+.c2-list-col {
   padding-top: 38px;
   margin-bottom: 0;
   line-height: 18px;
 }
 
-.c2List {
+.c2-list {
   font-size: 13px;
   line-height: 16px;
   padding: 0 0 5px 0;
@@ -432,7 +432,7 @@ footer {
   text-align: left;
 }
 
-.c3EmojiWind {
+.c3-emoji-wind {
   position: relative;
   font-size: 28px;
   text-align: center;
@@ -440,20 +440,20 @@ footer {
   margin-bottom: 2px;
 }
 
-.c3Descp {
+.c3-descp {
   margin-left: -9px;
   font-size: 11px;
   text-align: left;
 }
 
-.c3Wind {
+.c3-wind {
   margin-left: 0px;
   font-size: 11px;
   text-align: center;
 }
 
-.c3ListHighSunup,
-.c3ListTempTime {
+.c3-list-high-sun-up,
+.c3-list-temp-time {
   font-size: 12px;
   line-height: 25px;
   font-weight: 400;
@@ -464,22 +464,22 @@ footer {
   margin-bottom: -10px;
 }
 
-.c3ListHighSunup {
+.c3-list-high-sun-up {
   text-align: right;
 }
 
-.c3ListTempTime {
+.c3-list-temp-time {
   text-align: left;
 }
 
-.c3EmojiWeather {
+.c3-emoji-weather {
   position: relative;
   margin-left: -24px;
   margin-top: 0;
   margin-bottom: -11px;
 }
 
-.c3EmojiWeatherSrc {
+.c3-emoji-weather-src {
   width: 60px;
 }
 
