@@ -34,25 +34,25 @@ function cityNameSearch(cityName) {
 
   axios
     .get(openWeatherUrl)
-    .then(getTodaysWeather)
     .catch(function (error) {
       activateDropdown.innerHTML = `We didn't quite catch that! <br/>Please search again and check for typos.`;
-      activateDropdown.setAttribute("id", `dropdown-error`);
+      activateDropdown.setAttribute("id", "dropdownError");
 
       userSearch.addEventListener("keydown", removeDropdown);
 
       function removeDropdown() {
-        let removeInfo = document.querySelector("#dropdown-error");
+        let removeInfo = document.querySelector("#dropdownError");
         removeInfo.innerHTML = ``;
-        removeInfo.setAttribute("id", `search-error`);
+        removeInfo.setAttribute("id", "searchError");
       }
-    });
+    })
+    .then(getTodaysWeather);
 }
 
-function searchInput(event) {
+function userSearchInput(event) {
   event.preventDefault();
 
-  let cityInput = document.querySelector("#search-input").value;
+  let cityInput = document.querySelector("#searchInput").value;
   cityInput = cityInput.trim();
 
   if (cityInput != "") {
@@ -106,19 +106,19 @@ function getTodaysWeather(response) {
   let weatherEmoji = response.data.weather[0].icon;
 
   //InnerHTML text replacements in the large card for today's weather
-  let replaceCountryCode = document.querySelector("#c1-country");
+  let replaceCountryCode = document.querySelector("#c1Country");
   replaceCountryCode.innerHTML = `${userCountryCode}`;
 
-  let replaceFeelTemp = document.querySelector("#feel-temp");
+  let replaceFeelTemp = document.querySelector("#feelTemp");
   replaceFeelTemp.innerHTML = `${Math.round(feelTemp)}`;
 
-  let replaceMainAvTemp = document.querySelector("#c1-temp-num");
+  let replaceMainAvTemp = document.querySelector("#c1TempNum");
   replaceMainAvTemp.innerHTML = `${Math.round(avTemp)}`;
 
-  let replaceMainCity = document.querySelector("#c1-city");
+  let replaceMainCity = document.querySelector("#c1City");
   replaceMainCity.innerHTML = `${userCity}`;
 
-  let replaceMainDescription = document.querySelector("#c1-descp");
+  let replaceMainDescription = document.querySelector("#c1Descp");
   replaceMainDescription.innerHTML = `${userDescription}`;
 
   let replaceMainMinTemp = document.querySelector("#c1-low-temp");
@@ -133,7 +133,7 @@ function getTodaysWeather(response) {
   let replaceMainSunset = document.querySelector("#c1-sun-down");
   replaceMainSunset.innerHTML = `${timeToLocal(sunDown)}`;
 
-  let replaceWeatherEmoji = document.querySelector("#c1-emoji-weather-src");
+  let replaceWeatherEmoji = document.querySelector("#c1EmojiWeatherSrc");
   replaceWeatherEmoji.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${weatherEmoji}@2x.png`
@@ -145,7 +145,7 @@ function getTodaysWeather(response) {
     `https://openweathermap.org/img/wn/${weatherEmoji}@2x.png`
   );
 
-  let replaceWindSpeed = document.querySelector("#c1-wind-num");
+  let replaceWindSpeed = document.querySelector("#c1WindNum");
   replaceWindSpeed.innerHTML = `${Math.round(windSpeed)}`;
 }
 
@@ -186,39 +186,38 @@ function showForecast(response) {
   tomorrowsWindSpeed = dayAfter[1].wind_speed;
 
   //Replacement for tomorrow's date
-  let replaceTomorrowsWeekday = document.querySelector("#c2-title2-day");
+  let replaceTomorrowsWeekday = document.querySelector("#c2Title2Day");
   replaceTomorrowsWeekday.innerHTML = `${tomorrowsWeekday} `;
 
-  let replaceTomorrowsDate = document.querySelector("#c2-title2-date");
+  let replaceTomorrowsDate = document.querySelector("#c2Title2Date");
   replaceTomorrowsDate.innerHTML = `${tomorrowsDate}`;
 
   //Replacement for tomorrow's sunrise/sunset
-  let replaceTomorrowsSunrise = document.querySelector("#c2-sun-up");
+  let replaceTomorrowsSunrise = document.querySelector("#c2SunUp");
   replaceTomorrowsSunrise.innerHTML = `${tomorrowsSunrise}`;
 
-  let replaceTomorrowsSunset = document.querySelector("#c2-sun-down");
+  let replaceTomorrowsSunset = document.querySelector("#c2SunDown");
   replaceTomorrowsSunset.innerHTML = `${tomorrowsSunset}`;
 
   //Replacement for tomorrows temperatures
-  let replaceTomorrowsAvTemp = document.querySelector("#c2-temp-num");
+  let replaceTomorrowsAvTemp = document.querySelector("#c2TempNum");
   replaceTomorrowsAvTemp.innerHTML = `${Math.round(tomorrowsAvTemp)}`;
 
-  let replaceTomorrowsMinTemp = document.querySelector("#c2-low-temp");
+  let replaceTomorrowsMinTemp = document.querySelector("#c2LowTemp");
   replaceTomorrowsMinTemp.innerHTML = `${Math.round(tomorrowsMinTemp)}`;
 
-  let replaceTomorrowsMaxTemp = document.querySelector("#c2-high-temp");
+  let replaceTomorrowsMaxTemp = document.querySelector("#c2HighTemp");
   replaceTomorrowsMaxTemp.innerHTML = `${Math.round(tomorrowsMaxTemp)}`;
 
   //Replacement for the rest
-  let replaceTomorrowsWeatherDescp = document.querySelector("#c2-descp");
+  let replaceTomorrowsWeatherDescp = document.querySelector("#c2Descp");
   replaceTomorrowsWeatherDescp.innerHTML = `${tomorrowsWeatherDescp}`;
 
-  let replaceTomorrowsWindSpeed = document.querySelector("#c2-wind-num");
+  let replaceTomorrowsWindSpeed = document.querySelector("#c2WindNum");
   replaceTomorrowsWindSpeed.innerHTML = `${Math.round(tomorrowsWindSpeed)}`;
 
-  let replaceTomorrowsWeatherEmoji = document.querySelector(
-    "#c2-emoji-weather-src"
-  );
+  let replaceTomorrowsWeatherEmoji =
+    document.querySelector("#c2EmojiWeatherSrc");
   replaceTomorrowsWeatherEmoji.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${tomorrowsWeatherEmoji}@2x.png`
@@ -385,27 +384,27 @@ const apiKey = "cd2317fe4740983ade94670ca1806f44";
 cityNameSearch("London");
 
 //Get todays date
-let today = document.querySelector("#c1-date");
+let today = document.querySelector("#c1Date");
 today.innerHTML = todaysDate(new Date());
 
 //Get the current time
-let timeNow = document.querySelector("#c1-time");
+let timeNow = document.querySelector("#c1Time");
 timeNow.innerHTML = currentTime(new Date());
 
 //User searches via search box
-let userSearch = document.querySelector("#search-form");
-userSearch.addEventListener("submit", searchInput);
+let userSearch = document.querySelector("#searchForm");
+userSearch.addEventListener("submit", userSearchInput);
 
 //In case of errors
-let activateDropdown = document.querySelector("#search-error");
+let activateDropdown = document.querySelector("#searchError");
 
 //User opts for Geolocation
-let userPermission = document.querySelector("#auto-locate-btn");
+let userPermission = document.querySelector("#autoLocateBtn");
 userPermission.addEventListener("click", userPermissionOK);
 
 //User opts for night or day mode
-let toggleModeNight = document.getElementById("night-mode");
+let toggleModeNight = document.getElementById("nightMode");
 toggleModeNight.addEventListener("click", nightOn);
 
-let toggleModeDay = document.getElementById("day-mode");
+let toggleModeDay = document.getElementById("dayMode");
 toggleModeDay.addEventListener("click", nightOff);
