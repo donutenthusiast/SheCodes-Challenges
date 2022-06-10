@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 
-import "./index.css";
+import "./stylingNightMode.css";
 
 import Header from "./JSX/Header";
 import ForecastIndex from "./JSX/ForecastIndex";
@@ -11,9 +11,11 @@ import Search from "./JSX/Search";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Header />
-    <ForecastIndex />
-    <Search />
+    <div className="container">
+      <Header />
+      <Search />
+      <ForecastIndex />
+    </div>
   </React.StrictMode>
 );
 
