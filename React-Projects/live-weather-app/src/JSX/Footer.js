@@ -11,7 +11,7 @@ export default function Footer() {
             rel="noreferrer noopener"
             href="https://github.com/sylviaintech/SheCodes-Challenges"
           >
-            Open source code
+            Open source code {""}
           </a>
         </strong>
         by Sylvia G
