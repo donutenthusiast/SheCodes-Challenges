@@ -5,8 +5,9 @@ import reportWebVitals from "./reportWebVitals";
 import "./stylingNightMode.css";
 
 import Header from "./JSX/Header";
-import ForecastIndex from "./JSX/ForecastIndex";
 import Search from "./JSX/Search";
+import ForecastIndex from "./JSX/ForecastIndex";
+import Footer from "./JSX/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,6 +16,7 @@ root.render(
       <Header />
       <Search />
       <ForecastIndex />
+      <Footer />
     </div>
   </React.StrictMode>
 );
