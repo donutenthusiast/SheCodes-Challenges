@@ -7,17 +7,6 @@ import Tomorrow from "./forecast/Tomorrow";
 import TomorrowPlus from "./forecast/TomorrowPlus";
 
 export default function ForecastIndex() {
-  const [temp, setApiTemp] = useState(null);
-
-  //const apiKey = "cd2317fe4740983ade94670ca1806f44";
-
-  let openWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=london&appid=${null}&units=metric`;
-  axios.get(openWeatherUrl).then(displayTemp);
-
-  function displayTemp(response) {
-    setApiTemp(Math.round(response.data.main.temp));
-  }
-
   return (
     <div className="row">
       <div className="col-12">
