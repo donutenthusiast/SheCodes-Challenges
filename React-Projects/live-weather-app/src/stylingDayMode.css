@@ -28,12 +28,12 @@ body {
   background-color: var(--background-color-dy);
 }
 
-.container {
+.App .container {
   max-width: 900px;
 }
 
 img#backgroundImage {
-  width: 200px;
+  width: 150px;
   margin-bottom: -175px;
   margin-top: -85px;
   opacity: 15%;
@@ -107,7 +107,7 @@ footer {
   text-decoration: none;
 }
 
-#footLink {
+.footLink {
   text-decoration: none;
   color: var(--footer-dy);
 }
@@ -210,7 +210,7 @@ footer {
 
 #c1Date,
 #c1Time {
-  padding-left: 10px;
+  padding-left: 8px;
 }
 
 #c1Day {
@@ -288,6 +288,7 @@ footer {
 }
 
 #c1EmojiWeatherSrc {
+  width: 100px;
   margin-top: -20px;
   margin-bottom: -16px;
 }
@@ -352,6 +353,10 @@ footer {
 #c1Descp,
 #c1Wind {
   font-size: 12px;
+}
+
+#c1Descp:first-letter {
+  text-transform: capitalize;
 }
 
 #c2Wind,

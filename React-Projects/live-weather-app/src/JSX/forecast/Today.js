@@ -1,5 +1,7 @@
 import React from "react";
 
+import WeatherIcon from "../WeatherIcons";
+
 export default function Today(props) {
   function todaysDate(anyDate) {
     let weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -50,11 +52,7 @@ export default function Today(props) {
     <div className="card" id="cardLarge">
       <span className="col-8"></span>
       <span className="col-4">
-        <img
-          id="backgroundImage"
-          src={props.todaysImageURL}
-          alt="Dynamic emoji representative of the day's weather"
-        />
+        <WeatherIcon code={props.todaysWeather.iconCode} id="backgroundImage" />
       </span>
 
       <div className="row card-body">
@@ -99,10 +97,9 @@ export default function Today(props) {
               </p>
             </div>
             <div className="col-sm-4 text-center">
-              <img
+              <WeatherIcon
+                code={props.todaysWeather.iconCode}
                 id="c1EmojiWeatherSrc"
-                src={props.todaysImageURL}
-                alt="Dynamic emoji representative of the day's weather"
               />
               <p id="c1Descp">
                 <em>{props.todaysWeather.description}</em>

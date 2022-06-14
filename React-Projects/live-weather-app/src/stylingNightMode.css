@@ -33,7 +33,7 @@ body {
 }
 
 img#backgroundImage {
-  width: 200px;
+  width: 150px;
   margin-bottom: -175px;
   margin-top: -85px;
   opacity: 15%;
@@ -64,6 +64,7 @@ button#dayMode {
 
 button#nightMode {
   background-color: var(--card-hov-nt);
+  color: var(--button-bck-nt);
 }
 
 .material-icons {
@@ -106,7 +107,7 @@ footer {
   text-decoration: none;
 }
 
-#footLink {
+.footLink {
   text-decoration: none;
   color: var(--footer-nt);
 }
@@ -209,7 +210,7 @@ footer {
 
 #c1Date,
 #c1Time {
-  padding-left: 10px;
+  padding-left: 8px;
 }
 
 #c1Day {
@@ -287,6 +288,7 @@ footer {
 }
 
 #c1EmojiWeatherSrc {
+  width: 100px;
   margin-top: -20px;
   margin-bottom: -16px;
 }
@@ -351,6 +353,10 @@ footer {
 #c1Descp,
 #c1Wind {
   font-size: 12px;
+}
+
+#c1Descp:first-letter {
+  text-transform: capitalize;
 }
 
 #c2Wind,
