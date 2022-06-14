@@ -4,7 +4,7 @@ import Today from "./forecast/Today";
 import Tomorrow from "./forecast/Tomorrow";
 import TomorrowPlus from "./forecast/TomorrowPlus";
 
-export default function ForecastIndex() {
+export default function ForecastIndex(props) {
   let todaysWeather = props.todaysWeather;
   let todaysImageURL = props.todaysImageURL;
 
