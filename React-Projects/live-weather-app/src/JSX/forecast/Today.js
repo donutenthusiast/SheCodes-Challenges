@@ -1,13 +1,13 @@
 import React from "react";
 
-export default function Today() {
+export default function Today(props) {
   return (
     <div className="card" id="cardLarge">
       <span className="col-8"></span>
       <span className="col-4">
         <img
           id="backgroundImage"
-          src="https://openweathermap.org/img/wn/01n@2x.png"
+          src={props.todaysImageURL}
           alt="Dynamic emoji representative of the day's weather"
         />
       </span>
@@ -16,10 +16,10 @@ export default function Today() {
         <div className="col-12">
           <div className="row align-items-start">
             <div className="col-sm-11">
-              <span id="c1City">London</span>
+              <span id="c1City">{props.todaysWeather.apiCity}</span>
             </div>
             <div className="col-sm-1 c1-country-outer">
-              <span id="c1Country">GB</span>
+              <span id="c1Country">{props.todaysWeather.apiCountry}</span>
             </div>
           </div>
         </div>
@@ -42,12 +42,13 @@ export default function Today() {
           <div className="row">
             <div className="col-sm-4 text-center">
               <span id="c1Temp">
-                <span id="c1TempNum">15</span>
+                <span id="c1TempNum">{props.todaysWeather.tempAv}</span>
                 <span className="unit-temp">°C</span>
               </span>
               <p id="c1Feels">
                 <em>
-                  Feels like <span id="feelTemp">16</span>
+                  Feels like{" "}
+                  <span id="feelTemp">{props.todaysWeather.tempFeel}</span>
                   <span className="unitTemp">°C</span>
                 </em>
               </p>
@@ -55,11 +56,11 @@ export default function Today() {
             <div className="col-sm-4 text-center">
               <img
                 id="c1EmojiWeatherSrc"
-                src="https://openweathermap.org/img/wn/01n@2x.png"
+                src={props.todaysImageURL}
                 alt="Dynamic emoji representative of the day's weather"
               />
               <p id="c1Descp">
-                <em>Overcast clouds</em>
+                <em>{props.todaysWeather.description}</em>
               </p>
             </div>
             <div className="col-sm-4 text-center">
@@ -68,7 +69,7 @@ export default function Today() {
               </span>
               <p id="c1Wind">
                 <em>
-                  <span id="c1WindNum">2</span>
+                  <span id="c1WindNum">{props.todaysWeather.windSpeed}</span>
                   <span className="unit-wind"> km/h</span>
                 </em>
               </p>
@@ -83,7 +84,7 @@ export default function Today() {
             </div>
             <div className="col-3">
               <p className="c1-highs-lows">
-                <span id="c1HighTemp">17</span>
+                <span id="c1HighTemp">{props.todaysWeather.tempHigh}</span>
                 <span className="unit-temp">°C</span>
               </p>
             </div>
@@ -92,7 +93,7 @@ export default function Today() {
             </div>
             <div className="col-3">
               <p className="c1-highs-lows">
-                <span id="c1LowTemp">13</span>
+                <span id="c1LowTemp">{props.todaysWeather.tempLow}</span>
                 <span className="unit-temp">°C</span>
               </p>
             </div>

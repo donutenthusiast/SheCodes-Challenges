@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div class="col-12">
+    <div className="col-12">
       <footer>
         <strong>
           <a

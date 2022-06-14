@@ -15,7 +15,6 @@ root.render(
     <div className="container">
       <Header />
       <Search />
-      <ForecastIndex />
       <Footer />
     </div>
   </React.StrictMode>

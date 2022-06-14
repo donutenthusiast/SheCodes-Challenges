@@ -5,10 +5,13 @@ import Tomorrow from "./forecast/Tomorrow";
 import TomorrowPlus from "./forecast/TomorrowPlus";
 
 export default function ForecastIndex() {
+  let todaysWeather = props.todaysWeather;
+  let todaysImageURL = props.todaysImageURL;
+
   return (
     <div className="row">
       <div className="col-md-6">
-        <Today />
+        <Today todaysWeather={todaysWeather} todaysImageURL={todaysImageURL} />
       </div>
       <div className="col-md-6">
         <Tomorrow />
