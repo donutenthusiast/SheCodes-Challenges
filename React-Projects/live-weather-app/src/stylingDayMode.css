@@ -388,8 +388,9 @@ footer {
   text-align: center;
 }
 
+#autoLocateBtn,
 #searchBtn,
-#autoLocateBtn {
+#set-unit-temp-btn {
   display: inline-block;
   border: none;
   background-color: var(--card-hov-dy);

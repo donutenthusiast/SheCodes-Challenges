@@ -1,53 +1,12 @@
 import React from "react";
 
+import UnixTime from "./UnixTime";
+import ShortDate from "./ShortDate";
+import LocalTime from "./LocalTime";
+
 import WeatherIcon from "../WeatherIcons";
 
 export default function Today(props) {
-  function todaysDate(anyDate) {
-    let weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    let dayofWeek = weekday[anyDate.getDay()];
-    let dateOfMonth = anyDate.getDate();
-
-    if (dateOfMonth < 10) {
-      return `${dayofWeek} 0${dateOfMonth}`;
-    } else {
-      return `${dayofWeek} ${dateOfMonth}`;
-    }
-  }
-
-  function timeToLocal(input) {
-    let unixTime = input;
-    let userTime = new Date(unixTime * 1000);
-    let hh = userTime.getHours();
-    let mm = userTime.getMinutes();
-
-    if (hh < 10 && mm < 10) {
-      return `0${hh}:0${mm}`;
-    } else if (hh < 10 && mm >= 10) {
-      return `0${hh}:${mm}`;
-    } else if (hh >= 10 && mm < 10) {
-      return `${hh}:0${mm}`;
-    } else {
-      return `${hh}:${mm}`;
-    }
-  }
-
-  function currentTime() {
-    let date = new Date();
-    let hours = date.getHours();
-    let mins = date.getMinutes();
-
-    if (hours < 10 && mins < 10) {
-      return `0${hours}:0${mins}`;
-    } else if (hours < 10 && mins >= 10) {
-      return `0${hours}:${mins}`;
-    } else if (hours >= 10 && mins < 10) {
-      return `${hours}:0${mins}`;
-    } else {
-      return `${hours}:${mins}`;
-    }
-  }
-
   return (
     <div className="card" id="cardLarge">
       <span className="col-8"></span>
@@ -73,10 +32,14 @@ export default function Today(props) {
               <span id="c1Day">Today</span>
             </div>
             <div className="col-4">
-              <span id="c1Date">{todaysDate(new Date())}</span>
+              <span id="c1Date">
+                <ShortDate date={new Date()} />
+              </span>
             </div>
             <div className="col-4">
-              <span id="c1Time">{currentTime(new Date())}</span>
+              <span id="c1Time">
+                <LocalTime currentDate={new Date()} />
+              </span>
             </div>
           </div>
         </div>
@@ -153,7 +116,7 @@ export default function Today(props) {
 
             <div className="col-3">
               <p className="c1-sunrise-sunset" id="c1SunUp">
-                {timeToLocal(props.todaysWeather.sunUp)}
+                <UnixTime time={props.todaysWeather.sunUp} />
               </p>
             </div>
 
@@ -166,7 +129,7 @@ export default function Today(props) {
 
             <div className="col-3">
               <p className="c1-sunrise-sunset" id="c1SunDown">
-                {timeToLocal(props.todaysWeather.sunDown)}
+                <UnixTime time={props.todaysWeather.sunDown} />
               </p>
             </div>
           </div>

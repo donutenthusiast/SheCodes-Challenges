@@ -8,6 +8,7 @@ export default function Search() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [city, setCity] = useState("");
   const [todaysWeather, setTodaysWeather] = useState({});
+  const [unit, setNewUnit] = useState("metric");
 
   let todaysImageURL = `https://openweathermap.org/img/wn/${todaysWeather.iconCode}@2x.png`;
 
@@ -24,8 +25,20 @@ export default function Search() {
     }
   }
 
+  function handleUserPermissionOK() {
+    return navigator.geolocation.getCurrentPosition(userAcceptsGeolocation);
+  }
+
+  function userAcceptsGeolocation(position) {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    const apiKey = "cd2317fe4740983ade94670ca1806f44";
+    let geoWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+    axios.get(geoWeatherUrl).then(displayWeather);
+  }
+
   function displayWeather(response) {
-    console.log(response.data);
     setIsLoaded(true);
     setTodaysWeather({
       apiCity: response.data.name,
@@ -44,6 +57,11 @@ export default function Search() {
     console.log(todaysWeather.apiLocation);
   }
 
+  function handleNewUnit(event) {
+    event.preventDefault();
+    setNewUnit("imperial");
+  }
+
   const searchForm = (
     <form id="searchForm" onClick={handleSubmit}>
       <input
@@ -55,7 +73,12 @@ export default function Search() {
       <button type="submit" className="btn btn-secondary" id="searchBtn">
         Search
       </button>
-      <button className="btn btn-secondary" type="button" id="autoLocateBtn">
+      <button
+        className="btn btn-secondary"
+        type="button"
+        id="autoLocateBtn"
+        onClick={handleUserPermissionOK}
+      >
         <div id="searchError"></div>
         <i className="fa-solid fa-location-crosshairs"></i> Locate Me
       </button>
@@ -69,10 +92,21 @@ export default function Search() {
         <div className="col-11"></div>
         {searchForm}
         <div>
+          <div className="col-12 text-center">
+            <button
+              class="btn btn-secondary"
+              type="button"
+              id="set-unit-temp-btn"
+              onClick={handleNewUnit}
+            >
+              Imperial Units
+            </button>
+          </div>
           <span>
             <ForecastIndex
               todaysWeather={todaysWeather}
               todaysImageURL={todaysImageURL}
+              unit={unit}
             />
           </span>
         </div>

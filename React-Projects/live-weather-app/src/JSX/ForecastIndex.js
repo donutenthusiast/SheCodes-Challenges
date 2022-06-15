@@ -13,9 +13,8 @@ export default function ForecastIndex(props) {
       <div className="col-md-6">
         <Today todaysWeather={todaysWeather} todaysImageURL={todaysImageURL} />
       </div>
-      <div className="col-md-6">
-        <Tomorrow />
-        <TomorrowPlus />
+      <div className="col-md-6 text-center">
+        <h2> Forecast coming soon</h2>
       </div>
     </div>
   );
