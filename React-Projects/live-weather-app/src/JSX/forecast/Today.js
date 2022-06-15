@@ -9,18 +9,6 @@ import TodayMainTemp from "./TodayMainTemp";
 import WeatherIcon from "../WeatherIcons";
 
 export default function Today(props) {
-  let changeUnit = props.unit;
-
-  function newUnits() {
-    let buttonText = document.querySelector("#set-unit-temp-btn");
-
-    if (changeUnit === true) {
-      return (buttonText.innerHTML = `View Weather in Metric Units`);
-    } else {
-      return (buttonText.innerHTML = `View Weather in Imperial Units`);
-    }
-  }
-
   return (
     <div className="card" id="cardLarge">
       <span className="col-8"></span>

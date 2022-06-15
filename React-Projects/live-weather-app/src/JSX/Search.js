@@ -76,14 +76,6 @@ export default function Search() {
     });
   }
 
-  function handleNewUnit() {
-    if (unit == "imperial") {
-      setNewUnit("metric");
-    } else setNewUnit("metric");
-
-    console.log(setNewUnit);
-  }
-
   const searchForm = (
     <form id="searchForm" onClick={handleSubmit}>
       <input
@@ -114,16 +106,6 @@ export default function Search() {
         <div className="col-11"></div>
         {searchForm}
         <div>
-          <div className="col-12 text-center">
-            <button
-              class="btn btn-secondary"
-              type="button"
-              id="set-unit-temp-btn"
-              onClick={handleNewUnit}
-            >
-              Change Weather Units
-            </button>
-          </div>
           <span>
             <ForecastIndex
               todaysWeather={todaysWeather}
