@@ -8,7 +8,6 @@ export default function Search() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [city, setCity] = useState("");
   const [todaysWeather, setTodaysWeather] = useState({});
-  const [unit, setNewUnit] = useState("imperial");
 
   let todaysImageURL = `https://openweathermap.org/img/wn/${todaysWeather.iconCode}@2x.png`;
 
@@ -110,7 +109,6 @@ export default function Search() {
             <ForecastIndex
               todaysWeather={todaysWeather}
               todaysImageURL={todaysImageURL}
-              unit={unit}
             />
           </span>
         </div>
