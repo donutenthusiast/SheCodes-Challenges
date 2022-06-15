@@ -4,9 +4,23 @@ import UnixTime from "./UnixTime";
 import ShortDate from "./ShortDate";
 import LocalTime from "./LocalTime";
 
+import TodayMainTemp from "./TodayMainTemp";
+
 import WeatherIcon from "../WeatherIcons";
 
 export default function Today(props) {
+  let changeUnit = props.unit;
+
+  function newUnits() {
+    let buttonText = document.querySelector("#set-unit-temp-btn");
+
+    if (changeUnit === true) {
+      return (buttonText.innerHTML = `View Weather in Metric Units`);
+    } else {
+      return (buttonText.innerHTML = `View Weather in Imperial Units`);
+    }
+  }
+
   return (
     <div className="card" id="cardLarge">
       <span className="col-8"></span>
@@ -46,20 +60,21 @@ export default function Today(props) {
 
         <div className="col-12 c1-conditions-row">
           <div className="row">
-            <div className="col-sm-4 text-center">
+            <div className="col-sm-6 text-center">
               <span id="c1Temp">
-                <span id="c1TempNum">{props.todaysWeather.tempAv}</span>
-                <span className="unit-temp">°C</span>
+                <TodayMainTemp temp={props.todaysWeather.tempAv} />
               </span>
               <p id="c1Feels">
                 <em>
                   Feels like{" "}
-                  <span id="feelTemp">{props.todaysWeather.tempFeel}</span>
-                  <span className="unitTemp">°C</span>
+                  <span id="feelTemp">
+                    <TodayMainTemp temp={props.todaysWeather.tempFeel} />
+                  </span>
+                  <span className="unit-temp"></span>
                 </em>
               </p>
             </div>
-            <div className="col-sm-4 text-center">
+            <div className="col-sm-3 text-center">
               <WeatherIcon
                 code={props.todaysWeather.iconCode}
                 id="c1EmojiWeatherSrc"
@@ -68,7 +83,7 @@ export default function Today(props) {
                 <em>{props.todaysWeather.description}</em>
               </p>
             </div>
-            <div className="col-sm-4 text-center">
+            <div className="col-sm-3 text-center">
               <span id="c1EmojiWind">
                 <i className="fa-solid fa-wind"></i>
               </span>
@@ -89,8 +104,10 @@ export default function Today(props) {
             </div>
             <div className="col-3">
               <p className="c1-highs-lows">
-                <span id="c1HighTemp">{props.todaysWeather.tempHigh}</span>
-                <span className="unit-temp">°C</span>
+                <span id="c1HighTemp">
+                  <TodayMainTemp temp={props.todaysWeather.tempHigh} />
+                </span>
+                <span className="unit-temp"></span>
               </p>
             </div>
             <div className="col-3">
@@ -98,8 +115,10 @@ export default function Today(props) {
             </div>
             <div className="col-3">
               <p className="c1-highs-lows">
-                <span id="c1LowTemp">{props.todaysWeather.tempLow}</span>
-                <span className="unit-temp">°C</span>
+                <span id="c1LowTemp">
+                  <TodayMainTemp temp={props.todaysWeather.tempLow} />
+                </span>
+                <span className="unit-temp"></span>
               </p>
             </div>
           </div>
