@@ -1,5 +1,5 @@
 export default function UnixTime(props) {
-  let unixTime = props.time;
+  let unixTime = props.timestamp;
   let userTime = new Date(unixTime * 1000);
   let hh = userTime.getHours();
   let mm = userTime.getMinutes();

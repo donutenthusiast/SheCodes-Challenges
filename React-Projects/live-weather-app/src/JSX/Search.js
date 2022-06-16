@@ -9,8 +9,6 @@ export default function Search() {
   const [city, setCity] = useState("");
   const [todaysWeather, setTodaysWeather] = useState({});
 
-  let todaysImageURL = `https://openweathermap.org/img/wn/${todaysWeather.iconCode}@2x.png`;
-
   function cityName(event) {
     setCity(event.target.value);
   }
@@ -58,10 +56,12 @@ export default function Search() {
   }
 
   function displayWeather(response) {
+    console.log(response);
     setIsLoaded(true);
     setTodaysWeather({
       apiCity: response.data.name,
       apiCountry: response.data.sys.country,
+      coords: response.data.coord,
       description: response.data.weather[0].description,
       iconCode: response.data.weather[0].icon,
       humidity: response.data.main.humidity,
@@ -106,10 +106,7 @@ export default function Search() {
         {searchForm}
         <div>
           <span>
-            <ForecastIndex
-              todaysWeather={todaysWeather}
-              todaysImageURL={todaysImageURL}
-            />
+            <ForecastIndex todaysWeather={todaysWeather} />
           </span>
         </div>
       </div>

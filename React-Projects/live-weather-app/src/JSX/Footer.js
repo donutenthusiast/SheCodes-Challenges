@@ -17,7 +17,7 @@ export default function Footer() {
         </em>
         <br />
         <br />
-        This Weather App was built using React and{" "}
+        This Weather App is built using React and{" "}
         <strong>
           <a
             className="footLink"

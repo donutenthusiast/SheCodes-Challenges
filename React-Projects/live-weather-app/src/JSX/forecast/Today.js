@@ -4,8 +4,6 @@ import UnixTime from "./UnixTime";
 import ShortDate from "./ShortDate";
 import LocalTime from "./LocalTime";
 
-import TodayMainTemp from "./TodayMainTemp";
-
 import WeatherIcon from "../WeatherIcons";
 
 export default function Today(props) {
@@ -35,7 +33,7 @@ export default function Today(props) {
             </div>
             <div className="col-4">
               <span id="c1Date">
-                <ShortDate date={new Date()} />
+                <ShortDate datestamp={new Date()} />
               </span>
             </div>
             <div className="col-4">
@@ -48,21 +46,24 @@ export default function Today(props) {
 
         <div className="col-12 c1-conditions-row">
           <div className="row">
-            <div className="col-sm-6 text-center">
+            <div className="col-sm-4 text-center">
               <span id="c1Temp">
-                <TodayMainTemp temp={props.todaysWeather.tempAv} />
+                <span id="c1TempNum">
+                  {Math.round(props.todaysWeather.tempAv)}
+                </span>
+                <span class="unit-temp">°C</span>
               </span>
               <p id="c1Feels">
                 <em>
                   Feels like{" "}
                   <span id="feelTemp">
-                    <TodayMainTemp temp={props.todaysWeather.tempFeel} />
+                    {Math.round(props.todaysWeather.tempFeel)}
                   </span>
-                  <span className="unit-temp"></span>
+                  <span class="unitTemp">°C</span>
                 </em>
               </p>
             </div>
-            <div className="col-sm-3 text-center">
+            <div className="col-sm-4 text-center">
               <WeatherIcon
                 code={props.todaysWeather.iconCode}
                 id="c1EmojiWeatherSrc"
@@ -71,7 +72,7 @@ export default function Today(props) {
                 <em>{props.todaysWeather.description}</em>
               </p>
             </div>
-            <div className="col-sm-3 text-center">
+            <div className="col-sm-4 text-center">
               <span id="c1EmojiWind">
                 <i className="fa-solid fa-wind"></i>
               </span>
@@ -93,9 +94,9 @@ export default function Today(props) {
             <div className="col-3">
               <p className="c1-highs-lows">
                 <span id="c1HighTemp">
-                  <TodayMainTemp temp={props.todaysWeather.tempHigh} />
+                  {Math.round(props.todaysWeather.tempHigh)}
                 </span>
-                <span className="unit-temp"></span>
+                <span class="unit-temp">°C</span>
               </p>
             </div>
             <div className="col-3">
@@ -104,9 +105,9 @@ export default function Today(props) {
             <div className="col-3">
               <p className="c1-highs-lows">
                 <span id="c1LowTemp">
-                  <TodayMainTemp temp={props.todaysWeather.tempLow} />
+                  {Math.round(props.todaysWeather.tempLow)}
                 </span>
-                <span className="unit-temp"></span>
+                <span class="unitTemp">°C</span>
               </p>
             </div>
           </div>
@@ -123,7 +124,7 @@ export default function Today(props) {
 
             <div className="col-3">
               <p className="c1-sunrise-sunset" id="c1SunUp">
-                <UnixTime time={props.todaysWeather.sunUp} />
+                <UnixTime timestamp={props.todaysWeather.sunUp} />
               </p>
             </div>
 
@@ -136,7 +137,7 @@ export default function Today(props) {
 
             <div className="col-3">
               <p className="c1-sunrise-sunset" id="c1SunDown">
-                <UnixTime time={props.todaysWeather.sunDown} />
+                <UnixTime timestamp={props.todaysWeather.sunDown} />
               </p>
             </div>
           </div>

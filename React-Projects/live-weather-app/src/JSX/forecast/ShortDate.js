@@ -1,5 +1,5 @@
 export default function ShortDate(props) {
-  let anyDate = props.date;
+  let anyDate = props.datestamp;
   let weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let dayofWeek = weekday[anyDate.getDay()];
   let dateOfMonth = anyDate.getDate();

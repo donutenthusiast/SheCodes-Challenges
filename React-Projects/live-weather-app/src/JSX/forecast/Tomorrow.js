@@ -1,6 +1,11 @@
 import React from "react";
 
-export default function Tomorrow() {
+import UnixDate from "./UnixDate";
+import UnixTime from "./UnixTime";
+
+import WeatherIcon from "../WeatherIcons";
+
+export default function Tomorrow(props) {
   return (
     <div className="card" id="card2">
       <div id="card2Body">
@@ -10,8 +15,9 @@ export default function Tomorrow() {
           </div>
           <div className="col-6">
             <span id="c2Title2">
-              <span id="c2Title2Day">Mon</span>
-              <span id="c2Title2Date"> 6</span>
+              <span id="c2Title2Day">
+                <UnixDate unixstamp={1655463600} />
+              </span>
             </span>
           </div>
         </div>
@@ -19,21 +25,22 @@ export default function Tomorrow() {
         <div className="row">
           <div className="col-sm-4">
             <p className="c2-temp">
-              <span id="c2-temp-num">11</span>
+              <span id="c2-temp-num">
+                {Math.round(props.forecast.tomorrowsTempAv)}
+              </span>
               <span className="unit-temp">°C</span>
             </p>
           </div>
 
           <div className="col-sm-3" id="c2EmojiCol">
             <span className="c2-temp" id="c2EmojiWeather">
-              <img
+              <WeatherIcon
+                code={props.forecast.tomorrowsWeatherEmoji}
                 id="c2EmojiWeatherSrc"
-                src="https://openweathermap.org/img/wn/01n@2x.png"
-                alt="Dynamic emoji representative of the day's weather"
               />
             </span>
             <p id="c2Descp">
-              <em>Light rain</em>
+              <em>{props.forecast.tomorrowsWeatherDescp}</em>
             </p>
           </div>
 
@@ -45,7 +52,9 @@ export default function Tomorrow() {
             </span>
             <p className="text-start" id="c2Wind">
               <em>
-                <span id="c2WindNum">3</span>
+                <span id="c2WindNum">
+                  {Math.round(props.forecast.tomorrowsWindSpeed)}
+                </span>
                 <span className="unit-wind"> km/h</span>
               </em>
             </p>
@@ -69,18 +78,26 @@ export default function Tomorrow() {
           <div className="col-sm-1 c2-list-col">
             <div className="row">
               <p className="c2-list">
-                <span id="c2HighTemp">15</span>
+                <span id="c2HighTemp">
+                  {Math.round(props.forecast.tomorrowsTempMax)}
+                </span>
                 <span className="unit-temp">°C</span>
               </p>
               <p className="c2-list">
-                <span id="c2LowTemp">11</span>
+                <span id="c2LowTemp">
+                  {Math.round(props.forecast.tomorrowsTempMin)}
+                </span>
                 <span className="unit-temp">°C</span>
               </p>
               <p className="c2-list">
-                <span id="c2SunUp">05:45</span>
+                <span id="c2SunUp">
+                  <UnixTime timestamp={props.forecast.tomorrowsSunrise} />
+                </span>
               </p>
               <p className="c2-list">
-                <span id="c2SunDown">22:12</span>
+                <span id="c2SunDown">
+                  <UnixTime timestamp={props.forecast.tomorrowsSunset} />
+                </span>
               </p>
             </div>
           </div>
