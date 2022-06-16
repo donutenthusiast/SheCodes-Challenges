@@ -13,10 +13,10 @@ export default function Tomorrow(props) {
           <div className="col-6 text-end">
             <span id="c2Title1">Tomorrow</span>
           </div>
-          <div className="col-6">
+          <div className="col-6 text-start">
             <span id="c2Title2">
               <span id="c2Title2Day">
-                <UnixDate unixstamp={1655463600} />
+                <UnixDate unixstamp={props.forecast.tomorrowsUnixDate} />
               </span>
             </span>
           </div>
@@ -32,7 +32,7 @@ export default function Tomorrow(props) {
             </p>
           </div>
 
-          <div className="col-sm-3" id="c2EmojiCol">
+          <div className="col-sm-2" id="c2EmojiCol">
             <span className="c2-temp" id="c2EmojiWeather">
               <WeatherIcon
                 code={props.forecast.tomorrowsWeatherEmoji}
@@ -60,7 +60,7 @@ export default function Tomorrow(props) {
             </p>
           </div>
 
-          <div className="col-sm-1">
+          <div className="col-sm-2">
             <div className="row">
               <p className="c2-list">High:</p>
               <p className="c2-list">Low:</p>

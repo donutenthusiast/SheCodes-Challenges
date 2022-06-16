@@ -40,6 +40,7 @@ const iconMapping = {
 
 const WeatherIcon = (props) => (
   <img
+    className={props.className}
     id={props.id}
     src={iconMapping[props.code]}
     alt="Dynamic emoji representative of the day's weather"

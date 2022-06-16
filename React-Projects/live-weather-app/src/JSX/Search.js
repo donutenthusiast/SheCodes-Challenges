@@ -30,29 +30,12 @@ export default function Search() {
   function userAcceptsGeolocation(position) {
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
+
     //cd2317fe4740983ade94670ca1806f44
     const apiKey = "cd2317fe4740983ade94670ca1806f44";
     let geoWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
-    axios
-      .get(geoWeatherUrl)
-      .then(displayWeather)
-      .catch(function (error) {
-        let activateDropdown = document.querySelector("#search-error");
-        activateDropdown.innerHTML = `We didn't quite catch that! <br/>Please search again and check for typos.`;
-        activateDropdown.setAttribute("id", `dropdown-error`);
-
-        //User searches via search box
-        let userSearch = document.querySelector("#search-form");
-
-        userSearch.addEventListener("keydown", removeDropdown);
-
-        function removeDropdown() {
-          let removeInfo = document.querySelector("#dropdown-error");
-          removeInfo.innerHTML = ``;
-          removeInfo.setAttribute("id", `search-error`);
-        }
-      });
+    axios.get(geoWeatherUrl).then(displayWeather);
   }
 
   function displayWeather(response) {

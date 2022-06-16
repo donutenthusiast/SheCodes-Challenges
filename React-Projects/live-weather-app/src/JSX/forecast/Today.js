@@ -51,7 +51,7 @@ export default function Today(props) {
                 <span id="c1TempNum">
                   {Math.round(props.todaysWeather.tempAv)}
                 </span>
-                <span class="unit-temp">°C</span>
+                <span className="unit-temp">°C</span>
               </span>
               <p id="c1Feels">
                 <em>
@@ -59,7 +59,7 @@ export default function Today(props) {
                   <span id="feelTemp">
                     {Math.round(props.todaysWeather.tempFeel)}
                   </span>
-                  <span class="unitTemp">°C</span>
+                  <span className="unitTemp">°C</span>
                 </em>
               </p>
             </div>
@@ -96,7 +96,7 @@ export default function Today(props) {
                 <span id="c1HighTemp">
                   {Math.round(props.todaysWeather.tempHigh)}
                 </span>
-                <span class="unit-temp">°C</span>
+                <span className="unit-temp">°C</span>
               </p>
             </div>
             <div className="col-3">
@@ -107,7 +107,7 @@ export default function Today(props) {
                 <span id="c1LowTemp">
                   {Math.round(props.todaysWeather.tempLow)}
                 </span>
-                <span class="unitTemp">°C</span>
+                <span className="unitTemp">°C</span>
               </p>
             </div>
           </div>
