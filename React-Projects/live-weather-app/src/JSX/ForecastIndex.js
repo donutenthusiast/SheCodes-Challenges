@@ -30,14 +30,17 @@ export default function ForecastIndex(props) {
           </div>
           <div className="col-md-6 text-center">
             <Tomorrow forecast={forecast} />
-            {dayAfter.map(function (dayAfter, index) {
-              if (index >= 2 && index <= 4)
-                return (
-                  <span key={index}>
-                    <TomorrowPlus dayAfter={dayAfter} />
-                  </span>
-                );
-            })}
+            {
+              // eslint-disable-next-line
+              dayAfter.map(function (dayAfter, index) {
+                if (index >= 2 && index <= 4)
+                  return (
+                    <span key={index}>
+                      <TomorrowPlus dayAfter={dayAfter} />
+                    </span>
+                  );
+              })
+            }
           </div>
         </div>
         <div className="col-12 semi-footer">
@@ -64,7 +67,8 @@ export default function ForecastIndex(props) {
     axios.get(forecastURL).then(showForecast);
 
     function showForecast(response) {
-      console.log(response);
+      setIsLoaded(true);
+      console.log("tomorrow");
       setGetForecast({
         tomorrowsSunrise: response.data.daily[1].sunrise,
         tomorrowsSunset: response.data.daily[1].sunset,
@@ -77,7 +81,6 @@ export default function ForecastIndex(props) {
         tomorrowsWindSpeed: response.data.daily[1].wind_speed,
       });
       setDayAfter(response.data.daily);
-      setIsLoaded(true);
     }
     return (
       <div className="row">

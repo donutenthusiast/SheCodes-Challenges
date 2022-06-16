@@ -39,8 +39,8 @@ export default function Search() {
   }
 
   function displayWeather(response) {
-    console.log(response);
     setIsLoaded(true);
+    console.log("today");
     setTodaysWeather({
       apiCity: response.data.name,
       apiCountry: response.data.sys.country,
