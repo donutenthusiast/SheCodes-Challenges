@@ -528,7 +528,7 @@ footer,
   margin: 0 0 15px 0;
 }
 
-@media (max-width: 885px) {
+@media (max-width: 1000px) {
   img#backgroundImage {
     width: 175px;
     margin-bottom: -175px;
@@ -542,8 +542,86 @@ footer,
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 821px) {
   img#backgroundImage {
     display: none;
+  }
+
+  #c1Date {
+    line-height: 56px;
+    font-size: 28px;
+    padding-left: 0px;
+  }
+
+  #c1Day,
+  #c1Time {
+    font-size: 28px;
+    line-height: 56px;
+  }
+
+  .c1-date-row,
+  .c1-conditions-row,
+  .c1-high-lows-row,
+  .c1-sunrise-sunset-row {
+    padding-top: 26px;
+  }
+}
+
+@media (max-width: 769px) {
+  #cardLarge {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 568px) {
+  h1#pageTitle {
+    font-size: 30px;
+    padding: 5px;
+  }
+
+  #cardLarge {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  #c1City {
+    font-size: 30px;
+  }
+
+  .c1-country-outer {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+
+  #c1Day,
+  #c1Date,
+  #c1Time {
+    font-size: 25px;
+    line-height: 35px;
+  }
+
+  .c1-date-row,
+  .c1-conditions-row,
+  .c1-high-lows-row,
+  .c1-sunrise-sunset-row {
+    padding-top: 10px;
+  }
+
+  .c1-highs-lows {
+    padding-top: 10px;
+  }
+
+  #c1EmojiWeatherSrc {
+    width: 75px;
+    margin-top: -5px;
+    margin-bottom: -7px;
+  }
+
+  #c2EmojiWeatherSrc {
+    width: 70px;
+    margin-top: -15px;
+    margin-bottom: -20px;
+    margin-left: -25px;
   }
 }

@@ -23,7 +23,7 @@ export default function Tomorrow(props) {
         </div>
 
         <div className="row">
-          <div className="col-sm-4">
+          <div className="col-4">
             <p className="c2-temp">
               <span id="c2-temp-num">
                 {Math.round(props.forecast.tomorrowsTempAv)}
@@ -32,7 +32,7 @@ export default function Tomorrow(props) {
             </p>
           </div>
 
-          <div className="col-sm-2" id="c2EmojiCol">
+          <div className="col-2" id="c2EmojiCol">
             <span className="c2-temp" id="c2EmojiWeather">
               <WeatherIcon
                 code={props.forecast.tomorrowsWeatherEmoji}
@@ -44,7 +44,7 @@ export default function Tomorrow(props) {
             </p>
           </div>
 
-          <div className="col-sm-3" id="c2WindCol">
+          <div className="col-3" id="c2WindCol">
             <span className="c2-temp">
               <span id="c2EmojiWind">
                 <i className="fa-solid fa-wind"></i>
@@ -60,7 +60,7 @@ export default function Tomorrow(props) {
             </p>
           </div>
 
-          <div className="col-sm-2">
+          <div className="col-2">
             <div className="row">
               <p className="c2-list">High:</p>
               <p className="c2-list">Low:</p>
@@ -75,7 +75,7 @@ export default function Tomorrow(props) {
             </div>
           </div>
 
-          <div className="col-sm-1 c2-list-col">
+          <div className="col-1 c2-list-col">
             <div className="row">
               <p className="c2-list">
                 <span id="c2HighTemp">

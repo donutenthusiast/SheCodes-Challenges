@@ -17,10 +17,10 @@ export default function Today(props) {
       <div className="row card-body">
         <div className="col-12">
           <div className="row align-items-start">
-            <div className="col-sm-11">
+            <div className="col-11">
               <span id="c1City">{props.todaysWeather.apiCity}</span>
             </div>
-            <div className="col-sm-1 c1-country-outer">
+            <div className="col-1 c1-country-outer">
               <span id="c1Country">{props.todaysWeather.apiCountry}</span>
             </div>
           </div>
@@ -46,7 +46,7 @@ export default function Today(props) {
 
         <div className="col-12 c1-conditions-row">
           <div className="row">
-            <div className="col-sm-4 text-center">
+            <div className="col-4 text-center">
               <span id="c1Temp">
                 <span id="c1TempNum">
                   {Math.round(props.todaysWeather.tempAv)}
@@ -63,7 +63,7 @@ export default function Today(props) {
                 </em>
               </p>
             </div>
-            <div className="col-sm-4 text-center">
+            <div className="col-4 text-center">
               <WeatherIcon
                 code={props.todaysWeather.iconCode}
                 id="c1EmojiWeatherSrc"
@@ -72,7 +72,7 @@ export default function Today(props) {
                 <em>{props.todaysWeather.description}</em>
               </p>
             </div>
-            <div className="col-sm-4 text-center">
+            <div className="col-4 text-center">
               <span id="c1EmojiWind">
                 <i className="fa-solid fa-wind"></i>
               </span>
