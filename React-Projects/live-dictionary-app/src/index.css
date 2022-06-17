@@ -1,12 +1,119 @@
 :root {
   --top-banner-color: rgb(115, 93, 112);
+  --background: #f1ede9;
+  --text: #625c60;
+  --button: #29282db6;
+  --complimentary: #aea392;
+  --banner-text: #f8e8c8;
+  --after-banner-color: rgba(115, 93, 112, 0.475);
+  --font-headers-footers: "Josefin Sans", sans-serif;
+  --font-results-main: "Lora", serif;
+  --font-results-secondary: "Merriweather", serif;
+  --link-hover: rgb(77, 51, 74);
 }
 
-.container {
+body {
+  background-color: var(--complimentary);
+}
+
+.index.container {
   max-width: 800px;
 }
 
 header,
 .search-form {
+  font-family: var(--font-headers-footers);
+  color: var(--banner-text);
   background-color: var(--top-banner-color);
+}
+
+footer {
+  font-family: var(--font-headers-footers);
+}
+
+footer a.footer-SO-link {
+  color: var(--top-banner-color);
+}
+
+footer a.footlink:hover,
+footer a.footer-SO-link:hover,
+.results-phonetics a:hover {
+  color: var(--link-hover);
+}
+
+footer a.footlink {
+  color: var(--button);
+}
+
+header {
+  height: 200px;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 50px;
+}
+
+.Header.p {
+  font-size: 24px;
+}
+
+form {
+  font-size: 18px;
+  font-weight: 100;
+}
+
+button {
+  background-color: var(--button);
+  border: 2px solid;
+  border-color: var(--complimentary);
+  border-radius: 3px;
+  padding: 4px 16px;
+  color: var(--top-banner-color);
+}
+
+.results {
+  font-family: var(--font-results-main);
+  background-color: var(--after-banner-color);
+}
+
+.results-definitions {
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.results-examples {
+  font-family: var(--font-results-secondary);
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 200;
+  padding: 0px 0px 0px 30px;
+}
+
+.results-phonetics {
+  font-size: 16px;
+}
+
+.results-phonetics a {
+  color: var(--button);
+}
+
+.results-search-word {
+  font-size: 30px;
+  font-weight: 900;
+  padding: 20px 0px 0px 0px;
+}
+
+.results-sub-headings,
+.results-phonetics {
+  font-weight: 900;
+  padding: 20px 0px 20px 0px;
+}
+
+.results-sub-headings {
+  font-size: 20px;
+}
+
+.synonyms {
+  font-family: var(--font-results-secondary);
 }
