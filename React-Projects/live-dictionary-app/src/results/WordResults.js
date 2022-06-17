@@ -1,45 +1,59 @@
 import React from "react";
 
+import Footer from "../Footer";
+
+import MeaningsLoop from "./MeaningsLoop";
+
 export default function WordResults(props) {
   console.log(props.allDefinitions);
-
+  //allDefinitions=response.data;
+  const results = props.allDefinitions[0];
+  //
   const dictionaryAPI = "https://dictionaryapi.dev/";
-  const licenseName = props.allDefinitions.allResults[0].license.name;
-  const licenseURL = props.allDefinitions.allResults[0].license.url;
+  const licenseName = results.license.name;
+  const licenseURL = results.license.url;
 
-  const grammarType =
-    props.allDefinitions.allResults[0].meanings[0].partOfSpeech;
-  const listenGB = `${props.allDefinitions.allResults[0].phonetics[0].audio}`;
-  const listenUS = `${props.allDefinitions.allResults[0].phonetics[1].audio}`;
-  const phonetics = props.allDefinitions.allResults[0].phonetic;
-  const word = props.allDefinitions.allResults[0].word;
+  const allMeanings = results.meanings[0].definitions;
+
+  const grammarType = results.meanings[0].partOfSpeech;
+  const listenGB = `${results.phonetics[0].audio}`;
+  //doesn't always show and breaks the site! Create a new component and rtn if not true return nothing?
+  //const listenUS = `${results.phonetics[1].audio}`;
+  //URL text <a target="_blank" rel="noopener noreferrer" href={listenUS}>
+  //US English
+  //</a>
+  //end
+
+  const phonetics = results.phonetic;
+  const word = results.word;
 
   return (
     <div>
-      The word you are looking for is: {word} and pronouced as: {phonetics}
-      <br />
-      This is a: {grammarType}
-      <br />
-      Listen to some examples on how to pronouce the word in:{" "}
-      <a target="_blank" rel="noreferrer noopener" href={listenGB}>
-        UK English
-      </a>{" "}
-      or{" "}
-      <a target="_blank" rel="noopener noreferrer" href={listenUS}>
-        US English
-      </a>
-      <br />
-      These results were bought to you by {licenseName} (
+      The word you are looking for is: <strong>{word}</strong>
+      {""} (
       <em>
-        more info at{" "}
-        <a target="_blank" rel="noopener noreferrer" href={licenseURL}>
-          this URL
+        <strong>{phonetics}</strong>{" "}
+        <a target="_blank" rel="noreferrer noopener" href={listenGB}>
+          UK English
         </a>
       </em>
-      ) with a lot of help from FreeDictionaryAPI{" "}
-      <a target="_blank" rel="noopener noreferrer" href={dictionaryAPI}>
-        this URL
-      </a>
+      )
+      <br />
+      <strong>{grammarType}</strong>
+      <br />
+      <div>
+        {
+          // eslint-disable-next-line
+          allMeanings.map(function (meaning, index) {
+            if (index < 4) return <MeaningsLoop singleMeaning={meaning} />;
+          })
+        }
+      </div>
+      <Footer
+        dictionaryAPI={dictionaryAPI}
+        licenseName={licenseName}
+        licenseURL={licenseURL}
+      />
     </div>
   );
 }

@@ -24,7 +24,7 @@ export default function Search() {
 
   function displayResults(response) {
     console.log(response.data[0]);
-    setDefinition({allResults: response.data});
+    setDefinition(response.data);
     setIsLoaded(true);
   }
 
