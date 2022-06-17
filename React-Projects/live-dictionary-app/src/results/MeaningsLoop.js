@@ -1,18 +1,18 @@
 import React from "react";
 
 export default function MeaningsLoop(props) {
-  console.log(props.singleMeaning);
+  if (props) {
+    console.log(props.singleMeaning);
 
-  return (
-    <div>
-      <span>
-        Definition: {""}
-        <strong>{props.singleMeaning.definition}</strong>
-      </span>
-      <br />
-      <span>
-        <em>{props.singleMeaning.example}</em>
-      </span>
-    </div>
-  );
+    return (
+      <div>
+        <div className="results-definitions">
+          <strong>{props.singleMeaning.definition}</strong>
+        </div>
+        <div className="results-examples">{props.singleMeaning.example}</div>
+      </div>
+    );
+  } else {
+    return null;
+  }
 }
