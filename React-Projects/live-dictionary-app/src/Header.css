@@ -1,0 +1,13 @@
+header {
+  font-family: "Josefin Sans", sans-serif;
+  height: 200px;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 50px;
+}
+
+p {
+  font-size: 18px;
+}
