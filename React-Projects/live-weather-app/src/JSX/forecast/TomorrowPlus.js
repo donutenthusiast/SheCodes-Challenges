@@ -60,11 +60,11 @@ export default function TomorrowPlus(props) {
         <div className="col-1 c3-high-low-col">
           <div className="row">
             <p className="c3-list-temp-time" id="c3HighTemp">
-              {Math.round(tempMin)}
+              {Math.round(tempMax)}
               <span className="unit-temp">°C</span>
             </p>
             <p className="c3-list-temp-time" id="c3LowTemp">
-              {Math.round(tempMax)}
+              {Math.round(tempMin)}
               <span className="unit-temp">°C</span>
             </p>
           </div>

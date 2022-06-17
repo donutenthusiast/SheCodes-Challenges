@@ -5,7 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 
 import Header from "./Header";
-import Search from "./Search";
+import Search from "./search/Search";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
