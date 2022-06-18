@@ -13,10 +13,8 @@ export default function WordResults(props) {
     const dictionaryAPI = "https://dictionaryapi.dev/";
     const licenseName = results.license.name;
     const licenseURL = results.license.url;
+    const allMeanings = results.meanings;
 
-    const allMeanings = results.meanings[0].definitions;
-
-    const grammarType = results.meanings[0].partOfSpeech;
     const listenGB = `${results.phonetics[0].audio}`;
     //doesn't always show and breaks the site! Create a new component and rtn if not true return nothing?
     //const listenUS = `${results.phonetics[1].audio}`;
@@ -41,16 +39,17 @@ export default function WordResults(props) {
           </em>
         </span>
         <br />
-        <span className="results-sub-headings">
-          <em>{grammarType}</em>
-        </span>
-        <br />
         <span className="results-sub-headings">definition(s):</span>
         <div>
           {
             // eslint-disable-next-line
             allMeanings.map(function (meaning, index) {
-              if (index < 4) return <MeaningsLoop singleMeaning={meaning} />;
+              if (index < 4)
+                return (
+                  <span key={index}>
+                    <MeaningsLoop singleMeaning={meaning} />
+                  </span>
+                );
             })
           }
         </div>
