@@ -45,6 +45,10 @@ footer a.footlink {
   color: var(--button);
 }
 
+footer a img.pexels {
+  width: 75px;
+}
+
 header {
   height: 200px;
 }

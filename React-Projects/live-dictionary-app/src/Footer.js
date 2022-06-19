@@ -6,7 +6,7 @@ export default function Footer(props) {
       <hr />
       <footer>
         <div>
-          These results were bought to you by {props.licenseName} (
+          The dictionary results were bought to you by {props.licenseName} (
           <em>
             <a
               className="footer-SO-link"
@@ -27,6 +27,28 @@ export default function Footer(props) {
             FreeDictionary API
           </a>
           .
+        </div>
+        <div>
+          <a
+            className="footer-SO-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.pexels.com"
+          >
+            Photos provided by Pexels
+          </a>
+          <br />
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.pexels.com"
+          >
+            <img
+              className="pexels"
+              alt="Pexels logo in black"
+              src="https://images.pexels.com/lib/api/pexels.png"
+            />
+          </a>
         </div>
         <div>
           This Weather App is built using React, hosted with{" "}

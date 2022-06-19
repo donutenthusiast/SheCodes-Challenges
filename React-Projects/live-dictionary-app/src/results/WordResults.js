@@ -4,9 +4,10 @@ import Footer from "../Footer";
 
 import MeaningsLoop from "./MeaningsLoop";
 
+import Pexels from "./Pexels";
+
 export default function WordResults(props) {
   if (props) {
-    console.log(props.allDefinitions);
     //allDefinitions=response.data;
     const results = props.allDefinitions[0];
     //
@@ -31,12 +32,10 @@ export default function WordResults(props) {
         <div className="results-search-word">{word}</div>
         {""}
         <span className="results-phonetics">
-          <em>
-            <strong>{phonetics}</strong>{" "}
-            <a target="_blank" rel="noreferrer noopener" href={listenGB}>
-              <i class="fa-solid fa-file-audio"></i>
-            </a>
-          </em>
+          <strong>{phonetics}</strong>{" "}
+          <a target="_blank" rel="noreferrer noopener" href={listenGB}>
+            <i className="fa-solid fa-file-audio"></i>
+          </a>
         </span>
         <br />
         <span className="results-sub-headings">definition(s):</span>
@@ -52,6 +51,9 @@ export default function WordResults(props) {
                 );
             })
           }
+        </div>
+        <div className="">
+          <Pexels allPhotos={props.photos} />
         </div>
         <Footer
           dictionaryAPI={dictionaryAPI}

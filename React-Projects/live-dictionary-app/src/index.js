@@ -12,7 +12,7 @@ root.render(
   <React.StrictMode>
     <div className="container">
       <Header />
-      <Search />
+      <Search default="holiday" />
     </div>
   </React.StrictMode>
 );

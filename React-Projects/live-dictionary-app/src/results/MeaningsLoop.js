@@ -3,20 +3,20 @@ import SynoLoop from "./SynoLoop";
 
 export default function MeaningsLoop(props) {
   if (props) {
-    console.log(props.singleMeaning);
     const allSynonyms = props.singleMeaning.synonyms;
+    const definition = props.singleMeaning.definitions[0].definition;
+    const exampleUse = props.singleMeaning.definitions[0].example;
+    const grammar = props.singleMeaning.partOfSpeech;
 
     return (
       <div>
         <span className="results-sub-headings">
-          <em>{props.singleMeaning.partOfSpeech}</em>
+          <em>{grammar}</em>
         </span>
         <div className="results-definitions">
-          <strong>{props.singleMeaning.definitions[0].definition}</strong>
+          <strong>{definition}</strong>
         </div>
-        <div className="results-examples">
-          {props.singleMeaning.definitions[0].example}
-        </div>
+        <div className="results-examples">{exampleUse}</div>
         <div>
           <ul>
             {
