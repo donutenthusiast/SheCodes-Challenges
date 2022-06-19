@@ -1,40 +1,45 @@
 import React from "react";
 
 export default function Pexels(props) {
-  console.log(props.allPhotos);
-  if (props.allPhotos) {
+  if (props) {
     return (
-      <div className="row">
-        {props.allPhotos.photos.map(function (singlePhoto, index) {
-          const imgAlt = singlePhoto.alt;
-          const imgAuthor = singlePhoto.photographer;
-          const imgAuthorURL = singlePhoto.photographer_url;
-          const imgPreviewURL = singlePhoto.src.medium;
-          const imgURL = singlePhoto.url;
+      <div>
+        <hr />
+        <div className="row">
+          {
+            // eslint-disable-next-line
+            props.allPhotos.photos.map(function (singlePhoto, index) {
+              const imgAlt = singlePhoto.alt;
+              const imgAuthor = singlePhoto.photographer;
+              const imgPreviewURL = singlePhoto.src.medium;
+              const imgURL = singlePhoto.url;
+              const fullAlt = `Description: ${imgAlt}. Photo taken by: ${imgAuthor}`;
 
-          return (
-            <div key={index} className="col-3">
-              <a target="_blank" rel="noreferrer noopener" href={imgURL}>
-                <img className="img-fluid" alt={imgAlt} src={imgPreviewURL} />
-              </a>
-              <p>
-                <em>
-                  Photo by{" "}
+              return (
+                <div
+                  key={index}
+                  className="col-sm-4 d-flex align-items-center justify-content-center p-3"
+                >
                   <a
+                    className="results-photos-preview"
                     target="_blank"
                     rel="noreferrer noopener"
-                    href={imgAuthorURL}
+                    href={imgURL}
                   >
-                    {imgAuthor}
+                    <img
+                      className="img-fluid rounded"
+                      alt={fullAlt}
+                      src={imgPreviewURL}
+                    />
                   </a>
-                </em>
-              </p>
-            </div>
-          );
-        })}
+                </div>
+              );
+            })
+          }
+        </div>
       </div>
     );
   } else {
-    return null;
+    return <div>Loading</div>;
   }
 }

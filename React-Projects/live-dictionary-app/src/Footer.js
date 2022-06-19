@@ -6,18 +6,16 @@ export default function Footer(props) {
       <hr />
       <footer>
         <div>
-          The dictionary results were bought to you by {props.licenseName} (
-          <em>
-            <a
-              className="footer-SO-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              href={props.licenseURL}
-            >
-              here
-            </a>
-          </em>
-          ) with a lot of help from{" "}
+          The dictionary results were bought to you by{" "}
+          <a
+            className="footer-SO-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            href={props.licenseURL}
+          >
+            {props.licenseName}
+          </a>{" "}
+          with a lot of help from{" "}
           <a
             className="footer-SO-link"
             target="_blank"

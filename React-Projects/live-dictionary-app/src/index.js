@@ -12,7 +12,7 @@ root.render(
   <React.StrictMode>
     <div className="container">
       <Header />
-      <Search default="holiday" />
+      <Search wordOnLoad="sky" />
     </div>
   </React.StrictMode>
 );

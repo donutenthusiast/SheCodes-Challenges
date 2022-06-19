@@ -18,14 +18,19 @@ export default function MeaningsLoop(props) {
         </div>
         <div className="results-examples">{exampleUse}</div>
         <div>
-          <ul>
+          <div className="results-sub-headings">
+            <em>similar words:</em>
+          </div>
+          <ul className="results-synonyms-list">
             {
               // eslint-disable-next-line
               allSynonyms.map(function (singleSynonym, index) {
-                if (index < 6)
+                if (index < 7)
                   return (
-                    <span key={index}>
-                      <SynoLoop synonym={singleSynonym} />
+                    <span key={index} className="results-synonym-each">
+                      <em>
+                        <SynoLoop synonym={singleSynonym} />
+                      </em>
                     </span>
                   );
               })
