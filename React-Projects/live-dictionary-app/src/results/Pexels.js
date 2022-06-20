@@ -1,14 +1,16 @@
 import React from "react";
 
 export default function Pexels(props) {
-  if (props) {
+  const allPhotos = props.allPhotos;
+
+  if (allPhotos !== undefined) {
     return (
       <div>
         <hr />
         <div className="row">
           {
             // eslint-disable-next-line
-            props.allPhotos.photos.map(function (singlePhoto, index) {
+            allPhotos.map(function (singlePhoto, index) {
               const imgAlt = singlePhoto.alt;
               const imgAuthor = singlePhoto.photographer;
               const imgPreviewURL = singlePhoto.src.medium;
@@ -40,6 +42,6 @@ export default function Pexels(props) {
       </div>
     );
   } else {
-    return <div>Loading</div>;
+    return <span />;
   }
 }

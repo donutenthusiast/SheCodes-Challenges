@@ -12,7 +12,7 @@ root.render(
   <React.StrictMode>
     <div className="container">
       <Header />
-      <Search wordOnLoad="sky" />
+      <Search wordOnLoad="celestial" />
     </div>
   </React.StrictMode>
 );

@@ -9,25 +9,24 @@ import Pexels from "./Pexels";
 import Phoenetic from "./Phonetic";
 
 export default function WordResults(props) {
-  if (props) {
-    //allDefinitions=response.data;
-    const results = props.allDefinitions[0];
+  const results = props.allDefinitions;
+  const allPhotos = props.photos;
 
+  if (results !== null) {
     const dictionaryAPI = "https://dictionaryapi.dev/";
     const licenseName = results.license.name;
     const licenseURL = results.license.url;
     const allMeanings = results.meanings;
 
-    const pronounciation = results.phonetic;
+    const pronunciation = results.phonetic;
     const speakingExample = results.phonetics;
     const word = results.word;
-
     return (
       <div className="py-3 px-4 results">
         <div className="results-search-word">{word}</div>
         {""}
         <Phoenetic
-          pronounciation={pronounciation}
+          pronunciation={pronunciation}
           speakingExample={speakingExample}
         />
         <br />
@@ -45,9 +44,7 @@ export default function WordResults(props) {
             })
           }
         </div>
-        <div>
-          <Pexels allPhotos={props.photos} />
-        </div>
+        <Pexels allPhotos={allPhotos} />
         <Footer
           dictionaryAPI={dictionaryAPI}
           licenseName={licenseName}
@@ -56,6 +53,6 @@ export default function WordResults(props) {
       </div>
     );
   } else {
-    return null;
+    return <div className="col-12 text-center loading">Loading...</div>;
   }
 }

@@ -109,7 +109,8 @@ button:hover {
   padding: 10px 0px 0px 0px;
 }
 
-.results-phonetics a {
+.results-phonetics a,
+.results-phonetics-volume-subtitle {
   color: var(--button);
 }
 
@@ -123,12 +124,16 @@ button:hover {
   padding: 0px 5px 0px 5px;
 }
 
+.results-phonetics-volume-subtitle {
+  font-size: 16px;
+}
+
 .results-photos-author {
   font-size: 12px;
 }
 
 .results-photos-preview {
-  opacity: 80%;
+  opacity: 87.5%;
   transition: ease-in-out 0.2s;
 }
 
@@ -163,6 +168,13 @@ button:hover {
 
 .results-synonym-each {
   padding: 0px 16px 0px 4px;
+}
+
+.loading {
+  font-family: var(--font-headers-footers);
+  font-size: 50px;
+  color: var(--top-banner-color);
+  margin: 30px auto;
 }
 
 @media (max-width= 569px) {
