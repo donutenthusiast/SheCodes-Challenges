@@ -525,7 +525,7 @@ footer,
 }
 
 .search-location {
-  margin: 0 0 15px 0;
+  margin: 0 auto;
 }
 
 @media (max-width: 1000px) {
@@ -542,14 +542,14 @@ footer,
   }
 }
 
-@media (max-width: 821px) {
+@media (max-width: 860px) {
   img#backgroundImage {
     display: none;
   }
 
   #c1Date {
     line-height: 56px;
-    font-size: 28px;
+    font-size: 25px;
     padding-left: 0px;
   }
 

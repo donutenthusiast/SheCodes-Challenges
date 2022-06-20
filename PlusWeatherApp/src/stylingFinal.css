@@ -33,7 +33,7 @@ body {
 }
 
 img#backgroundImage {
-  width: 200px;
+  width: 150px;
   margin-bottom: -175px;
   margin-top: -85px;
   opacity: 15%;
@@ -93,21 +93,23 @@ button#nightMode {
 }
 
 footer,
-form {
+form,
+.semi-footer {
   display: block;
   margin: 0 auto;
   padding: 0;
   text-align: center;
 }
 
-footer {
+footer,
+.semi-footer {
   font-family: var(--font-main-heads);
   font-size: 12px;
   padding-top: 15px;
   text-decoration: none;
 }
 
-#footLink {
+.footLink {
   text-decoration: none;
   color: var(--footer-dy);
 }
@@ -140,8 +142,6 @@ footer {
 }
 
 #card2Body {
-  margin-top: 5px;
-  margin-bottom: 5px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
@@ -188,7 +188,7 @@ footer {
 #c1Country {
   font-family: var(--font-main-heads);
   font-weight: 600;
-  font-size: 24px;
+  font-size: 20px;
   vertical-align: super;
 }
 
@@ -210,7 +210,7 @@ footer {
 
 #c1Date,
 #c1Time {
-  padding-left: 10px;
+  padding-left: 8px;
 }
 
 #c1Day {
@@ -288,6 +288,7 @@ footer {
 }
 
 #c1EmojiWeatherSrc {
+  width: 100px;
   margin-top: -20px;
   margin-bottom: -16px;
 }
@@ -319,13 +320,12 @@ footer {
   width: 80px;
   margin-top: -15px;
   margin-bottom: -20px;
+  margin-left: -5px;
 }
 
 #c2EmojiWind {
-  position: relative;
-  font-size: 30px;
   text-align: center;
-  line-height: 40px;
+  margin-right: 35px;
 }
 
 #c2EmojiCol {
@@ -354,10 +354,19 @@ footer {
   font-size: 12px;
 }
 
+#c1Descp:first-letter,
+#c2Descp:first-letter {
+  text-transform: capitalize;
+}
+
 #c2Wind,
 #c2Descp {
   font-size: 11.1px;
   margin-top: 6px;
+}
+
+#c2Descp {
+  margin-left: -6px;
 }
 
 #c2Title1,
@@ -383,8 +392,9 @@ footer {
   text-align: center;
 }
 
+#autoLocateBtn,
 #searchBtn,
-#autoLocateBtn {
+#set-unit-temp-btn {
   display: inline-block;
   border: none;
   background-color: var(--card-hov-dy);
@@ -429,11 +439,13 @@ footer {
 .c2-list-col {
   margin-bottom: 0;
   line-height: 18px;
+  margin-left: -10px;
+  padding: 0;
 }
 
 .c2-list {
-  font-size: 13px;
-  line-height: 16px;
+  font-size: 14px;
+  line-height: 18px;
   padding: 0 0 5px 0;
   margin: 0;
   text-align: left;
@@ -480,16 +492,15 @@ footer {
   text-align: left;
 }
 
-.c3-emoji-weather {
+.c3-emoji-weather-src {
   display: block;
-  position: relative;
   margin-left: -24px;
   margin-top: 0;
   margin-bottom: -3px;
 }
 
 .c3-emoji-weather-src {
-  width: 60px;
+  width: 50px;
 }
 
 #card3-col-2 {
@@ -499,20 +510,20 @@ footer {
 #c3Temp {
   display: block;
   position: relative;
-  font-size: 27px;
+  font-size: 30px;
   font-weight: 400;
   padding: 0;
-  margin-left: -26px;
+  margin-left: -20px;
   margin-top: 30px;
   line-height: 26px;
   align-items: center;
 }
 
 .search-location {
-  margin: 0 0 15px 0;
+  margin: 0 auto;
 }
 
-@media (max-width: 885px) {
+@media (max-width: 1000px) {
   img#backgroundImage {
     width: 175px;
     margin-bottom: -175px;
@@ -526,8 +537,97 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 880px) {
   img#backgroundImage {
     display: none;
+  }
+
+  #c1Date {
+    line-height: 56px;
+    font-size: 28px;
+    padding-left: 0px;
+  }
+
+  #c1Country {
+    font-size: 20px;
+  }
+
+  #c1Day,
+  #c1Time {
+    font-size: 28px;
+    line-height: 56px;
+  }
+
+  .c1-date-row,
+  .c1-conditions-row,
+  .c1-high-lows-row,
+  .c1-sunrise-sunset-row {
+    padding-top: 26px;
+  }
+
+  .c2-list {
+    font-size: 12px;
+    line-height: 18px;
+    padding: 0 0 4px 0;
+  }
+}
+
+@media (max-width: 769px) {
+  #cardLarge {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 568px) {
+  h1#pageTitle {
+    font-size: 30px;
+    padding: 5px;
+  }
+
+  #cardLarge {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  #c1City {
+    font-size: 30px;
+  }
+
+  .c1-country-outer {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+
+  #c1Day,
+  #c1Date,
+  #c1Time {
+    font-size: 25px;
+    line-height: 35px;
+  }
+
+  .c1-date-row,
+  .c1-conditions-row,
+  .c1-high-lows-row,
+  .c1-sunrise-sunset-row {
+    padding-top: 10px;
+  }
+
+  .c1-highs-lows {
+    padding-top: 10px;
+  }
+
+  #c1EmojiWeatherSrc {
+    width: 75px;
+    margin-top: -5px;
+    margin-bottom: -7px;
+  }
+
+  #c2EmojiWeatherSrc {
+    margin-left: 20px;
+  }
+
+  #c2Descp {
+    margin-left: -10px;
   }
 }

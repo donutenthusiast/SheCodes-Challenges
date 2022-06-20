@@ -4,7 +4,8 @@ export default function Footer() {
   return (
     <div className="col-12">
       <footer>
-        This Weather App is built using React, hosted with{" "}
+        This Weather App is built using React{" "}
+        <i className="fa-brands fa-react"></i>, is hosted with{" "}
         <a
           className="footLink"
           target="_blank"
